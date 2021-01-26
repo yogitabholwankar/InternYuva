@@ -1,6 +1,11 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+
+
+from django.conf import settings
+
+User=settings.AUTH_USER_MODEL
 
 Query_STATUS = ((1, 'Submited'), (2, 'Replied'), (3, 'In Queue'), (4, 'Closed'))
 
