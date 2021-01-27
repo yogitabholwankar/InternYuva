@@ -38,10 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #Third Party Apps
+    'crispy_forms',
+
+    # 'phonenumber_field',
+    # 'phonenumbers',
+
+    #Local Apps
     'accounts',
     'classroom',
     'dprocess',
 ]
+AUTH_USER_MODEL = 'accounts.Account'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +62,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'school.urls'
+# AUTH_USER_MODEL = 'accounts.Account'
 
 TEMPLATES = [
     {
@@ -126,8 +135,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "collectstatic")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+CRISPY_TEMPLATE_PACK='bootstrap4'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-from .local_settings import *
+# from .local_settings import *
