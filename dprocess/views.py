@@ -6,3 +6,8 @@ from django.shortcuts import render
 def home(request):
 	template_name = 'index.html'
 	return render(request, template_name)
+
+
+def dashboard(request):
+	template_name = 'accounts/base.html'
+	return render(request, template_name)
