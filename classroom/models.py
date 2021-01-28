@@ -13,20 +13,19 @@ User=settings.AUTH_USER_MODEL
 
 
 class Faculty(ModelBase):
-	faculty_name = models.CharField(max_length=255)
+	# faculty_name = models.CharField(max_length=255)
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return str(self.faculty_name)
+		return str(self.user.username)
 
 
 class Student(ModelBase):
-	student_name = models.CharField(max_length=255)
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	active_status = models.CharField(max_length=255)
 
 	def __str__(self):
-		return str(self.student_name)
+		return str(self.user.username)
 
 
 class Category(ModelBase):
@@ -36,8 +35,8 @@ class Category(ModelBase):
 		return str(self.category_name)
 
 
-
 class SubCategory(ModelBase):
+	category_name = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
 	sub_category_name = models.CharField(max_length=255)
 
 	def __str__(self):
@@ -58,37 +57,52 @@ class Video_Lecture(ModelBase):
 		return str(self.video)
 
 
-class Course(ModelBase):
+def generate_random_string():
+	length = 6
+	while True:
+		code = ''.join(random.choices(string.ascii_uppercase, k=length))
+		if Course.objects.filter(code=code).count() == 0:
+			break
+	return code
+
+
+class Course(models.Model):
 	name = models.CharField(max_length=255)
 	category = models.ForeignKey(Category, on_delete=models.CASCADE)
 	sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
 	faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
-	students = models.ManyToManyField(Student, related_name='studentname')
+	students = models.ManyToManyField(Student)
 	price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	discount_price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	notes = models.ManyToManyField(Note)
-	code = models.TextField()
+	code = models.CharField(max_length=20, default=generate_random_string)
 	video_lectures = models.ManyToManyField(Video_Lecture)
-	thumnails = models.ImageField()
+	thumbnail = models.ImageField(blank=True, null=True)
 	slug = models.SlugField(max_length=250, unique=True)
+	is_active = models.BooleanField(default=True)
+	is_completed = models.BooleanField(default=True)
+	is_live = models.BooleanField(default=False)
 
 	def __str__(self):
 		return str(self.name)
-		
+
 	def save(self, *args, **kwargs):
 		if not self.id:
 			super(Course, self).save(*args, **kwargs)
-			self.slug = slugify(self.name) + "-" + str(self.user.id) + "-" + str(self.id)
+			string_ = ''.join(random.choices(string.ascii_lowercase, k=6))
+			num_ = random.randint(1000, 9999)
+
+			self.slug = slugify(self.name) + "-" + str(string_) + "-" + str(num_)
 			super(Course, self).save(*args, **kwargs)
 
 
-
 class CourseGroup(ModelBase):
+	course_name = models.CharField(max_length=20, blank=True, null=True)
 	students = models.ManyToManyField(Student)
 	faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
 	course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return str(self.students)
+		return str(self.course_name)
 
 
