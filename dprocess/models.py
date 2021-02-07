@@ -31,7 +31,7 @@ class Country(ModelBase):
 
 
 
-class ClassType(ModelBase):
+class BusinessType(ModelBase):
     name = models.CharField(max_length=50)
     description = models.TextField(null=True, blank=True)
 

@@ -10,7 +10,7 @@ from django.contrib.auth.admin import UserAdmin
 
 class AccountAdmin(UserAdmin):
 
-	list_display = ('email','username','date_joined', 'last_login', 'is_admin','is_staff')
+	list_display = ('email','username', 'phone_number', 'date_joined', 'last_login', 'is_admin','is_staff')
 
 	search_fields = ('email','username',)
 

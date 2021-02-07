@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
 from dprocess.models import ModelBase
 from .choices import *
-
+import random
 
 
 from django.conf import settings

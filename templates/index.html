@@ -47,21 +47,11 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+          <li class="drop-down"><a href="">Browse courses</a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#course">Technology</a></li>
+              <li><a href="#">Arts</a></li>
+              <li><a href="#">Management</a></li>
             </ul>
           </li>
           <li><a href="#contact">Contact</a></li>
@@ -76,61 +66,24 @@
     </div>
   </header><!-- End Header -->
 {% block main %}
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-      <div class="carousel-inner" role="listbox">
-
-        <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url({% static 'assets/img/slide/slide-1.jpg' %})">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>MY School</span></h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url({% static 'assets/img/slide/slide-2.jpg' %})">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url({% static 'assets/img/slide/slide-3.jpg' %})">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-            </div>
-          </div>
-        </div>
-
+  <section class="container-fluid mt-5" id="start">
+    <div class="row" style="margin-top: 10rem;">
+      <div class="col-lg-4">
+        <img src="https://www.nyc.gov.sg/omw-api/CMS/Uploads/Job/UX_design-041120110028.png" class="img-fluid">
       </div>
-
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-
+      <div class="col-lg-4 text-light text-center">
+        <h1 id="start-heading">Ready to
+          <span id="start-upskill-gradient">&nbsp;&nbsp;Upskill?</span>
+        </h1>
+        <p>The launchpad to your career.</p>
+        <a href="#" class="btn btn-outline-warning">Get Started</a>
+      </div>
+      <div class="col-lg-4">
+        <img src="https://www.mobinius.com/wp-content/uploads/2020/02/ui-ux-design-banner-img.svg" class="img-fluid">
+      </div>
     </div>
-  </section><!-- End Hero -->
+  </section>  
 
   <main id="main">
 
@@ -272,6 +225,71 @@
 
       </div>
     </section><!-- End Why Us Section -->
+
+    <section id="course" class="container">
+      <div class="card-deck">
+        <div class="card">
+          <img src="https://www.unschool.in/static/9db150e88eb9d5321198d92bbe08428e/836e2/ml.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Machine Learning</h5>
+            
+              <div class="row">
+                <div class="col-md-3">
+                  <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" style="border-radius:50%;">    
+                </div>
+                <div class="col-md-6">
+                  <p>John Carter</p>
+                </div>
+                <div class="col-md-3">
+                  <p><i class="fa fa-rupee"></i>3999</p>
+                </div>
+              </div>
+              
+            <p class="card-text">What would you create if you could build machines which had a mind of their own? </p>
+            <button class="btn btn-primary">EXPLORE COURSE</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://www.unschool.in/static/609f6fab15316a2c5205c33591a777da/6580d/ai.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Artificial Inteligence</h5>
+            <div class="row">
+                <div class="col-md-3">
+                  <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" style="border-radius:50%;">    
+                </div>
+                <div class="col-md-6">
+                  <p>John Carter</p>
+                </div>
+                <div class="col-md-3">
+                  <p><i class="fa fa-rupee"></i>3999</p>
+                </div>
+              </div>
+            <p class="card-text">What would you create if you could build machines which had a mind of their own? </p>
+            <button class="btn btn-primary">EXPLORE COURSE</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://www.unschool.in/static/47936db7ae3f878d586d95747896b143/836e2/aws.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Aws - Cloud Computing</h5>
+            <div class="row">
+                <div class="col-md-3">
+                  <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" style="border-radius:50%;">    
+                </div>
+                <div class="col-md-6">
+                  <p>John Carter</p>
+                </div>
+                <div class="col-md-3">
+                  <p><i class="fa fa-rupee"></i>3999</p>
+                </div>
+              </div>
+            <p class="card-text">What would you create if you could build machines which had a mind of their own? </p>
+            <button class="btn btn-primary">EXPLORE COURSE</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
