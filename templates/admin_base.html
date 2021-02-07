@@ -7,7 +7,7 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />  
 
-<title>{% block title %}Dashboard{% endblock %} {{ user.username }}</title>
+<title>{% block title %} Dashboard {% endblock %} {{ user.username }}</title>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -64,14 +64,13 @@ $(document).ready(function() {
 </head>
     <body>
         {% block body %}    
-        
         <!-- code for left menu slider -->
         <b class="screen-overlay"></b>
         <aside class="offcanvas" id="my_offcanvas1">
             <header class="p-4 bg-light border-bottom">
                 <button class="btn btn-outline-secondary btn-close btn-sm"> &times </button>
                 <img src="" class="img-fluid" alt="logo">
-                <p>{{ user.username }}<br>{{ user.mobile }}</p>
+                <p>{{ user.username }}<br>{{ user.phone_number }}</p>
             </header>
             <nav class="list-group list-group-flush">
                 <a href="#" class="list-group-item">Dashboard</a>
@@ -120,9 +119,7 @@ $(document).ready(function() {
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-right:30px !important;">
-                                        <a class="dropdown-item" href="#">Service</a>
-                                        <a class="dropdown-item" href="#">Circle</a>
-                                        <a class="dropdown-item" href="#">Settings</a>
+                                        <a class="dropdown-item" href="/dashboard/profile/">Settings</a>
                                         <a class="dropdown-item" href="#">Support</a>
                                         <a class="dropdown-item" href="#">Logout</a>
                                     </div>
@@ -158,8 +155,35 @@ $(document).ready(function() {
             </div>
 
         {% endblock %}
-
+        <footer>
+            
+        </footer>
+<!-- 
+        <footer style="position: absolute; width: 100%; bottom: 0;">
+            <hr>
+            <div class="footer-background pt-3 tilt bg-dark">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <p class="text-light">Terms & Conditions | Privacy Policy</p>
+                                
+                            </div>
+                            <div class="col-md-4">
+                                <p class="text-light">&copy; 2021 MySchool</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p><a style="text-decoration:none; color:#ffffff;" href="#n">Email</a> or 
+                                    <a style="text-decoration:none; color:#ffffff;" href="tel:+91 7011101001"> Contact Us </a>
+                                </p>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </footer>  -->
+        {% endblock %}
     </body>
-   {% endblock %}
+   
 
 </html>
