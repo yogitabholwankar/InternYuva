@@ -1,13 +1,19 @@
+from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import render,redirect
-from .models import Course,Faculty
 from .forms import CreateCourse
 from django.contrib.auth.decorators import login_required
-# Create your views here.
-
+from .models import *
 
 def room(request):
 	pass
+
+
+def course_purchage(request):
+	rating = Ratings.objects.all().count() 
+	return render(request, 'course/course_purchage.html', {'rating':rating})
+
+
 
 
 def courseListView(request):

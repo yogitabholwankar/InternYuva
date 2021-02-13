@@ -1,0 +1,109 @@
+{% extends 'index.html' %}
+{% load static %}
+	
+{% block extracss %}
+	<style type="text/css">
+		.checked{
+			color: orange;
+		}
+	</style>
+{% endblock %}	
+
+{% block main %}
+	<div class="container" style="margin-top: 100px; color: white;">
+		<div class="row">
+			<div class="col-md-8">
+				<h2>Course Title (Name)</h2>
+
+					<div class="mt-4">
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star"></span>
+				    	4.6{{ avg_rating }} ({{ rating }} ratings)
+				    </div> 
+
+				
+				<div class="mt-2">
+					<p>With around 70% of India's population using smart phones, Android app development is in constant demand. Take this course to design, create and run a debuggable version of your own Android App.</p>
+				</div>
+
+				<a href="#" class="btn btn-danger">Enroll Now AT 3999</a>
+			</div>
+			<div class="col-md-4 bg-dark">
+				<div class="">
+					<img src="#" class="img-fluid">
+					<p>Teacher Name</p>
+					<p>Course Title</p>
+					<p>Course Duration</p>
+				</div>
+				<div class="">
+					<p>Chapters</p>
+					<div>Indroction to Course</div>
+					<div>Basic Overview of Course</div>
+					<div>other step</div>					
+					<div>other step</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid bg-light">
+		<div class="row">
+			<div class="col-md-8 mt-5">
+				<div class="text-dark">
+					<ul style="list-style: none;">
+						<li>Overview</li>
+						<li>How it works</li>
+						<li>Instructor</li>
+						<li>Reviews</li>
+						<li>FAQ's</li>
+					</ul>
+
+					<div class="mb-4" style="border-radius: 8px;box-shadow: 0 9px 21px 0 rgb(53 41 46 / 8%);border: 3px solid rgba(31,40,207,.12);background-color: #fff;">
+						<h3 class="ml-5 mt-2">Course Overview</h3>
+						<div class="">
+							<p class="ml-5" style="color:blue; font-weight: bolder;">This Course Will Enable You To</p>
+							<ul class="ml-5" style="list-style: none; font-weight: bold;">
+								<li>Design, Build & Publish An Android Application On Playstore</li>
+								<li>Design, Build & Publish An Android Application On Playstore</li>
+								<li>Design, Build & Publish An Android Application On Playstore</li>
+								<li>Design, Build & Publish An Android Application On Playstore</li>
+								<li>Design, Build & Publish An Android Application On Playstore</li>
+								<li>Design, Build & Publish An Android Application On Playstore</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mt-5">
+				<div class=" bg-dark text-light">
+					<span class="fa fa-phone">...<p>Step1</p></span>
+					
+					<span class="fa fa-phone">...<p>Step2</p></span>
+					
+					<span class="fa fa-phone">...<p>Step3</p></span>
+
+				<p>Register now to</p>
+				<p>Master Android App Development</p>
+				<input type="radio" name="course_select">Single
+				<input type="radio" name="course_select">Series	
+
+				<p>Purchase 3 courses and save ₹5000. Explore series!</p>
+
+				<form method="post">
+					{% csrf_token %}
+
+					<input type="text" name="" placeholder="Name">
+					<input type="text" name="" placeholder="Phone Number">
+					<input type="text" name="" placeholder="Email ID">
+					<button class="btn btn-warning">Continue to Pay</button>
+					<input type="text" name="" placeholder="Coupon Code"> Apply
+				</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
