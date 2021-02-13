@@ -1,11 +1,15 @@
+import string
+
 from django.db import models
 # from django.contrib.auth.models import User
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
 from dprocess.models import ModelBase
 from .choices import *
 import random
 from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 
 
@@ -69,16 +73,16 @@ def generate_random_string():
 
 
 class Course(models.Model):
-	name = models.CharField(max_length=255)
-	category = models.ForeignKey(Category, on_delete=models.CASCADE)
-	sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
-	faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
-	students = models.ManyToManyField(Student)
-	price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
+	name           = models.CharField(max_length=255)
+	category       = models.ForeignKey(Category,    on_delete=models.CASCADE,blank=True,null=True)
+	sub_category   = models.ForeignKey(SubCategory, on_delete=models.CASCADE,blank=True,null=True)
+	faculty        = models.ForeignKey(Faculty,     on_delete=models.CASCADE,blank=True,null=True)
+	students       = models.ManyToManyField(Student,blank=True)
+	price          = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	discount_price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
-	notes = models.ManyToManyField(Note)
+	notes = models.ManyToManyField(Note, blank=True)
 	code = models.CharField(max_length=20, default=str(generate_random_string))
-	video_lectures = models.ManyToManyField(Video_Lecture)
+	video_lectures = models.ManyToManyField(Video_Lecture, blank=True)
 	thumbnail = models.ImageField(blank=True, null=True)
 	slug = models.SlugField(max_length=250, unique=True)
 	is_active = models.BooleanField(default=True)
@@ -96,6 +100,9 @@ class Course(models.Model):
 
 			self.slug = slugify(self.name) + "-" + str(string_) + "-" + str(num_)
 			super(Course, self).save(*args, **kwargs)
+
+	def get_course_absolute_url(self):
+		return reverse('course_detail',kwargs={'slug':self.slug})
 
 
 class CourseGroup(ModelBase):

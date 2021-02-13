@@ -1,0 +1,15 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<div class="container">
+    <h2>Listed Course</h2>
+    {% for obj in objects %}
+        <h2>
+            {{ forloop.counter }} . ]<a href="{{ obj.get_course_absolute_url }}"> {{ obj.name }}</a>
+        </h2>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
