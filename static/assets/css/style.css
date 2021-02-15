@@ -1,9 +1,4 @@
-/**
-* Template Name: Multi - v2.1.0
-* Template URL: https://bootstrapmade.com/multi-responsive-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 
 /*--------------------------------------------------------------
 # General
@@ -11,6 +6,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  background: #01579b;
 }
 
 a {

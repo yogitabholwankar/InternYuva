@@ -8,6 +8,8 @@ from django.template.defaultfilters import slugify
 from dprocess.models import ModelBase
 from .choices import *
 import random
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 
 
@@ -66,7 +68,7 @@ class Video_Lecture(models.Model):
 def generate_random_string():
 	length = 6
 	while True:
-		code = ''.join(random.choices(string.ascii_uppercase, k=length))
+		code = ''.join(random.choices(string.ascii_uppercase , k=length))
 		if Course.objects.filter(code=code).count() == 0:
 			break
 	return code
@@ -115,3 +117,37 @@ class CourseGroup(models.Model):
 		return str(self.course_name)
 
 
+
+class Ratings(ModelBase):
+	course_title = models.CharField(max_length=255)
+	description = models.TextField()
+
+	def no_of_ratings(self):
+		ratings = Total_Ratings.objects.filter(user_ratings=self)
+		return len(ratings)
+
+	def avg_rating(self):
+		sum = 0
+		ratings = Total_Ratings.objects.filter(user_ratings=self)
+		for ratings in ratings:
+			sum += ratings.stars
+		if len(ratings) > 0:	
+			return sum / len(ratings)
+		else:
+			return 0
+
+
+
+class Total_Ratings(ModelBase):
+	user_ratings = models.CharField(max_length=20, blank=True, null=True)
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+
+	def __str__(self):
+		return str(self.user_ratings)
+
+	# def average(self):
+	# 	print("hello")
+	# 	total = self.user_ratings
+	# 	print(total)
+	# 	return (total/len(user_ratings))
