@@ -37,7 +37,6 @@ def courseDetailView(request,slug):
 @login_required
 def createCourse(request):
 	form=CreateCourse()
-	slug=""
 	current_faculty_user=Faculty.objects.get(user=request.user)
 	if current_faculty_user is None:
 		messages.warning(request, "Sorry You are not allow to create course")

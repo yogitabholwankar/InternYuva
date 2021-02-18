@@ -16,6 +16,4 @@ urlpatterns = [
 # TODO
 """
 1. search
-2. add video's
-3. add notes
 	"""

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CourseGroup,Course,Faculty,Student,Category,SubCategory,Note,Ratings
+from .models import CourseGroup,Course,Faculty,Student,Category,SubCategory,Notes,Ratings
 # Register your models here.
 admin.site.register(CourseGroup)
 admin.site.register(Course)
