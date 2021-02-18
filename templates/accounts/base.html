@@ -62,8 +62,6 @@ $(document).ready(function() {
 
 
 </head>
-    <body>
-        {% block body %}
                 {% if messages %}
                     <div class="mt-0 pt-4">
                       {% for message in messages %}
@@ -76,6 +74,9 @@ $(document).ready(function() {
                       {% endfor %}
                     </div>
                 {% endif %}
+    <body>
+        {% block body %}
+
         
         <!-- code for left menu slider -->
         <b class="screen-overlay"></b>

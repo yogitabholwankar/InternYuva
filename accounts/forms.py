@@ -33,4 +33,6 @@ class AccountAuthenticationForm(forms.ModelForm):
                 raise forms.ValidationError("Invalid login")
 
 
+class NumberForm(forms.Form):
+    number = forms.IntegerField(required=True,help_text="Enter the otp which send to your number")
 
