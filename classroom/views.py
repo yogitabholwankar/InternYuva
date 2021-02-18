@@ -14,12 +14,10 @@ def course_purchage(request):
 	return render(request, 'course/course_purchage.html', {'rating':rating})
 
 
-
-
 def courseListView(request):
 	context={
 		'objects':Course.objects.all()
-	}
+		}
 	return render(request,'classroom/course_list.html',context)
 
 

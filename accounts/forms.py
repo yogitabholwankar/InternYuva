@@ -9,16 +9,12 @@ from accounts.models import Account
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required. Add a valid email address.')
-    phone_number = forms.IntegerField(
-                                        help_text='Required. Add a valid phone number',
-                                        validators=[
-                                        MinValueValidator(1000000000),
-                                        MaxValueValidator(9999999999)
-                                        ])
+    phone_number = forms.IntegerField(help_text='Required. Add a valid phone number',validators=[MinValueValidator(1000000000),MaxValueValidator(9999999999)])
+    # otp = forms.IntegerField(help_text="Otp will be sent your registered number.")
 
     class Meta:
         model = Account
-        fields = ('email','username','phone_number' ,'password1', 'password2', )
+        fields = ('email','username','phone_number' ,'password1', 'password2')
 
 
 class AccountAuthenticationForm(forms.ModelForm):

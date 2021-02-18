@@ -12,7 +12,8 @@ def generate_opt():
 # otp = generate_opt()
 
 
-customer_number = '+917011101001'
+
+# customer_number = '+917011101001'
 
 def send_otp(customer_number,current_otp):
     account_sid = 'ACffe0282cbc8dcdd87fea5c58b8292f9c'
@@ -26,3 +27,6 @@ def send_otp(customer_number,current_otp):
                                 to=customer_number_
                             )
     return
+
+
+

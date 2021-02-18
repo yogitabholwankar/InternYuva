@@ -8,7 +8,12 @@ from django.contrib.auth.decorators import login_required
 from .otp_service import *
 # from .models import Account
 
+
 Account=settings.AUTH_USER_MODEL
+# Django Admin
+# Email: desh2@gmail.com 
+# Username: desh1
+# Password: 12345
 
 def accounts(request):
 	pass
@@ -31,6 +36,12 @@ def registration_view(request):
 
         form = RegistrationForm(request.POST)
         if form.is_valid():
+
+            customer_number = form.cleaned_data.get('mobile')
+            print(customer_number)
+            user_otp = form.cleaned_data.get('otp')
+            print(user_otp)
+            send_otp(account_sid , auth_token , customer_number)
             form.save()
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
