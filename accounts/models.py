@@ -60,6 +60,7 @@ class Account(AbstractBaseUser):
 																		MinValueValidator(1000000000),
 																		MaxValueValidator(9999999999)
 																		])
+	is_verify    = models.BooleanField(default=False)
 
 	USERNAME_FIELD  = 'email'   # This with login with email
 	REQUIRED_FIELDS = ['username']  # other than email
