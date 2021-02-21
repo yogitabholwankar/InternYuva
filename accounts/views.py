@@ -9,6 +9,7 @@ from .otp_service import *
 # from .models import Account
 
 
+
 Account=settings.AUTH_USER_MODEL
 # Django Admin
 # Email: desh2@gmail.com 
