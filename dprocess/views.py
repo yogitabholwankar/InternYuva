@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import Orders, UpdateOrder
 from Paytm import Checksum
+from classroom.models import Ratings
 
 
 MERCHANT_KEY = '15Oo@vdvanPfefG!'
@@ -23,7 +24,13 @@ def profile(request):
     return render(request, template_name)
 
 
+def course_purchage(request):
+    rating = Ratings.objects.all().count() 
+    return render(request, 'course/course_purchage.html', {'rating':rating})
+
+
 def checkout(request):
+    user_detail = request.user
     if request.method == 'POST':
         item_json = request.POST.get('item_json')
         name = request.POST.get('name')
@@ -43,7 +50,7 @@ def checkout(request):
         update.save()
         thank = True
         ids = order.order_id
-        # return render(request, 'shop/checkout.html', {'thank':thank, 'ids':ids})
+        # return render(request, 'dashboard/checkout.html', {'thank':thank, 'ids':ids})
         param_dict = {
             'MID': 'XouRsh60629205732669',
             'ORDER_ID': str(order.order_id),
@@ -75,5 +82,5 @@ def handlerequest(request):
         if response_dict['RESPCODE'] == '01':
             print('order Successfull')
         else:
-            print('Something wen wrong' + response_dict['RESPMSG'])
+            print('Something went wrong' + response_dict['RESPMSG'])
     return render(request, 'dashboard/paytm_payment_status.html', {'response_dict':response_dict})
