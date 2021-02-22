@@ -90,6 +90,8 @@ class Course(models.Model):
 	is_active      = models.BooleanField(default=True)
 	is_completed   = models.BooleanField(default=True)
 	is_live        = models.BooleanField(default=False)
+	is_like        = models.ManyToManyField(User,blank=True,related_name='likes')
+	is_save        = models.ManyToManyField(User,blank=True,related_name='saves')
 
 	def __str__(self):
 		return str(self.name)
