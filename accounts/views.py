@@ -16,6 +16,10 @@ Account=settings.AUTH_USER_MODEL
 # Username: desh1
 # Password: 12345
 
+# *marked for our faculty (department our faculty and other faculty)
+# Add like button
+# Category for courses 
+
 def accounts(request):
 	pass
 
@@ -122,3 +126,5 @@ def login_view(request):
 
     # print(form)
     return render(request, "accounts/login.html", context)
+
+
