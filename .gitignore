@@ -128,8 +128,3 @@ dmypy.json
 .pyre/
 
 collectstatic
-
-media/
-classroom/migrations
-dprocess/migrations
-accounts/migrations

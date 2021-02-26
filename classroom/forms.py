@@ -1,5 +1,5 @@
 from django import forms
-from .models import Course,Video_Lecture,Notes,CourseOverview
+from .models import Course,Video_Lecture,Notes
 
 
 
@@ -17,7 +17,3 @@ class AddNotes(forms.ModelForm):
     class Meta:
         model=Notes
         fields=['name','document']
-class AddCourseOverview(forms.ModelForm):
-    class Meta:
-        model=CourseOverview
-        fields=['title','text']

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CourseGroup,Course,Faculty,Student,Category,SubCategory,Notes,Ratings,CourseOverview
+from .models import CourseGroup,Course,Faculty,Student,Category,SubCategory,Notes,Ratings
 # Register your models here.
 admin.site.register(CourseGroup)
 admin.site.register(Course)
@@ -9,4 +9,3 @@ admin.site.register(Category)
 admin.site.register(Notes)
 admin.site.register(SubCategory)
 admin.site.register(Ratings)
-admin.site.register(CourseOverview)

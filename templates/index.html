@@ -66,8 +66,7 @@
       {% if user.is_authenticated %}
        <a href="/dashboard/" class="get-started-btn">Dashboard</a> 
       {% else %}
-      <a href="{% url 'login' %}" class="get-started-btn">Get Started</a>
-
+      <a href="/accounts/login/" class="get-started-btn">Get Started</a>
       {% endif %}
     </div>
   </header><!-- End Header -->

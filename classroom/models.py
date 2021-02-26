@@ -79,8 +79,6 @@ class Course(models.Model):
 	category       = models.ForeignKey(Category,    on_delete=models.CASCADE,blank=True,null=True)
 	sub_category   = models.ForeignKey(SubCategory, on_delete=models.CASCADE,blank=True,null=True)
 	faculty        = models.ForeignKey(Faculty,     on_delete=models.CASCADE,blank=True,null=True)
-	description    = models.TextField(blank=True,null=True)
-	course_overview= models.ManyToManyField('CourseOverview',blank=True)
 	students       = models.ManyToManyField(Student,blank=True)
 	price          = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	discount_price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
@@ -121,13 +119,8 @@ class CourseGroup(models.Model):
 		return str(self.course_name)
 
 
-class CourseOverview(models.Model):
-	title = models.CharField(max_length=100,blank=True,null=True,default="CourseOverview")
-	text = models.TextField(blank=True,null=True)
 
-
-
-class Ratings(models.Model):
+class Ratings(ModelBase):
 	course_title = models.CharField(max_length=255)
 	description = models.TextField()
 
@@ -147,9 +140,7 @@ class Ratings(models.Model):
 
 
 
-
-
-class Total_Ratings(models.Model):
+class Total_Ratings(ModelBase):
 	user_ratings = models.CharField(max_length=20, blank=True, null=True)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
