@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import render,redirect
-from .forms import CreateCourse,AddVideos,AddNotes
+from .forms import CreateCourse,AddVideos,AddNotes,AddCourseOverview
 from django.contrib.auth.decorators import login_required
 from .models import *
 
@@ -29,6 +29,7 @@ def courseDetailView(request,slug):
 		'object':course,
 		'videos':course_videos,
 		'notes':course_notes,
+		'course_overviews':course.course_overview.all()
 	}
 	return render(request,'classroom/course_detail.html',context)
 
@@ -110,3 +111,32 @@ def addNotesToCourse(request,course_slug):
 		'course':current_course,
 	}
 	return render(request,'classroom/course_add_notes.html',context)
+
+
+@login_required()
+def addCourseOverviewToCourse(request,course_slug):
+	current_course=Course.objects.get(slug=course_slug)
+	current_faculty_user = Faculty.objects.get(user=request.user)
+	if current_faculty_user is None:
+		messages.warning(request, "Sorry You are not allow to make any changes")
+		return redirect('login')
+
+	if current_course.faculty != current_faculty_user:
+		messages.warning(request,"Sorry You Can't Make nay changes")
+		return redirect('home')
+
+	form = AddCourseOverview()
+	if request.method=="POST":
+		form=AddCourseOverview(request.POST or None, request.FILES or None)
+		if form.is_valid():
+			lines=form.save(commit=False)
+			lines.save()
+			current_course.course_overview.add(lines)
+			current_course.save()
+			messages.info(request,"Course Overview are successfully added to course")
+			return redirect('course_detail',course_slug)
+	context={
+		'form':form,
+		'course':current_course,
+	}
+	return render(request,'classroom/course_add_course_overview.html',context)

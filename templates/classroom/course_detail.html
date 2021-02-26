@@ -20,11 +20,19 @@
             {% endfor %}
         </div>
     </div>
+    <div>
+            <h3>CourseOverView</h3>
+            {% for obj in course_overviews %}
+                <h5>{{ forloop.counter }} ] {{ obj.title }}</h5>
+                <h6>{{ obj.text }}</h6>
+            {% endfor %}
+        </div>
 
 
     <div class="row-cols-1">
         <a class="btn btn-outline-info" href="{% url 'add_videos_to_course' object.slug %}">Add Video</a>
         <a class="btn btn-outline-info" href="{% url 'add_notes_to_course' object.slug %}">Add Notes</a>
+        <a class="btn btn-outline-info" href="{% url 'add_course_overview_to_course' object.slug %}">Add CourseOverView</a>
     </div>
 </div>
 
