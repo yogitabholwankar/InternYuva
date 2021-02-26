@@ -4,24 +4,13 @@
 {% block extracss %}
 	<style type="text/css">
 		.checked{
-			color: orange;	
-		}
-		.header_content{
-			cursor:pointer;
-		}
-		.box_div{
-			display:none; 
-			background: #494f56;
-		}
-		.box_div p{
-			font-size: 14px;
-			margin-left: 10px;
+			color: orange;
 		}
 	</style>
 {% endblock %}	
 
 {% block main %}
-	<div class="container" style="margin-top: 100px; padding-bottom: 50px; color: white;">
+	<div class="container" style="margin-top: 100px; color: white;">
 		<div class="row">
 			<div class="col-md-8">
 				<h2>Course Title (Name)</h2>
@@ -40,44 +29,27 @@
 					<p>With around 70% of India's population using smart phones, Android app development is in constant demand. Take this course to design, create and run a debuggable version of your own Android App.</p>
 				</div>
 
-				<a href="#course_payment" class="btn btn-danger">Enroll Now AT 3999</a>
+				<a href="#" class="btn btn-danger">Enroll Now AT 3999</a>
 			</div>
-			<div class="col-md-4 bg-dark" style="border-radius:8px; box-shadow: 0 9px 21px 0 rgb(53 41 46 / 8%);border: 3px solid rgba(31,40,207,.12);">
-				<div class="row mt-4">
-					<div class="col-md-4">
-						<!-- <img src="{% static 'img/logo.png' %}" width="60" height="60" style="border-radius:50%;"> -->
-						<img src="https://www.unschool.in/static/3639a78d4e36b347ec8f5e5eec28240b/6e81a/tushar.jpg" width="60" height="60" style="border-radius:50%;">
-					</div>
-					<div class="col-md-8">
-					<h4>John Carter</h4>
-					<p style="font-size:14px;">Artificial Intelligence<br>18 Hours</p>
-					</div>
-					
+			<div class="col-md-4 bg-dark">
+				<div class="">
+					<img src="#" class="img-fluid">
+					<p>Teacher Name</p>
+					<p>Course Title</p>
+					<p>Course Duration</p>
 				</div>
 				<div class="">
-					<h3>Chapters</h3>
-					<div class="header_content" id="header_content1">Indroction to Course</div>
-					<div class="box_div" id="box_div1"><p>This section contains the overview of the sections and various components of AI. This will give you an overview of all the domains that fall under AI. This means that you will understand the applications of various domains and understand various jargons associated with the field.</p></div>
-					<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
-					<div class="header_content" id="header_content2">Basic Overview of Course</div>
-					<div class="box_div" id="box_div2"><p>This section contains the overview of the sections and various components of AI. This will give you an overview of all the domains that fall under AI. This means that you will understand the applications of various domains and understand various jargons associated with the field.</p></div>
-					<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
-					<div class="header_content" id="header_content3">other step</div>
-					<div class="box_div" id="box_div3"><p>This section contains the overview of the sections and various components of AI. This will give you an overview of all the domains that fall under AI. This means that you will understand the applications of various domains and understand various jargons associated with the field.</p></div>
-					<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
-					<div class="header_content" id="header_content4">other step</div>
-					<div class="box_div" id="box_div4"><p>This section contains the overview of the sections and various components of AI. This will give you an overview of all the domains that fall under AI. This means that you will understand the applications of various domains and understand various jargons associated with the field.</p></div>
-					<hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
+					<p>Chapters</p>
+					<div>Indroction to Course</div>
+					<div>Basic Overview of Course</div>
+					<div>other step</div>					
+					<div>other step</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="container-fluid bg-light" id="course_payment">
+	<div class="container-fluid bg-light">
 		<div class="row">
 			<div class="col-md-8 mt-5">
 				<div class="text-dark">
@@ -89,7 +61,7 @@
 						<li>FAQ's</li>
 					</ul>
 
-					<div class="mb-5" style="border-radius: 8px;box-shadow: 0 9px 21px 0 rgb(53 41 46 / 8%);border: 3px solid rgba(31,40,207,.12);background-color: #fff;">
+					<div class="mb-4" style="border-radius: 8px;box-shadow: 0 9px 21px 0 rgb(53 41 46 / 8%);border: 3px solid rgba(31,40,207,.12);background-color: #fff;">
 						<h3 class="ml-5 mt-2">Course Overview</h3>
 						<div class="">
 							<p class="ml-5" style="color:blue; font-weight: bolder;">This Course Will Enable You To</p>
@@ -105,9 +77,8 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="col-md-4 mt-5 bg-dark mb-5" style="border-radius:8px; box-shadow: 0 9px 21px 0 rgb(53 41 46 / 8%);border: 3px solid rgba(31,40,207,.12);">
-				<div class="text-light">
+			<div class="col-md-4 mt-5">
+				<div class=" bg-dark text-light">
 					<span class="fa fa-phone">...<p>Step1</p></span>
 					
 					<span class="fa fa-phone">...<p>Step2</p></span>
@@ -123,49 +94,16 @@
 
 				<form method="post">
 					{% csrf_token %}
-					<div class="form-group">
-						<input type="text" class="form-control" name="name" placeholder="Name">
-					</div>
-					<div class="form-group">
-						<input type="email" class="form-control" name="email" placeholder="Email">
-					</div>
-					<div class="form-group">
-						<input type="number" class="form-control" name="mobile" placeholder="Phone Number">
-					</div>
-					<div class="form-group">
-						<button class="btn btn-warning">Continue to Pay</button>
-					</div>
-					<div class="form-group">
-						<input type="text" name="" class="form-control  col-sm-6" placeholder="Coupon Code">
-						<a href="#" class="btn btn-primary btn-sm mt-2">Apply</a>
-					</div>
+
+					<input type="text" name="" placeholder="Name">
+					<input type="text" name="" placeholder="Phone Number">
+					<input type="text" name="" placeholder="Email ID">
+					<button class="btn btn-warning">Continue to Pay</button>
+					<input type="text" name="" placeholder="Coupon Code"> Apply
 				</form>
 
 				</div>
 			</div>
 		</div>
 	</div>
-
-	{% block extrajs %}
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-			<script>
-			$('#header_content1').on('click', function(e){
-			    $("#box_div1").toggle();
-			    $(this).toggleClass('class1')
-			});
-			$('#header_content2').on('click', function(e){
-			    $("#box_div2").toggle();
-			    $(this).toggleClass('class1')
-			});
-			$('#header_content3').on('click', function(e){
-			    $("#box_div3").toggle();
-			    $(this).toggleClass('class1')
-			});
-			$('#header_content4').on('click', function(e){
-			    $("#box_div4").toggle();
-			    $(this).toggleClass('class1')
-			});
-			</script>
-	{% endblock %}
-
 {% endblock %}
