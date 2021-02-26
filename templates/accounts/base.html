@@ -99,7 +99,8 @@ $(document).ready(function() {
                 <a href="#" class="list-group-item">ClassRoom</a>
                 <a href="#" class="list-group-item">Teacher</a>
                 <a href="#" class="list-group-item">Student</a>
-                <a href="/accounts/logout/" class="list-group-item">Logout</a>
+                <a href="{% url 'logout' %}" class="list-group-item">Logout</a>
+
             </a>
             <p class="pl-2">Information</p>
             <a href="#" class="list-group-item">About us</a>
@@ -139,7 +140,7 @@ $(document).ready(function() {
                                         <a class="dropdown-item" href="#">Circle</a>
                                         <a class="dropdown-item" href="#">Settings</a>
                                         <a class="dropdown-item" href="#">Support</a>
-                                        <a class="dropdown-item" href="/account/logout/">Logout</a>
+                                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                                     </div>
                                 </div>
                                         
@@ -170,6 +171,8 @@ $(document).ready(function() {
 
             <div class="container">
                 <h4>Welcome, Online Learning Plateform <b>My School</b></h4>
+                <a class="btn btn-outline-info" href="{% url 'create_course' %}">Create Course</a>
+                <a class="btn btn-outline-info" href="{% url 'course_list' %}">List Of Course</a>
             </div>
 
         {% endblock %}
