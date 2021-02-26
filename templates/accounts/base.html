@@ -93,7 +93,7 @@ $(document).ready(function() {
                 <a href="#" class="list-group-item">ClassRoom</a>
                 <a href="#" class="list-group-item">Teacher</a>
                 <a href="#" class="list-group-item">Student</a>
-                <a href="/account/logout/" class="list-group-item">Logout</a>
+                <a href="{% url 'logout' %}" class="list-group-item">Logout</a>
             </a>
             <p class="pl-2">Information</p>
             <a href="#" class="list-group-item">About us</a>
@@ -133,7 +133,7 @@ $(document).ready(function() {
                                         <a class="dropdown-item" href="#">Circle</a>
                                         <a class="dropdown-item" href="#">Settings</a>
                                         <a class="dropdown-item" href="#">Support</a>
-                                        <a class="dropdown-item" href="/account/logout/">Logout</a>
+                                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                                     </div>
                                 </div>
                                         
