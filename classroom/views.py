@@ -134,3 +134,11 @@ def addCourseOverviewToCourse(request,course_slug):
 		'course':current_course,
 	}
 	return render(request,'classroom/course_add_course_overview.html',context)
+
+
+def videoTesting(request):
+	videos=VideoTesting.objects.all()
+	context={
+		'videos':videos
+	}
+	return render(request,'classroom/vidTesting.html',context)

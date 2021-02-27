@@ -10,15 +10,15 @@ class CreateCourse(forms.ModelForm):
 class AddVideos(forms.ModelForm):
     class Meta:
         model=Video_Lecture
-        fields=['name','video']
+        fields=['index','name','video_url']
 
 class AddNotes(forms.ModelForm):
     class Meta:
         model=Notes
-        fields=['name','document']
+        fields=['index','name','document']
 
 
 class AddCourseOverview(forms.ModelForm):
     class Meta:
         model=CourseOverview
-        fields=['title','text']
+        fields=['index','title','text']

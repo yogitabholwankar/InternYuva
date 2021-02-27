@@ -10,12 +10,20 @@ from .choices import *
 import random
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+from embed_video.fields import EmbedVideoField
 
 
 
 from django.conf import settings
 
 User=settings.AUTH_USER_MODEL
+
+
+
+
+class VideoTesting(models.Model):
+	name = models.CharField(max_length=10)
+	url  = EmbedVideoField()
 
 
 class Faculty(models.Model):
@@ -50,6 +58,7 @@ class SubCategory(models.Model):
 
 
 class Notes(models.Model):
+	index = models.IntegerField(help_text="For Chronological Order", blank=True, null=True,unique=True)
 	name=models.CharField(help_text="Name OF PDF File",blank=True,null=True,max_length=20)
 	document = models.FileField(upload_to='documents/')
 
@@ -58,11 +67,12 @@ class Notes(models.Model):
 
 
 class Video_Lecture(models.Model):
+	index = models.IntegerField(help_text="For Chronological Order",blank=True,null=True,unique=True)
 	name=models.CharField(help_text="Add Name OF Video",blank=True,null=True,max_length=20)
-	video = models.FileField(upload_to='documents/')
+	video_url = EmbedVideoField(blank=True,null=True)
 
 	def __str__(self):
-		return str(self.video)
+		return str(self.index)+str(self.name)
 
 
 def generate_random_string():
@@ -122,9 +132,9 @@ class CourseGroup(models.Model):
 
 
 class CourseOverview(models.Model):
+	index = models.IntegerField(help_text="For Chronological Order", blank=True, null=True, unique=True)
 	title = models.CharField(max_length=100,blank=True,null=True,default="CourseOverview")
 	text = models.TextField(blank=True,null=True)
-
 
 
 
