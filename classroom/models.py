@@ -80,6 +80,8 @@ class Course(models.Model):
 	sub_category   = models.ForeignKey(SubCategory, on_delete=models.CASCADE,blank=True,null=True)
 	faculty        = models.ForeignKey(Faculty,     on_delete=models.CASCADE,blank=True,null=True)
 	students       = models.ManyToManyField(Student,blank=True)
+	description = models.TextField(blank=True, null=True)
+	course_overview = models.ManyToManyField('CourseOverview', blank=True)
 	price          = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	discount_price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	notes          = models.ManyToManyField(Notes, blank=True)
@@ -117,6 +119,13 @@ class CourseGroup(models.Model):
 
 	def __str__(self):
 		return str(self.course_name)
+
+
+class CourseOverview(models.Model):
+	title = models.CharField(max_length=100,blank=True,null=True,default="CourseOverview")
+	text = models.TextField(blank=True,null=True)
+
+
 
 
 
