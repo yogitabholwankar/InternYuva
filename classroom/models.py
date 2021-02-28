@@ -1,9 +1,16 @@
+import string
+
 from django.db import models
 # from django.contrib.auth.models import User
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
 from dprocess.models import ModelBase
 from .choices import *
+import random
+from django.core.validators import MaxValueValidator, MinValueValidator
+
+from embed_video.fields import EmbedVideoField
 
 
 
@@ -12,83 +19,155 @@ from django.conf import settings
 User=settings.AUTH_USER_MODEL
 
 
-class Faculty(ModelBase):
-	faculty_name = models.CharField(max_length=255)
+
+
+class VideoTesting(models.Model):
+	name = models.CharField(max_length=10)
+	url  = EmbedVideoField()
+
+
+class Faculty(models.Model):
+	# faculty_name = models.CharField(max_length=255)
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return str(self.faculty_name)
+		return str(self.user.username)
 
 
-class Student(ModelBase):
-	student_name = models.CharField(max_length=255)
+class Student(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	active_status = models.CharField(max_length=255)
 
 	def __str__(self):
-		return str(self.student_name)
+		return str(self.user.username)
 
 
-class Category(ModelBase):
+class Category(models.Model):
 	category_name = models.CharField(max_length=255)
 
 	def __str__(self):
 		return str(self.category_name)
 
 
-
-class SubCategory(ModelBase):
+class SubCategory(models.Model):
+	category_name = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
 	sub_category_name = models.CharField(max_length=255)
 
 	def __str__(self):
 		return str(self.sub_category_name)
 
 
-class Note(ModelBase):
+class Notes(models.Model):
+	index = models.IntegerField(help_text="For Chronological Order", blank=True, null=True,unique=True)
+	name=models.CharField(help_text="Name OF PDF File",blank=True,null=True,max_length=20)
 	document = models.FileField(upload_to='documents/')
 
 	def __str__(self):
 		return str(self.document)
 
 
-class Video_Lecture(ModelBase):
-	video = models.FileField(upload_to='documents/')
+class Video_Lecture(models.Model):
+	index = models.IntegerField(help_text="For Chronological Order",blank=True,null=True,unique=True)
+	name=models.CharField(help_text="Add Name OF Video",blank=True,null=True,max_length=20)
+	video_url = EmbedVideoField(blank=True,null=True)
 
 	def __str__(self):
-		return str(self.video)
+		return str(self.index)+str(self.name)
 
 
-class Course(ModelBase):
-	name = models.CharField(max_length=255)
-	category = models.ForeignKey(Category, on_delete=models.CASCADE)
-	sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
-	faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
-	students = models.ManyToManyField(Student, related_name='studentname')
-	price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
+def generate_random_string():
+	length = 6
+	while True:
+		code = ''.join(random.choices(string.ascii_uppercase , k=length))
+		if Course.objects.filter(code=code).count() == 0:
+			break
+	return code
+
+
+class Course(models.Model):
+	name           = models.CharField(max_length=255)
+	category       = models.ForeignKey(Category,    on_delete=models.CASCADE,blank=True,null=True)
+	sub_category   = models.ForeignKey(SubCategory, on_delete=models.CASCADE,blank=True,null=True)
+	faculty        = models.ForeignKey(Faculty,     on_delete=models.CASCADE,blank=True,null=True)
+	students       = models.ManyToManyField(Student,blank=True)
+	description = models.TextField(blank=True, null=True)
+	course_overview = models.ManyToManyField('CourseOverview', blank=True)
+	price          = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	discount_price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
-	notes = models.ManyToManyField(Note)
-	code = models.TextField()
-	video_lectures = models.ManyToManyField(Video_Lecture)
-	thumnails = models.ImageField()
-	slug = models.SlugField(max_length=250, unique=True)
+	notes          = models.ManyToManyField(Notes, blank=True)
+	code           = models.CharField(max_length=20, default=generate_random_string)
+	video_lectures = models.ManyToManyField(Video_Lecture,blank=True)
+	thumbnail      = models.ImageField(blank=True, null=True)
+	slug           = models.SlugField(max_length=250, unique=True)
+	is_active      = models.BooleanField(default=True)
+	is_completed   = models.BooleanField(default=True)
+	is_live        = models.BooleanField(default=False)
+	is_like        = models.ManyToManyField(User,blank=True,related_name='likes')
+	is_save        = models.ManyToManyField(User,blank=True,related_name='saves')
 
 	def __str__(self):
 		return str(self.name)
-		
+
 	def save(self, *args, **kwargs):
 		if not self.id:
 			super(Course, self).save(*args, **kwargs)
-			self.slug = slugify(self.name) + "-" + str(self.user.id) + "-" + str(self.id)
+			string_ = ''.join(random.choices(string.ascii_lowercase, k=6))
+			num_ = random.randint(1000, 9999)
+
+			self.slug = slugify(self.name) + "-" + str(string_) + "-" + str(num_)
 			super(Course, self).save(*args, **kwargs)
 
+	def get_course_absolute_url(self):
+		return reverse('course_detail',kwargs={'slug':self.slug})
 
 
-class CourseGroup(ModelBase):
+class CourseGroup(models.Model):
+	course_name = models.CharField(max_length=20, blank=True, null=True)
 	students = models.ManyToManyField(Student)
 	faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
 	course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return str(self.students)
+		return str(self.course_name)
 
 
+class CourseOverview(models.Model):
+	index = models.IntegerField(help_text="For Chronological Order", blank=True, null=True, unique=True)
+	title = models.CharField(max_length=100,blank=True,null=True,default="CourseOverview")
+	text = models.TextField(blank=True,null=True)
+
+
+
+
+class Ratings(ModelBase):
+	course_title = models.CharField(max_length=255)
+	description = models.TextField()
+
+	def no_of_ratings(self):
+		ratings = Total_Ratings.objects.filter(user_ratings=self)
+		return len(ratings)
+
+	def avg_rating(self):
+		sum = 0
+		ratings = Total_Ratings.objects.filter(user_ratings=self)
+		for ratings in ratings:
+			sum += ratings.stars
+		if len(ratings) > 0:	
+			return sum / len(ratings)
+		else:
+			return 0
+
+
+
+class Total_Ratings(ModelBase):
+	user_ratings = models.CharField(max_length=20, blank=True, null=True)
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+
+	def __str__(self):
+		return str(self.user_ratings)	
+	# def average(self):
+	# 	print("hello")
+	# 	total = self.user_ratings
+	# 	print(total)
+	# 	return (total/len(user_ratings))

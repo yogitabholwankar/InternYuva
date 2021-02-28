@@ -31,7 +31,7 @@ class Country(ModelBase):
 
 
 
-class ClassType(ModelBase):
+class BusinessType(ModelBase):
     name = models.CharField(max_length=50)
     description = models.TextField(null=True, blank=True)
 
@@ -66,3 +66,28 @@ class ContactUs(models.Model):
     mobile = models.BigIntegerField(null=True, blank=True)
     added_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     status = models.IntegerField(_("Status"), choices=Query_STATUS, default=1)
+
+
+class Orders(models.Model):
+    order_id = models.AutoField(primary_key=True)
+    item_json = models.TextField()
+    amount = models.IntegerField(default=0)
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255) 
+    address = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    zip_code = models.CharField(max_length=255)
+    mobile = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
+class UpdateOrder(models.Model):
+    update_id = models.AutoField(primary_key=True)
+    order_id = models.IntegerField(default="")
+    update_desc = models.TextField()
+
+    def __str__(self):
+        return self.update_desc[0:7] + "..."

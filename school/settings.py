@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #Third Party Apps
     'crispy_forms',
+    'embed_video',
 
     # 'phonenumber_field',
     # 'phonenumbers',
