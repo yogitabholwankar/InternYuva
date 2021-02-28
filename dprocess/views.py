@@ -30,9 +30,8 @@ def course_purchage(request):
 
 
 def checkout(request):
-    user_detail = request.user
     if request.method == 'POST':
-        item_json = request.POST.get('item_json')
+        course = request.POST.get('course')
         name = request.POST.get('name')
         email = request.POST.get('email')
         city = request.POST.get('city')
@@ -42,7 +41,7 @@ def checkout(request):
         mobile = request.POST.get('mobile')
         amount = request.POST.get('amount')
 
-        order = Orders(item_json=item_json, name=name, email=email, city=city, state=state, address=address,
+        order = Orders(item_json=course, name=name, email=email, city=city, state=state, address=address,
                        zip_code=zip_code, mobile=mobile, amount=amount)
         order.save()
 
