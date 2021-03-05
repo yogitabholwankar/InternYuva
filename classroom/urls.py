@@ -16,4 +16,5 @@ urlpatterns = [
 # TODO
 """
 1. search
+2. Tell Deepak To Separate Navbar from base.html
 	"""

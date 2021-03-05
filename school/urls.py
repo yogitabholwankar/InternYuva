@@ -23,5 +23,6 @@ urlpatterns = [
 	path('accounts/', include('accounts.urls')),
     path('', include('dprocess.urls')),
 	path('classroom/', include('classroom.urls')),
+	path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
 ]

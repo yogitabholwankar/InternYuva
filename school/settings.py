@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'classroom',
     'dprocess',
+    'blog',
 ]
 AUTH_USER_MODEL = 'accounts.Account'
 
