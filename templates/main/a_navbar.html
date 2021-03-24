@@ -1,0 +1,95 @@
+{% load static %}
+
+<!-- mobile menu -->
+    <div class="mobile-menu d-block d-lg-none">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">HOME</a>
+          <a href="course-details.html">COURSES</a>
+          <a href="about.html">ABOUT</a>
+          <a href="#">TRAINING</a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">INTERNSHIP</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">NATIONAL</a>
+            <a class="dropdown-item" href="#">INTER-NATIONAL</a>
+          </div>
+          <a href="contact.html">CONTACT US</a>
+          <a href="#" data-toggle="modal" data-target="#mySingup">SIGN IN</a>
+        </div>
+    </div>
+
+<!-- header -->
+<header>
+		<div class="top-bar d-none d-lg-block">
+			<div class="container">
+				<div class="row">
+				<div class="col-md-6">
+					<div class="social-links p-0">
+		                <ul class="d-flex m-0 p-0 justify-content-start">
+		                  <li><a href="tel:12 3456 7890"><i class="fas fa-phone-alt mr-1"></i> + 12 3456 7890 </a></li>
+		                  <li><a href="mailto:info@learning.com"><i class="fas fa-envelope mr-1"></i> info@learning.com</a></li>
+		                </ul>
+		            </div>
+				</div>
+				<div class="col-md-6">
+					<div class="social-links p-0">
+		                <ul class="d-flex m-0 justify-content-end">
+		                  <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+		                  <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+		                  <li><a href="#" target="_blank"><i class="fab fa-skype"></i></a></li>
+		                  <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+		                </ul>
+		              </div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-0 mt-lg-2">
+				<div class="col-lg-12">
+					<nav class="navbar navbar-expand-lg p-0">
+					  <a class="navbar-brand m-0 p-0" href="#">
+					  	<img src="{% static 'main/img/logo.png' %}" />
+					  </a>
+					  <div class="mobile-menu-open d-block d-lg-none" onclick="openNav()">
+							<i><img src="{% static 'main/img/menu-icon.png' %}"></i>
+						</div>
+					  <div class="collapse navbar-collapse pr-2" id="collapsibleNavbar">
+				      <ul class="navbar-nav ml-auto align-items-center">
+					      <li class="nav-item">
+					        <a class="nav-link active" href="index.html">HOME</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link" href="course-details.html">COURSES</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link" href="about.html">ABOUT</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link" href="contact.html">TRAINING</a>
+					      </li>
+										     &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="dropdown">
+
+                               <li class="nav-item">
+                                <a class="nav-link" href="contact.html">INTERNSHIP</a>
+                                </li>
+                              <div class="dropdown-content">
+                              <a href="#">NATIONAL</a>
+                                <a href="#">INTER-NATIONAL</a>
+                              </div>
+                            </div>
+&nbsp;&nbsp;&nbsp;&nbsp;
+					      <li class="nav-item">
+					        <a class="nav-link" href="contact.html">CONTACT US</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link theme-btn" href="#" data-toggle="modal" data-target="#mySingup"><span>SIGN IN</span></a>
+					      </li>
+					    </ul>
+					  </div>
+				    </nav>
+				</div>
+			</div>
+	</div>
+</header>

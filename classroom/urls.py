@@ -3,7 +3,7 @@ from classroom import views
 
 
 urlpatterns = [
-	path('classroom/', views.room, name='room'),
+	path('', views.index, name='home'),
 	path('course_list/',views.courseListView,name='course_list'),
 	path('course/<slug>',views.courseDetailView ,name='course_detail'),
 	path('course/add_videos/<course_slug>',views.addVideosToCourse ,name='add_videos_to_course'),

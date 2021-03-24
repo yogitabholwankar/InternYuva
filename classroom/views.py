@@ -10,6 +10,16 @@ def room(request):
 
 
 
+def index(request):
+	context = {
+		'objects': Course.objects.all()
+	}
+	return render(request,'main/index.html',context)
+
+
+
+
+
 def courseListView(request):
 	context={
 		'objects':Course.objects.all()

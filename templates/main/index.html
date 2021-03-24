@@ -1,0 +1,1018 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% comment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Index</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstarp -->
+  <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+  <script src="{% static 'main/js/jquery.min.js' %}"></script>
+  <script src="{% static 'main/js/popper.min.js' %}"></script>
+  <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'main/js/wow.min.js' %}"></script>
+  <!-- owl carousel -->  
+  <link rel="stylesheet" href="{% static 'main/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/owl.theme.default.min.css' %}">
+  <script src="{% static 'main/js/owl.carousel.js' %}"></script>
+  <!-- custom js -->
+  <!-- custom css -->
+  <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/animate.css' %}">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="styleshefoet">
+  <script src="{% static 'main/js/font-awesome-5-pro.js' %}"></script>
+</head>
+    <body>
+<!-- mobile menu -->
+    <div class="mobile-menu d-block d-lg-none">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">HOME</a>
+          <a href="course-details.html">COURSES</a>
+          <a href="about.html">ABOUT</a>
+          <a href="#">TRAINING</a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">INTERNSHIP</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">NATIONAL</a>
+            <a class="dropdown-item" href="#">INTER-NATIONAL</a>
+          </div>
+          <a href="contact.html">CONTACT US</a>
+          <a href="#" data-toggle="modal" data-target="#mySingup">SIGN IN</a>
+        </div>
+    </div>
+
+<!-- header -->
+<header>
+		<div class="top-bar d-none d-lg-block">
+			<div class="container">
+				<div class="row">
+				<div class="col-md-6">
+					<div class="social-links p-0">
+		                <ul class="d-flex m-0 p-0 justify-content-start">
+		                  <li><a href="tel:12 3456 7890"><i class="fas fa-phone-alt mr-1"></i> + 12 3456 7890 </a></li>
+		                  <li><a href="mailto:info@learning.com"><i class="fas fa-envelope mr-1"></i> info@learning.com</a></li>
+		                </ul>
+		            </div>
+				</div>
+				<div class="col-md-6">
+					<div class="social-links p-0">
+		                <ul class="d-flex m-0 justify-content-end">
+		                  <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+		                  <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+		                  <li><a href="#" target="_blank"><i class="fab fa-skype"></i></a></li>
+		                  <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+		                </ul>
+		              </div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-0 mt-lg-2">
+				<div class="col-lg-12">
+					<nav class="navbar navbar-expand-lg p-0">
+					  <a class="navbar-brand m-0 p-0" href="#">
+					  	<img src="img/logo.png" />
+					  </a>
+					  <div class="mobile-menu-open d-block d-lg-none" onclick="openNav()">
+							<i><img src="img/menu-icon.png"></i>
+						</div>
+					  <div class="collapse navbar-collapse pr-2" id="collapsibleNavbar">
+				      <ul class="navbar-nav ml-auto align-items-center">
+					      <li class="nav-item">
+					        <a class="nav-link active" href="index.html">HOME</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link" href="course-details.html">COURSES</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link" href="about.html">ABOUT</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link" href="contact.html">TRAINING</a>
+					      </li>
+										     &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="dropdown">
+
+                               <li class="nav-item">
+                                <a class="nav-link" href="contact.html">INTERNSHIP</a>
+                                </li>
+                              <div class="dropdown-content">
+                              <a href="#">NATIONAL</a>
+                                <a href="#">INTER-NATIONAL</a>
+                              </div>
+                            </div>
+&nbsp;&nbsp;&nbsp;&nbsp;
+					      <li class="nav-item">
+					        <a class="nav-link" href="contact.html">CONTACT US</a>
+					      </li>
+					      <li class="nav-item">
+					        <a class="nav-link theme-btn" href="#" data-toggle="modal" data-target="#mySingup"><span>SIGN IN</span></a>
+					      </li>
+					    </ul>
+					  </div>  
+				    </nav>
+				</div>
+			</div>
+	</div>
+</header>
+{% endcomment %}
+
+
+
+<!-- banner -->
+{% block content %}
+<section class="banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 pt-0 pt-lg-5">
+				<div class="banner-content row pt-0 pt-lg-5">
+					<div class="col-lg-6 text-white  order-2 order-lg-1">
+						<span class="banner-tagline">Courses, Instructors, Learning</span>
+						<h1 class="text-white mt-4 mb-4 font-weight-bold">Online Learning Platforms</h1>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doemqe laudantium totam rem aperiam eaque ipsa quae ab illo inventore</p>
+						<a class="theme-btn"><span>Get Started</span></a>
+					</div>
+					<div class="col-lg-6 order-1 order-lg-2 pb-5 pb-lg-0">
+						<img src="{% static 'main/img/banner-img.png' %}" class="w-100">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="solution-sec">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-12 mb-4 text-center">
+				<h1 class="title text-white">
+					Course Categories
+				</h1>
+				<p class="text-white">Not just traditional analytics, but also uncover your blind spots and take smarter decisions</p>
+			</div>
+		</div>
+		<div class="row no-gutters cat-row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="cat-wrapper-02">
+                            <div class="course-cat-text course-cat-02-text text-center">
+                                <div class="course-icon mb-3">
+                                    <i class="fal fa-drafting-compass"></i>
+                                </div>
+                                <h4><a href="courses-details.html">Graphics Design</a></h4>
+                                <span>Web Design Course</span>
+                                <div class="course-arrow-btn">
+                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="cat-wrapper-02">
+                            <div class="course-cat-text course-cat-02-text text-center">
+                                <div class="course-icon mb-3">
+                                    <i class="fal fa-laptop-code"></i>
+                                </div>
+                                <h4><a href="courses-details.html">Web Development</a></h4>
+                                <span>Web Design Course</span>
+                                <div class="course-arrow-btn">
+                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="cat-wrapper-02">
+                            <div class="course-cat-text course-cat-02-text text-center">
+                                <div class="course-icon mb-3">
+                                    <i class="fal fa-usd-circle"></i>
+                                </div>
+                                <h4><a href="courses-details.html">Business Studies</a></h4>
+                                <span>Web Design Course</span>
+                                <div class="course-arrow-btn">
+                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="cat-wrapper-02">
+                            <div class="course-cat-text course-cat-02-text text-center">
+                                <div class="course-icon mb-3">
+                                    <i class="fal fa-camera-alt"></i>
+                                </div>
+                                <h4><a href="courses-details.html">Photography</a></h4>
+                                <span>Web Design Course</span>
+                                <div class="course-arrow-btn">
+                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="cat-wrapper-02">
+                            <div class="course-cat-text course-cat-02-text text-center">
+                                <div class="course-icon mb-3">
+                                    <i class="fal fa-bullhorn"></i>
+                                </div>
+                                <h4><a href="courses-details.html">Marketing</a></h4>
+                                <span>Web Design Course</span>
+                                <div class="course-arrow-btn">
+                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="cat-wrapper-02">
+                            <div class="course-cat-text course-cat-02-text text-center">
+                                <div class="course-icon mb-3">
+                                    <i class="fal fa-briefcase-medical"></i>
+                                </div>
+                                <h4><a href="courses-details.html">Medical Studies</a></h4>
+                                <span>Web Design Course</span>
+                                <div class="course-arrow-btn">
+                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="cat-wrapper-02">
+                            <div class="course-cat-text course-cat-02-text text-center">
+                                <div class="course-icon mb-3">
+                                    <i class="fal fa-leaf"></i>
+                                </div>
+                                <h4><a href="courses-details.html">Design & Branding</a></h4>
+                                <span>Web Design Course</span>
+                                <div class="course-arrow-btn">
+                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="cat-wrapper-02">
+                            <div class="course-cat-text course-cat-02-text text-center">
+                                <div class="course-icon mb-3">
+                                    <i class="fal fa-car-side"></i>
+                                </div>
+                                <h4><a href="courses-details.html">Driving School</a></h4>
+                                <span>Web Design Course</span>
+                                <div class="course-arrow-btn">
+                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</section>
+
+<section>
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col-lg-12 mb-4 text-center">
+				<h1 class="title text-white">
+					Web Development
+				</h1>
+				<p class="text-white">Not just traditional analytics, but also uncover your blind spots and take smarter decisions</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="course">
+					<div class="owl-carousel owl-theme">
+						<!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col-lg-12 mb-4 text-center">
+				<h1 class="title text-white">
+					Graphics Design
+				</h1>
+				<p class="text-white">Not just traditional analytics, but also uncover your blind spots and take smarter decisions</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="course">
+					<div class="owl-carousel owl-theme">
+						<!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="img/course.jpg">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">Android App Development</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="img/ceo.png">
+													</div>
+													<div><span class="name">demo user</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+											<div class="course-btn">
+												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="clients-sec">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-12 text-center">
+				<h1 class="title text-white">
+					Awards & Recognitions
+				</h1>
+				<p class="text-white text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi. </p>
+			</div>
+		</div>
+		<div class="row mt-5">
+			<div class="col-md-12">
+				<div class="client-slide">
+					<div class="owl-carousel owl-theme">
+						<!--  -->
+					    <div class="item">
+					    	<div class="client-icon">
+								<img src="img/dreamstime_xxl_124673889.jpg" />
+							</div>
+						</div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="client-icon">
+								<img src="img/online-courses-1.jpg" />
+							</div>
+						</div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="client-icon">
+								<img src="img/online-learning-5.jpg" />
+							</div>
+						</div>
+						<!--  -->
+					    <div class="item">
+					    	<div class="client-icon">
+								<img src="img/shutterstock_548778247.jpg" />
+							</div>
+						</div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="client-icon">
+								<img src="img/dreamstime_xxl_124673889.jpg" />
+							</div>
+						</div>
+					    <!--  -->
+					    <div class="item">
+					    	<div class="client-icon">
+								<img src="img/online-courses-1.jpg" />
+							</div>
+						</div>
+						<!--  -->
+					    <div class="item">
+					    	<div class="client-icon">
+								<img src="img/online-learning-5.jpg" />
+							</div>
+						</div>
+					    <!--  -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="faq">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center mb-5">
+				<h1 class="title text-white">Frequently asked questions</h1>
+				<p class="text-white">Not just traditional analytics, but also uncover your blind spots and take smarter decisions</p>
+			</div>
+		</div>
+		<div id="contact-bg" class="row justify-content-center">
+			<div class="col-lg-10">
+				<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+				   <!-- Item -->
+				  	<div class="card mb-3">
+						<!-- Card header -->
+					    <div class="card-head" role="tab" id="headingOne1">
+					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1" class="collapsed">
+					        <h6 class="mb-0"><i class="fal fa-minus-square"></i> Is there a demo lecture available?</h6>
+					      </a>
+					    </div>
+						<!-- Card body -->
+					    <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx" style="">
+					      <div class="card-body">
+					        <p>Yes. Once you sign up with us, you will able to access and view few demo lessons in every course.</p>
+					      </div>
+					    </div>
+					</div>
+					<!-- Item -->
+				  	<div class="card mb-3">
+						<!-- Card header -->
+					    <div class="card-head" role="tab" id="headingOne2">
+					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2" class="collapsed">
+					        <h6 class="mb-0"><i class="fal fa-minus-square"></i> How do I contact my coach?</h6>
+					      </a>
+					    </div>
+						<!-- Card body -->
+					    <div id="collapseOne2" class="collapse" role="tabpanel" aria-labelledby="headingOne2" data-parent="#accordionEx">
+					      <div class="card-body">
+					        <p>You may contact your coach through multiple means. The easiest way is through the Discussion Board on your profile. Junior Coaches and Mentors on the platform contact you on a regular basis to help you with project completion and the learning process. Also, you can get in touch with the Coach through Email, WhatsApp and calls subject to availability of the Coach.</p>
+					      </div>
+					    </div>
+					</div>
+					<!-- Item -->
+				  	<div class="card mb-3">
+						<!-- Card header -->
+					    <div class="card-head" role="tab" id="headingOne3">
+					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3" class="collapsed">
+					        <h6 class="mb-0"><i class="fal fa-minus-square"></i>How long is the course duration?</h6>
+					      </a>
+					    </div>
+						<!-- Card body -->
+					    <div id="collapseOne3" class="collapse" role="tabpanel" aria-labelledby="headingOne3" data-parent="#accordionEx">
+					      <div class="card-body">
+					        <p>Courses at Unschool are self-paced. Take 2 weeks or 3 months – at Unschool, you are allowed to learn at your own pace and every course is designed to cater to your personal needs, which means you pay once and learn life-long.</p>
+					      </div>
+					    </div>
+					</div>
+					<!-- Item -->
+				  	<div class="card mb-3">
+						<!-- Card header -->
+					    <div class="card-head" role="tab" id="headingOne4">
+					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne4" aria-expanded="false" aria-controls="collapseOne3" class="collapsed">
+					        <h6 class="mb-0"><i class="fal fa-minus-square"></i>How long is the course duration?</h6>
+					      </a>
+					    </div>
+						<!-- Card body -->
+					    <div id="collapseOne4" class="collapse" role="tabpanel" aria-labelledby="headingOne4" data-parent="#accordionEx">
+					      <div class="card-body">
+					        <p>Courses at Unschool are self-paced. Take 2 weeks or 3 months – at Unschool, you are allowed to learn at your own pace and every course is designed to cater to your personal needs, which means you pay once and learn life-long.</p>
+					      </div>
+					    </div>
+					</div>
+					<!-- Item -->
+				  	<div class="card mb-3">
+						<!-- Card header -->
+					    <div class="card-head" role="tab" id="headingOne5">
+					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne5" aria-expanded="false" aria-controls="collapseOne5" class="collapsed">
+					        <h6 class="mb-0"><i class="fal fa-minus-square"></i>How long is the course duration?</h6>
+					      </a>
+					    </div>
+						<!-- Card body -->
+					    <div id="collapseOne5" class="collapse" role="tabpanel" aria-labelledby="headingOne5" data-parent="#accordionEx">
+					      <div class="card-body">
+					        <p>Courses at Unschool are self-paced. Take 2 weeks or 3 months – at Unschool, you are allowed to learn at your own pace and every course is designed to cater to your personal needs, which means you pay once and learn life-long.</p>
+					      </div>
+					    </div>
+					</div>
+					<!-- Item -->
+				  	<div class="card mb-3">
+						<!-- Card header -->
+					    <div class="card-head" role="tab" id="headingOne3">
+					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne6" aria-expanded="false" aria-controls="collapseOne6" class="collapsed">
+					        <h6 class="mb-0"><i class="fal fa-minus-square"></i>How long is the course duration?</h6>
+					      </a>
+					    </div>
+						<!-- Card body -->
+					    <div id="collapseOne6" class="collapse" role="tabpanel" aria-labelledby="headingOne6" data-parent="#accordionEx">
+					      <div class="card-body">
+					        <p>Courses at Unschool are self-paced. Take 2 weeks or 3 months – at Unschool, you are allowed to learn at your own pace and every course is designed to cater to your personal needs, which means you pay once and learn life-long.</p>
+					      </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="contact-data">
+	<div class="container">
+		<div id="subscribe-bg" class="row mt-5 justify-content-center">
+			<div class="col-lg-8">
+				<div class="contact-box text-center mb-5 mb-lg-0">
+				<h2 class="newsletter-card-heading mb-3">Sign up for our free newsletters and get more of Unschool delivered to your inbox.</h2>
+					<div class="row">
+					    <div class="col-lg-9">
+    						<div class="input-group">
+    							<span class="input-group-append">
+    			                    <div class="input-group-text bg-transparent"><i class="fal fa-envelope" aria-hidden="true"></i></div>
+    			                </span>
+    			               <input type="text" class="form-control email-sub" placeholder="Enter your email id here"> 
+    			            </div>
+			            </div>
+			            <div class="col-lg-3">
+						    <a class="theme-btn sub-btn"><span>Subscribe</span></a>
+						</div>
+	                </div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+<!-- footer -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6 col-12">
+				<div class="footer-logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="about-data">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-12 mt-4 mt-md-0">
+				<h3 class="footer-links">
+					Useful Links
+				</h3>
+				<div class="row quick-links">
+					<div class="col-12 mb-4">
+						<a href="#"><i class="fal fa-chevron-double-right mr-2"></i>Home</a>
+					</div>
+					<div class="col-12 mb-4">
+						<a href="#"><i class="fal fa-chevron-double-right mr-2"></i>Courses</a>
+					</div>
+					<div class="col-12 mb-4">
+						<a href="#"><i class="fal fa-chevron-double-right mr-2"></i>About Us</a>
+					</div>
+					<div class="col-12 mb-4">
+						<a href="#"><i class="fal fa-chevron-double-right mr-2"></i>Contact Us</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 mt-4 mt-md-5 mt-lg-0">
+				<h3 class="footer-links">
+					Contact
+				</h3>
+				<div class="contact-info">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. aliqua. Ut.</p>
+	                <ul>
+	                  <li class="pt-0">
+	                    <a href="mailto:info@learning.com"><span><i class="far fa-envelope mr-3"></i> info@learning.com</span></a>
+	                  </li>
+	                  <li>
+	                    <a href="tel:+12 3456 7890"><span><i class="fal fa-phone-alt mr-3"></i> +12 3456 7890</span></a>
+	                  </li>
+					</ul>
+	            </div>
+	        </div>
+	        <div class="col-lg-3 mt-4 mt-md-5 mt-lg-0">
+				<h3 class="footer-links">
+					Follow Us
+				</h3>
+				<div class="social-links">
+	                <ul class="d-flex">
+	                  <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+	                  <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+	                  <li><a href="#" target="_blank"><i class="fab fa-skype"></i></a></li>
+	                  <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+	                </ul>
+	            </div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="copyright-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<p class="copyright m-0 text-center text-black">
+					©Copyright MiCoach 2021. All Rights Reserved
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- signup Modal -->
+<div class="modal fade" id="mySingup">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <a type="button" class="modal-close" data-dismiss="modal" aria-label="Close"><span class="fal fa-times" aria-hidden="true"></span></a>
+      <!-- Modal body -->
+      <div class="modal-body">
+      	<div class="form-content">
+      		<div class="row">
+	      		<div class="col-md-6">
+		      		<div class="form-group">
+					  <label>First Name<span class="required">*</span></label>
+					  <input type="text" class="form-control" placeholder="Abc">
+					</div>
+				</div>
+				<div class="col-md-6">
+		      		<div class="form-group">
+					  <label>Last Name<span class="required">*</span></label>
+					  <input type="text" class="form-control" placeholder="Abc">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+	      		<div class="col-md-6">
+	      			<div class="form-group">
+	      				<label>Mobile Number<span class="required">*</span></label>
+					  	<input type="text" class="form-control" name="mobile" placeholder="Mobile Number">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+					  <label>Email<span class="required">*</span></label>
+					  <input type="email" class="form-control" placeholder="abc@gmail.com">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+	      		<div class="col-md-6">
+		      		<div class="form-group">
+					  <label>Password<span class="required">*</span></label>
+					  <input type="password" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+					  <label>Confirm Password<span class="required">*</span></label>
+					  <input type="password" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 mb-3">
+					<div class="form-check">
+						<input type="checkbox" id="accept">
+      					<label for="accept">I Accept Terms & Condition</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group text-center">
+						<button type="Submit" value="Send" class="theme-btn send-btn"><span>Signup Now<i class="far fa-long-arrow-right ml-2" aria-hidden="true"></i></span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+      </div>
+	</div>
+  </div>
+</div>
+<script src="js/custom.js"></script>
+</body>
+</html>
