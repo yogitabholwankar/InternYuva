@@ -39,14 +39,14 @@
                             <div class="cat-wrapper-02">
                                 <div class="course-cat-text course-cat-02-text text-center">
                                     <div class="course-icon mb-3">
-{#                                        <i class="fal fa-drafting-compass"></i>#}
-                                        {% if category.thumbnail %}
-                                            <img src="{{ category.thumbnail.url }}">
-                                        {% else %}
-                                            <i class="fal fa-drafting-compass"></i>
-                                        {% endif %}
+                                        <i class="fal fa-drafting-compass"></i>
+{#                                        {% if category.thumbnail %}#}
+{#                                            <img src="{{ category.thumbnail.url }}">#}
+{#                                        {% else %}#}
+{#                                            <i class="fal fa-drafting-compass"></i>#}
+{#                                        {% endif %}#}
                                     </div>
-                                    <h4><a href="courses-details.html">{{ category.category_name }}</a></h4>
+                                    <h4><a href="#">{{ category.category_name }}</a></h4>
                                     <span>{{ category.desc }}</span>
                                     <div class="course-arrow-btn">
                                         <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
@@ -411,6 +411,7 @@
 							</div>
 					    </div>
 					    <!--  -->
+                        {% comment %}
 					    <div class="item">
 					    	<div class="feature-box mb-5">
 								<div class="course-img">
@@ -550,6 +551,7 @@
 								</div>
 							</div>
 					    </div>
+					    {% endcomment %}
 					</div>
 				</div>
 			</div>

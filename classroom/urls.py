@@ -6,15 +6,24 @@ urlpatterns = [
 	path('', views.index, name='home'),
 	path('course_list/',views.courseListView,name='course_list'),
 	path('course/<slug>',views.courseDetailView ,name='course_detail'),
+
+
+	#ToDO Course Creation
 	path('course/add_videos/<course_slug>',views.addVideosToCourse ,name='add_videos_to_course'),
 	path('course/add_notes/<course_slug>',views.addNotesToCourse ,name='add_notes_to_course'),
 	path('create_course/',views.createCourse,name='create_course'),
 
 	path('vid/',views.videoTesting),
+
+	#Static Pages
+	path('contact_us/',views.contactUs,name="contact_us"),
+	path('about_us/',views.aboutUs,name="about_us"),
 ]
 
 # TODO
 """
 1. search
-2. Tell Deepak To Separate Navbar from base.html
+2. Model for frequently ask questions
+3. Contact US Form
+4. Active Button On Navbar
 	"""

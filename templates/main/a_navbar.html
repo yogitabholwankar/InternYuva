@@ -4,16 +4,16 @@
     <div class="mobile-menu d-block d-lg-none">
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="index.html">HOME</a>
-          <a href="course-details.html">COURSES</a>
-          <a href="about.html">ABOUT</a>
+          <a href="{% url 'home' %}">HOME</a>
+          <a href="#">COURSES</a>
+          <a href="{% url 'about_us' %}">ABOUT</a>
           <a href="#">TRAINING</a>
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">INTERNSHIP</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">NATIONAL</a>
             <a class="dropdown-item" href="#">INTER-NATIONAL</a>
           </div>
-          <a href="contact.html">CONTACT US</a>
+          <a href="{% url 'about_us' %}">CONTACT US</a>
           <a href="#" data-toggle="modal" data-target="#mySingup">SIGN IN</a>
         </div>
     </div>
@@ -57,22 +57,22 @@
 					  <div class="collapse navbar-collapse pr-2" id="collapsibleNavbar">
 				      <ul class="navbar-nav ml-auto align-items-center">
 					      <li class="nav-item">
-					        <a class="nav-link active" href="index.html">HOME</a>
+					        <a class="nav-link active" href="{% url 'home' %}">HOME</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="course-details.html">COURSES</a>
+					        <a class="nav-link" href="#">COURSES</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="about.html">ABOUT</a>
+					        <a class="nav-link" href="{% url 'about_us' %}">ABOUT</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="contact.html">TRAINING</a>
+					        <a class="nav-link" href="#">TRAINING</a>
 					      </li>
 										     &nbsp;&nbsp;&nbsp;&nbsp;
                             <div class="dropdown">
 
                                <li class="nav-item">
-                                <a class="nav-link" href="contact.html">INTERNSHIP</a>
+                                <a class="nav-link" href="#">INTERNSHIP</a>
                                 </li>
                               <div class="dropdown-content">
                               <a href="#">NATIONAL</a>
@@ -81,7 +81,7 @@
                             </div>
 &nbsp;&nbsp;&nbsp;&nbsp;
 					      <li class="nav-item">
-					        <a class="nav-link" href="contact.html">CONTACT US</a>
+					        <a class="nav-link" href="{% url 'contact_us' %}">CONTACT US</a>
 					      </li>
 					      <li class="nav-item">
 					        <a class="nav-link theme-btn" href="#" data-toggle="modal" data-target="#mySingup"><span>SIGN IN</span></a>

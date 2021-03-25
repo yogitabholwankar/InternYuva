@@ -1,29 +1,6 @@
+{% extends 'main/base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Contact Us</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- bootstarp -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/wow.min.js"></script>
-  
-  <!-- owl carousel -->  
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <script src="js/owl.carousel.js"></script>
-  <!-- custom js -->
-  <!-- custom css -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="styleshefoet">
-  <script src="js/font-awesome-5-pro.js"></script>
+{% block style %}
   <style>
   	@media only screen and (max-width: 554px){
   	.vid-wid{
@@ -31,278 +8,112 @@
   	}
   }
   </style>
-</head>
-<body>
-<!-- mobile menu -->
-<div class="mobile-menu d-block d-lg-none">
-	<div id="mySidenav" class="sidenav">
-	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <a href="../index.html">HOME</a>
-	  <a href="course-details.html">COURSES</a>
-	  <a href="about.html">ABOUT</a>
-	  <a href="#">TRAINING</a>
-	  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">INTERNSHIP</a>
-	  <div class="dropdown-menu">
-		<a class="dropdown-item" href="#">NATIONAL</a>
-		<a class="dropdown-item" href="#">INTER-NATIONAL</a>
-	  </div>
-	  <a href="contact.html">CONTACT US</a>
-	  <a href="#" data-toggle="modal" data-target="#mySingup">SIGN IN</a>
-	</div>				
-</div>
-<!-- header -->
-<header>
-		<div class="top-bar d-none d-lg-block">
-			<div class="container">
-				<div class="row">
-				<div class="col-md-6">
-					<div class="social-links p-0">
-		                <ul class="d-flex m-0 p-0 justify-content-start">
-		                  <li><a href="tel:12 3456 7890"><i class="fas fa-phone-alt mr-1"></i> + 12 3456 7890 </a></li>
-		                  <li><a href="mailto:info@learning.com"><i class="fas fa-envelope mr-1"></i> info@learning.com</a></li>
-		                </ul>
-		            </div>
-				</div>
-				<div class="col-md-6">
-					<div class="social-links p-0">
-		                <ul class="d-flex m-0 justify-content-end">
-		                  <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-skype"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-		                </ul>
-		              </div>
-				</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row mt-0 mt-lg-2">
-				<div class="col-lg-12">
-					<nav class="navbar navbar-expand-lg p-0">
-					  <a class="navbar-brand m-0 p-0" href="#">
-					  	<img src="img/logo.png" />
-					  </a>
-					  <div class="mobile-menu-open d-block d-lg-none" onclick="openNav()">
-							<i><img src="img/menu-icon.png"></i>
-						</div>
-					  <div class="collapse navbar-collapse pr-2" id="collapsibleNavbar">
-					       <ul class="navbar-nav ml-auto align-items-center">
-					      <li class="nav-item">
-					        <a class="nav-link active" href="../index.html">HOME</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" href="course-details.html">COURSES</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" href="about.html">ABOUT</a>
-					      </li>
-					         <li class="nav-item">
-					        <a class="nav-link" href="contact.html">TRAINING</a>
-					      </li>
-					    					     &nbsp;&nbsp;&nbsp;&nbsp;
-<div class="dropdown">
-  
-   <li class="nav-item">
-	<a class="nav-link" href="contact.html">INTERNSHIP</a>
-	</li>
-  <div class="dropdown-content">
-  <a href="#">NATIONAL</a>
-    <a href="#">INTER-NATIONAL</a>
-  </div>
-</div>
-&nbsp;&nbsp;&nbsp;&nbsp;
-					      <li class="nav-item">
-					        <a class="nav-link" href="contact.html">CONTACT US</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link theme-btn" href="#" data-toggle="modal" data-target="#mySingup"><span>SIGN IN</span></a>
-					      </li>
-					    </ul>
-					  </div>  
-				    </nav>
-				</div>
-			</div>
-	</div>
-</header>
+{% endblock %}
+
+{% block content %}
+
+    <section class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 pt-0 pt-lg-5">
+                    <div class="text-center pt-0 pt-lg-5">
+                        <h2 class="text-white">Videos</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 <!-- banner -->
-<section class="page-title">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 pt-0 pt-lg-5">
-				<div class="text-center pt-0 pt-lg-5">
-					<h2 class="text-white">Videos</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
-<section class="contact-data">
-	<div class="container">
-		<div id="contact-bg" class="row mt-5">
-			<div class="col-lg-6">
-				<div class="contact-box text-center mb-5 mb-lg-0">
-					<div class="contact-icon mb-4">
-						<img src="img/history-icon.png" class="mb-3">
-						<h5>Cource video 1 </h5>		
-					</div>
-					<div class="text">
-					<video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
-					<source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
-					</video>
-	                </div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="contact-box text-center mb-5 mb-lg-0">
-					<div class="contact-icon mb-4">
-						<img src="img/history-icon.png" class="mb-3">
-						<h5>Cource video 2 </h5>		
-					</div>
-					<div class="text">
-					<video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
-					<source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
-					</video>
-	                </div>
-				</div>
-			</div>
-		</div>
-		<div id="contact-bg" class="row mt-5">
-			<div class="col-lg-6">
-				<div class="contact-box text-center mb-5 mb-lg-0">
-					<div class="contact-icon mb-4">
-						<img src="img/history-icon.png" class="mb-3">
-						<h5>Cource video 3 </h5>		
-					</div>
-					<div class="text">
-					<video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
-					<source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
-					</video>
-	                </div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="contact-box text-center mb-5 mb-lg-0">
-					<div class="contact-icon mb-4">
-						<img src="img/history-icon.png" class="mb-3">
-						<h5>Cource video 4 </h5>		
-					</div>
-					<div class="text">
-					<video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
-					<source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
-					</video>
-	                </div>
-				</div>
-			</div>
-		</div>
-		<div id="contact-bg" class="row mt-5">
-			<div class="col-lg-6">
-				<div class="contact-box text-center mb-5 mb-lg-0">
-					<div class="contact-icon mb-4">
-						<img src="img/history-icon.png" class="mb-3">
-						<h5>Cource video 5 </h5>		
-					</div>
-					<div class="text">
-					<video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
-					<source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
-					</video>
-	                </div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="contact-box text-center mb-5 mb-lg-0">
-					<div class="contact-icon mb-4">
-						<img src="img/history-icon.png" class="mb-3">
-						<h5>Cource video 1 </h5>		
-					</div>
-					<div class="text">
-					<video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
-					<source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
-					</video>
-	                </div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
-<!-- footer -->
-<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-6 col-12">
-				<div class="footer-logo">
-					<img src="img/logo.png" />
-				</div>
-				<div class="about-data">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet.</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-12 mt-4 mt-md-0">
-				<h3 class="footer-links">
-					Useful Links
-				</h3>
-				<div class="row quick-links">
-					<div class="col-12 mb-4">
-						<a href="#"><i class="fal fa-chevron-double-right mr-2"></i>Home</a>
-					</div>
-					<div class="col-12 mb-4">
-						<a href="#"><i class="fal fa-chevron-double-right mr-2"></i>Courses</a>
-					</div>
-					<div class="col-12 mb-4">
-						<a href="#"><i class="fal fa-chevron-double-right mr-2"></i>About Us</a>
-					</div>
-					<div class="col-12 mb-4">
-						<a href="#"><i class="fal fa-chevron-double-right mr-2"></i>Contact Us</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 mt-4 mt-md-5 mt-lg-0">
-				<h3 class="footer-links">
-					Contact
-				</h3>
-				<div class="contact-info">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. aliqua. Ut.</p>
-	                <ul>
-	                  <li class="pt-0">
-	                    <a href="mailto:info@learning.com"><span><i class="far fa-envelope mr-3"></i> info@learning.com</span></a>
-	                  </li>
-	                  <li>
-	                    <a href="tel:+12 3456 7890"><span><i class="fal fa-phone-alt mr-3"></i> +12 3456 7890</span></a>
-	                  </li>
-					</ul>
-	            </div>
-	        </div>
-	        <div class="col-lg-3 mt-4 mt-md-5 mt-lg-0">
-				<h3 class="footer-links">
-					Follow Us
-				</h3>
-				<div class="social-links">
-	                <ul class="d-flex">
-	                  <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-	                  <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-	                  <li><a href="#" target="_blank"><i class="fab fa-skype"></i></a></li>
-	                  <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-	                </ul>
-	            </div>
-			</div>
-		</div>
-	</div>
-</footer>
-
-<div class="copyright-bottom">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<p class="copyright m-0 text-center text-black">
-					©Copyright MiCoach 2021. All Rights Reserved
-				</p>
-			</div>
-		</div>
-	</div>
-</div>
-<script src="js/custom.js"></script>
-</body>
-</html>
+    <section class="contact-data">
+        <div class="container">
+            <div id="contact-bg" class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="contact-box text-center mb-5 mb-lg-0">
+                        <div class="contact-icon mb-4">
+                            <img src="img/history-icon.png" class="mb-3">
+                            <h5>Cource video 1 </h5>
+                        </div>
+                        <div class="text">
+                        <video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
+                        <source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
+                        </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-box text-center mb-5 mb-lg-0">
+                        <div class="contact-icon mb-4">
+                            <img src="img/history-icon.png" class="mb-3">
+                            <h5>Cource video 2 </h5>
+                        </div>
+                        <div class="text">
+                        <video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
+                        <source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
+                        </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="contact-bg" class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="contact-box text-center mb-5 mb-lg-0">
+                        <div class="contact-icon mb-4">
+                            <img src="img/history-icon.png" class="mb-3">
+                            <h5>Cource video 3 </h5>
+                        </div>
+                        <div class="text">
+                        <video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
+                        <source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
+                        </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-box text-center mb-5 mb-lg-0">
+                        <div class="contact-icon mb-4">
+                            <img src="img/history-icon.png" class="mb-3">
+                            <h5>Cource video 4 </h5>
+                        </div>
+                        <div class="text">
+                        <video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
+                        <source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
+                        </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="contact-bg" class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="contact-box text-center mb-5 mb-lg-0">
+                        <div class="contact-icon mb-4">
+                            <img src="img/history-icon.png" class="mb-3">
+                            <h5>Cource video 5 </h5>
+                        </div>
+                        <div class="text">
+                        <video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
+                        <source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
+                        </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-box text-center mb-5 mb-lg-0">
+                        <div class="contact-icon mb-4">
+                            <img src="img/history-icon.png" class="mb-3">
+                            <h5>Cource video 1 </h5>
+                        </div>
+                        <div class="text">
+                        <video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
+                        <source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
+                        </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

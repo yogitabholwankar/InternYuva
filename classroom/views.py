@@ -157,3 +157,10 @@ def videoTesting(request):
 	}
 	return render(request,'classroom/vidTesting.html',context)
 
+
+
+def contactUs(request):
+	return render(request,'main/contact.html')
+
+def aboutUs(request):
+	return render(request,'main/about.html')
