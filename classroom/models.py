@@ -10,6 +10,12 @@ from .choices import *
 import random
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+# Signals
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
+from django.db.models.signals import pre_save
+
+
 from embed_video.fields import EmbedVideoField
 
 
@@ -43,6 +49,8 @@ class Student(models.Model):
 
 
 class Category(models.Model):
+	thumbnail=models.ImageField(upload_to="category_thumbnail",blank=True,null=True)
+	desc = models.CharField(max_length=100,default="Category Desc")
 	category_name = models.CharField(max_length=255)
 
 	def __str__(self):
@@ -90,15 +98,16 @@ class Course(models.Model):
 	sub_category   = models.ForeignKey(SubCategory, on_delete=models.CASCADE,blank=True,null=True)
 	faculty        = models.ForeignKey(Faculty,     on_delete=models.CASCADE,blank=True,null=True)
 	students       = models.ManyToManyField(Student,blank=True)
-	description = models.TextField(blank=True, null=True)
+	small_desc     = models.CharField(max_length=500,blank=True,null=True,help_text="Add small descriptions over here")
+	description    = models.TextField(blank=True, null=True)
 	course_overview = models.ManyToManyField('CourseOverview', blank=True)
 	price          = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	discount_price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	notes          = models.ManyToManyField(Notes, blank=True)
 	code           = models.CharField(max_length=20, default=generate_random_string)
 	video_lectures = models.ManyToManyField(Video_Lecture,blank=True)
-	thumbnail      = models.ImageField(blank=True, null=True)
-	slug           = models.SlugField(max_length=250, unique=True)
+	thumbnail 		= models.ImageField(upload_to="course_thumbnail", blank=True, null=True)
+	slug           = models.SlugField(max_length=250,blank=True,null=True,unique=True,help_text="This the slug field remain it empty")
 	is_active      = models.BooleanField(default=True)
 	is_completed   = models.BooleanField(default=True)
 	is_live        = models.BooleanField(default=False)
@@ -108,17 +117,29 @@ class Course(models.Model):
 	def __str__(self):
 		return str(self.name)
 
-	def save(self, *args, **kwargs):
-		if not self.id:
-			super(Course, self).save(*args, **kwargs)
-			string_ = ''.join(random.choices(string.ascii_lowercase, k=6))
-			num_ = random.randint(1000, 9999)
-
-			self.slug = slugify(self.name) + "-" + str(string_) + "-" + str(num_)
-			super(Course, self).save(*args, **kwargs)
+	# def save(self, *args, **kwargs):
+	# 	if not self.id:
+	# 		super(Course, self).save(*args, **kwargs)
+	# 		string_ = ''.join(random.choices(string.ascii_lowercase, k=6))
+	# 		num_ = random.randint(1000, 9999)
+	#
+	# 		self.slug = slugify(self.name) + "-" + str(string_) + "-" + str(num_)
+	# 		super(Course, self).save(*args, **kwargs)
 
 	def get_course_absolute_url(self):
 		return reverse('course_detail',kwargs={'slug':self.slug})
+
+
+"""SLUG Field"""
+
+def pre_save_course_receiver(sender, instance, *args, **kwargs):
+	if not instance.slug:
+		string_ = ''.join(random.choices(string.ascii_lowercase, k=6))
+		num_ = random.randint(1000, 9999)
+		instance.slug = slugify(instance.name) + "-" + str(string_) + "-" + str(num_)
+
+pre_save.connect(pre_save_course_receiver, sender=Course)
+
 
 
 class CourseGroup(models.Model):
@@ -171,3 +192,28 @@ class Total_Ratings(ModelBase):
 	# 	total = self.user_ratings
 	# 	print(total)
 	# 	return (total/len(user_ratings))
+
+
+"""
+class Bidding_Amt(models.Model):
+	bid_amt = models.IntegerField(default=0)
+	bol_color = models.CharField(max_length=50,default="red")
+	active = models.BooleanField(default=True)
+	# user = models.ForeignKey(User, on_delete=models.CASCADE)
+	user= models.CharField(default="user1",max_length=100,unique=True)
+	added_date = models.DateTimeField(auto_now_add=True)
+
+
+	def min_(self):
+		total_obj_count = 0
+		total_bid_amt = 0
+		list_ = []
+		for i in Bidding_Amt.objects.all().order_by('id'):
+			total_obj_count += 1
+			total_bid_amt += i.bid_amt
+			list_.append([i.bid_amt, i.user])
+		# print(total_bid_amt, total_obj_count)
+		x = total_obj_count // 3
+		list_.sort()
+		return list_[:x]
+	"""

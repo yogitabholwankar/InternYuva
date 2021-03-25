@@ -12,7 +12,8 @@ def room(request):
 
 def index(request):
 	context = {
-		'objects': Course.objects.all()
+		'categories':Category.objects.all(),
+		'courses': Course.objects.all(),
 	}
 	return render(request,'main/index.html',context)
 
@@ -29,14 +30,17 @@ def courseListView(request):
 
 def courseDetailView(request,slug):
 	course=Course.objects.get(slug=slug)
-	course_videos=course.video_lectures.all()
-	course_notes=course.notes.all()
+
+	related_cat=course.category
+	related_courses=Course.objects.filter(category=related_cat)
+
 	context={
-		'object':course,
-		'videos':course_videos,
-		'notes':course_notes,
+		'related_courses':related_courses,
+		'course':course,
+		'videos':course.video_lectures.all(),
+		'notes':course.notes.all(),
 	}
-	return render(request,'classroom/course_detail.html',context)
+	return render(request,'main/course-details.html',context)
 
 @login_required
 def createCourse(request):
@@ -152,3 +156,4 @@ def videoTesting(request):
 		'videos':videos
 	}
 	return render(request,'classroom/vidTesting.html',context)
+

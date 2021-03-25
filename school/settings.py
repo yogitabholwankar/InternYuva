@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #Third Party Apps
     'crispy_forms',
     'embed_video',
+    'django_cleanup',
 
     # 'phonenumber_field',
     # 'phonenumbers',
@@ -141,5 +142,6 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 
 # from .local_settings import *

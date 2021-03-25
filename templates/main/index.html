@@ -1,130 +1,6 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% comment %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Index</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- bootstarp -->
-  <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
-  <script src="{% static 'main/js/jquery.min.js' %}"></script>
-  <script src="{% static 'main/js/popper.min.js' %}"></script>
-  <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'main/js/wow.min.js' %}"></script>
-  <!-- owl carousel -->  
-  <link rel="stylesheet" href="{% static 'main/css/owl.carousel.min.css' %}">
-  <link rel="stylesheet" href="{% static 'main/css/owl.theme.default.min.css' %}">
-  <script src="{% static 'main/js/owl.carousel.js' %}"></script>
-  <!-- custom js -->
-  <!-- custom css -->
-  <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'main/css/responsive.css' %}">
-  <link rel="stylesheet" href="{% static 'main/css/animate.css' %}">
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="styleshefoet">
-  <script src="{% static 'main/js/font-awesome-5-pro.js' %}"></script>
-</head>
-    <body>
-<!-- mobile menu -->
-    <div class="mobile-menu d-block d-lg-none">
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="index.html">HOME</a>
-          <a href="course-details.html">COURSES</a>
-          <a href="about.html">ABOUT</a>
-          <a href="#">TRAINING</a>
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">INTERNSHIP</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">NATIONAL</a>
-            <a class="dropdown-item" href="#">INTER-NATIONAL</a>
-          </div>
-          <a href="contact.html">CONTACT US</a>
-          <a href="#" data-toggle="modal" data-target="#mySingup">SIGN IN</a>
-        </div>
-    </div>
-
-<!-- header -->
-<header>
-		<div class="top-bar d-none d-lg-block">
-			<div class="container">
-				<div class="row">
-				<div class="col-md-6">
-					<div class="social-links p-0">
-		                <ul class="d-flex m-0 p-0 justify-content-start">
-		                  <li><a href="tel:12 3456 7890"><i class="fas fa-phone-alt mr-1"></i> + 12 3456 7890 </a></li>
-		                  <li><a href="mailto:info@learning.com"><i class="fas fa-envelope mr-1"></i> info@learning.com</a></li>
-		                </ul>
-		            </div>
-				</div>
-				<div class="col-md-6">
-					<div class="social-links p-0">
-		                <ul class="d-flex m-0 justify-content-end">
-		                  <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-skype"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-		                </ul>
-		              </div>
-				</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row mt-0 mt-lg-2">
-				<div class="col-lg-12">
-					<nav class="navbar navbar-expand-lg p-0">
-					  <a class="navbar-brand m-0 p-0" href="#">
-					  	<img src="img/logo.png" />
-					  </a>
-					  <div class="mobile-menu-open d-block d-lg-none" onclick="openNav()">
-							<i><img src="img/menu-icon.png"></i>
-						</div>
-					  <div class="collapse navbar-collapse pr-2" id="collapsibleNavbar">
-				      <ul class="navbar-nav ml-auto align-items-center">
-					      <li class="nav-item">
-					        <a class="nav-link active" href="index.html">HOME</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" href="course-details.html">COURSES</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" href="about.html">ABOUT</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link" href="contact.html">TRAINING</a>
-					      </li>
-										     &nbsp;&nbsp;&nbsp;&nbsp;
-                            <div class="dropdown">
-
-                               <li class="nav-item">
-                                <a class="nav-link" href="contact.html">INTERNSHIP</a>
-                                </li>
-                              <div class="dropdown-content">
-                              <a href="#">NATIONAL</a>
-                                <a href="#">INTER-NATIONAL</a>
-                              </div>
-                            </div>
-&nbsp;&nbsp;&nbsp;&nbsp;
-					      <li class="nav-item">
-					        <a class="nav-link" href="contact.html">CONTACT US</a>
-					      </li>
-					      <li class="nav-item">
-					        <a class="nav-link theme-btn" href="#" data-toggle="modal" data-target="#mySingup"><span>SIGN IN</span></a>
-					      </li>
-					    </ul>
-					  </div>  
-				    </nav>
-				</div>
-			</div>
-	</div>
-</header>
-{% endcomment %}
-
-
-
 <!-- banner -->
 {% block content %}
 <section class="banner">
@@ -147,31 +23,39 @@
 	</div>
 </section>
 
-<section class="solution-sec">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-12 mb-4 text-center">
-				<h1 class="title text-white">
-					Course Categories
-				</h1>
-				<p class="text-white">Not just traditional analytics, but also uncover your blind spots and take smarter decisions</p>
-			</div>
-		</div>
-		<div class="row no-gutters cat-row">
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="cat-wrapper-02">
-                            <div class="course-cat-text course-cat-02-text text-center">
-                                <div class="course-icon mb-3">
-                                    <i class="fal fa-drafting-compass"></i>
-                                </div>
-                                <h4><a href="courses-details.html">Graphics Design</a></h4>
-                                <span>Web Design Course</span>
-                                <div class="course-arrow-btn">
-                                    <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+    <section class="solution-sec">
+	    <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 mb-4 text-center">
+                        <h1 class="title text-white">
+                            Course Categories
+                        </h1>
+                        <p class="text-white">Not just traditional analytics, but also uncover your blind spots and take smarter decisions</p>
+                    </div>
+                </div>
+		        <div class="row no-gutters cat-row">
+                    {% for category in categories %}
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                            <div class="cat-wrapper-02">
+                                <div class="course-cat-text course-cat-02-text text-center">
+                                    <div class="course-icon mb-3">
+{#                                        <i class="fal fa-drafting-compass"></i>#}
+                                        {% if category.thumbnail %}
+                                            <img src="{{ category.thumbnail.url }}">
+                                        {% else %}
+                                            <i class="fal fa-drafting-compass"></i>
+                                        {% endif %}
+                                    </div>
+                                    <h4><a href="courses-details.html">{{ category.category_name }}</a></h4>
+                                    <span>{{ category.desc }}</span>
+                                    <div class="course-arrow-btn">
+                                        <a class="arrow-btn" href="#"><i class="far fa-long-arrow-alt-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
+                {% comment %}
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                         <div class="cat-wrapper-02">
                             <div class="course-cat-text course-cat-02-text text-center">
@@ -270,13 +154,12 @@
                             </div>
                         </div>
                     </div>
+                {% endcomment %}
                 </div>
-            </div>
         </div>
-	</div>
-</section>
+    </section>
 
-<section>
+    <section>
 	<div class="container-fluid">
 		<div class="row align-items-center">
 			<div class="col-lg-12 mb-4 text-center">
@@ -292,6 +175,44 @@
 				<div class="course">
 					<div class="owl-carousel owl-theme">
 						<!--  -->
+                        {% for course in courses %}
+					        <div class="item">
+					    	<div class="feature-box mb-5">
+								<div class="course-img">
+									<img src="{{ course.thumbnail.url }}">
+								</div>
+								<div class="course-desc">
+									<div class="fea-content">
+										<div class="title mb-2">
+											<span class="fea-title"><a href="#">{{ course.name }}</a></span>
+											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
+										</div>
+										<div class="instructor row align-items-center mt-2">
+											<div class="col-8 pr-0">
+												<div class="d-flex align-items-center">
+													<div class="mr-2">
+														<img src="{% static 'main/img/ceo.png' %}">
+													</div>
+													<div><span class="name">{{ course.faculty }}</span></div>
+												</div>
+											</div>
+											<div class="col-4 text-right">
+												<span class="rate"><i class="far fa-rupee-sign"></i>{{ course.price }}</span>
+											</div>
+										</div>
+										<div class="courses-data mt-3">
+											<p>{{ course.small_desc }}</p>
+											<div class="course-btn">
+												<a href="{{ course.get_course_absolute_url }}" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+                        {% endfor %}
+					    <!--  -->
+                        {% comment %}
 					    <div class="item">
 					    	<div class="feature-box mb-5">
 								<div class="course-img">
@@ -431,41 +352,7 @@
 								</div>
 							</div>
 					    </div>
-					    <!--  -->
-					    <div class="item">
-					    	<div class="feature-box mb-5">
-								<div class="course-img">
-									<img src="img/course.jpg">
-								</div>
-								<div class="course-desc">
-									<div class="fea-content">
-										<div class="title mb-2">
-											<span class="fea-title"><a href="#">Android App Development</a></span>
-											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
-										</div>
-										<div class="instructor row align-items-center mt-2">
-											<div class="col-8 pr-0">
-												<div class="d-flex align-items-center">
-													<div class="mr-2">
-														<img src="img/ceo.png">
-													</div>
-													<div><span class="name">demo user</span></div>
-												</div>
-											</div>
-											<div class="col-4 text-right">
-												<span class="rate"><i class="far fa-rupee-sign"></i>3999</span>
-											</div>
-										</div>
-										<div class="courses-data mt-3">
-											<p>Take this course to design, create and run a debuggable version of your own Android App.</p>
-											<div class="course-btn">
-												<a href="course-details.html" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-					    </div>
+					    {% endcomment %}
 					</div>
 				</div>
 			</div>
