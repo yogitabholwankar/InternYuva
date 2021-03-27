@@ -33,14 +33,19 @@ def courseDetailView(request,slug):
 
 	related_cat=course.category
 	related_courses=Course.objects.filter(category=related_cat)
+	demo_video=course.video_lectures.get(index=0)
 
 	context={
 		'related_courses':related_courses,
 		'course':course,
 		'videos':course.video_lectures.all(),
 		'notes':course.notes.all(),
+		'demo_video':demo_video.video_url,
 	}
+	print(demo_video,222222222)
 	return render(request,'main/course-details.html',context)
+
+
 
 @login_required
 def createCourse(request):
@@ -121,6 +126,7 @@ def addNotesToCourse(request,course_slug):
 		'course':current_course,
 	}
 	return render(request,'classroom/course_add_notes.html',context)
+
 @login_required()
 def addCourseOverviewToCourse(request,course_slug):
 	current_course=Course.objects.get(slug=course_slug)
@@ -156,6 +162,7 @@ def videoTesting(request):
 		'videos':videos
 	}
 	return render(request,'classroom/vidTesting.html',context)
+
 
 
 

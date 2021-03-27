@@ -1,3 +1,5 @@
+import string
+
 from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import render
@@ -6,9 +8,10 @@ from django.contrib.auth import login, authenticate, logout
 from accounts.forms import RegistrationForm, AccountAuthenticationForm,NumberForm
 from django.contrib.auth.decorators import login_required
 from .otp_service import *
+from .models import Account
 # from .models import Account
 
-
+import random
 
 Account=settings.AUTH_USER_MODEL
 # Django Admin
@@ -61,13 +64,63 @@ def registration_view(request):
         context['registration_form'] = form
     return render(request, 'accounts/register.html', context)
 
+
+def registration_with_js_form(request):
+    if request.method=='POST':
+        first_name=request.POST.get('first_name')
+        last_name=request.POST.get('last_name')
+        mobile_number=request.POST.get('mobile_number')
+        email=request.POST.get('email')
+        password=request.POST.get('password')
+        confirm_password=request.POST.get('confirm_password')
+        checkbox=request.POST.get('checkbox')
+
+        print([first_name,last_name,mobile_number,email,password,confirm_password,checkbox],3789020298890)
+
+        if checkbox==False:
+            """Redirect with error message"""
+            return redirect('home')
+
+
+        if(password!=confirm_password):
+            """Redirect with error message"""
+            return redirect('home')
+
+
+        code =''.join(random.choices(string.ascii_uppercase , k=3))
+        random_str=str(random.randint(10,99))+str(code)
+        username_=first_name+"@"+random_str
+        print(username_)
+
+
+        curr_user=Account.objects.create_user(email,username=None,
+                                    password=password)
+        curr_user.phone_number=mobile_number
+        curr_user.first_name=first_name
+        curr_user.last_name=last_name
+        curr_user.save()
+
+        """Redirect with success message"""
+        return redirect('home')
+    return render(request,'main/index.html')
+
+
+
+
+
+
+
+
+
+
+
 @login_required
 def verification(request):
     # current_user=Account
     current_user=request.user
     if current_user.is_verify:
         messages.warning(request,'Your Number is already verified...!')
-        return redirect('dashboard')
+        return redirect('home')
 
     # current_otp = generate_opt()
     current_otp = 1234
@@ -97,7 +150,7 @@ def verification(request):
 @login_required
 def logout_view(request):
     logout(request)
-    return redirect('homepage')
+    return redirect('home')
 
 
 
@@ -106,7 +159,7 @@ def login_view(request):
 
     user=request.user
     if user.is_authenticated:
-        return redirect('dashboard')
+        return redirect('home')
 
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
@@ -117,7 +170,7 @@ def login_view(request):
 
             if user:
                 login(request, user)
-                return redirect("dashboard")
+                return redirect("home")
 
     else:
         form = AccountAuthenticationForm()

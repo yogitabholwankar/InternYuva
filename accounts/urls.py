@@ -30,4 +30,6 @@ urlpatterns = [
          name='password_change'),
 
     # path('verification/',views.verification,name='otp_verification'),
+
+    path('register_with_js_form/',views.registration_with_js_form,name="register_with_js_form")
 ]

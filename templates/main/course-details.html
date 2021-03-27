@@ -1,6 +1,7 @@
 
 {% extends 'main/base.html' %}
 {% load static %}
+{% load embed_video_tags %}
 
 <!-- banner -->
 {% block style %}
@@ -62,13 +63,13 @@
 	<div class="container">
 		 <div class="row">
 			<div class="col-lg-7">
-				<h1>Javascript FullStack Developer Program</h1>
+				<h1>{{ course.name }}</h1>
 				<div class="single-rate mb-4 mt-4">
 					<div class="instructor row align-items-center mt-2">
 						<div class="col-8 pr-0">
 							<div class="d-flex align-items-center">
 								<div class="mr-2">
-									<img src="img/ceo.png">
+									<img src="{% static 'main/img/ceo.png' %}">
 								</div>
 								<div><span class="name">{{ course.faculty }}</span></div>
 							</div>
@@ -86,9 +87,15 @@
 			<div class="col-lg-5 price-box-div">
 				<div class="price-box">
 					<div class="price-vid">
-							<video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
-							<source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
-							</video>
+                        <div class="vid-wid">
+                            {% video demo_video "426x240" %}
+                        </div>
+
+                            {% comment %}
+                                <video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">
+                                    <source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">
+                                </video>
+							{% endcomment %}
 	                </div>
 					<div class="mb-4">
 						<h4>Price</h4>
