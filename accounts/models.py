@@ -101,3 +101,9 @@ class StaticData(models.Model):
 		return str(self.index)
 
 
+class NewslettersSubscribers(models.Model):
+	email=models.EmailField(verbose_name="email", max_length=60, unique=True)
+
+	def __str__(self):
+		return str(self.email)
+

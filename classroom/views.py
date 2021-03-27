@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 from .forms import CreateCourse, AddVideos, AddNotes, AddCourseOverview
 from django.contrib.auth.decorators import login_required
 from .models import *
-
+from accounts.models import NewslettersSubscribers
 def room(request):
 	pass
 
@@ -17,7 +17,15 @@ def index(request):
 		'frequently_ask_questions':FrequentlyAskQuestion.objects.all(),
 		'latest_course':Course.objects.all().order_by('date_of_created')
 	}
+
+	if request.method=="POST":
+		email=request.POST.get('news_email')
+		user=NewslettersSubscribers.objects.create(email=email)
+		return redirect('home')
+
 	return render(request,'main/index.html',context)
+
+
 
 
 
