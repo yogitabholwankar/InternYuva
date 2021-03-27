@@ -77,3 +77,24 @@ class Account(AbstractBaseUser):
 	# Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
 	def has_module_perms(self, app_label):
 		return True
+
+class StaticData(models.Model):
+
+	index             = models.IntegerField(default="For Chronological Order")
+	email_address_0   = models.EmailField(verbose_name="email", max_length=60,blank=True,null=True)
+	email_address_1   = models.EmailField(verbose_name="email", max_length=60,blank=True,null=True)
+	facebook_handler  = models.URLField(blank=True,null=True)
+	twitter_handler   = models.URLField(blank=True,null=True)
+	instagram_handler = models.URLField(blank=True, null=True)
+	linkedin_handler  = models.URLField(blank=True, null=True)
+	phone_number      = models.IntegerField(default='1234567890', validators=[
+		MinValueValidator(1000000000),
+		MaxValueValidator(9999999999)
+	])
+	use               = models.BooleanField(default=False)
+
+
+	def __str__(self):
+		return str(self.index)
+
+

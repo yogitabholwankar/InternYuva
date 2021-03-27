@@ -23,7 +23,7 @@ urlpatterns = [
 # TODO
 """
 1. search
-3. phone number field in contact form add javascript checker
+3. phone number field in contact form add javascript checker frontend
 4. Active Button On Navbar
 5. User Registration with custom form main/index.html
 
