@@ -14,6 +14,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
+from django.utils import timezone
 
 
 from embed_video.fields import EmbedVideoField
@@ -107,6 +108,7 @@ class Course(models.Model):
 	code           = models.CharField(max_length=20, default=generate_random_string)
 	video_lectures = models.ManyToManyField(Video_Lecture,blank=True)
 	thumbnail 		= models.ImageField(upload_to="course_thumbnail", blank=True, null=True)
+	date_of_created = models.DateTimeField(default=timezone.now(),blank=True,null=True)
 	slug           = models.SlugField(max_length=250,blank=True,null=True,unique=True,help_text="This the slug field remain it empty")
 	is_active      = models.BooleanField(default=True)
 	is_completed   = models.BooleanField(default=True)

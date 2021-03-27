@@ -53,13 +53,16 @@ class Account(AbstractBaseUser):
 	is_superuser = models.BooleanField(default=False)
 
 	# other
-	first_name   = models.CharField(max_length=10,blank=True,null=True)
-	last_name    = models.CharField(max_length=10,blank=True,null=True)
+	first_name   = models.CharField(max_length=30,blank=True,null=True)
+	last_name    = models.CharField(max_length=30,blank=True,null=True)
 	# phone_number = PhoneNumberField(default='1234567890')
 	phone_number = models.IntegerField(default='1234567890',validators=[
 																		MinValueValidator(1000000000),
 																		MaxValueValidator(9999999999)
 																		])
+	profile_pic = models.ImageField(blank=True,null=True,upload_to='Profile_Pics')
+	# we have to add here some at least 10 default images
+
 	is_verify    = models.BooleanField(default=False)
 
 	USERNAME_FIELD  = 'email'   # This with login with email

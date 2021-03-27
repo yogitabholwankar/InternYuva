@@ -15,6 +15,7 @@ def index(request):
 		'categories':Category.objects.all(),
 		'courses': Course.objects.all(),
 		'frequently_ask_questions':FrequentlyAskQuestion.objects.all(),
+		'latest_course':Course.objects.all().order_by('date_of_created')
 	}
 	return render(request,'main/index.html',context)
 
