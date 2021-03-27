@@ -14,7 +14,12 @@
             <a class="dropdown-item" href="#">INTER-NATIONAL</a>
           </div>
           <a href="{% url 'about_us' %}">CONTACT US</a>
-          <a href="#" data-toggle="modal" data-target="#mySingup">SIGN IN</a>
+{#          <a href="#" data-toggle="modal" data-target="#mySingup">SIGN IN</a>#}
+            {% if request.user.is_authenticated %}
+                <a href="#">Profile</a>
+            {% else %}
+                <a href="{% url 'login' %}">SIGN IN</a>
+            {% endif %}
         </div>
     </div>
 
@@ -84,7 +89,16 @@
 					        <a class="nav-link" href="{% url 'contact_us' %}">CONTACT US</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link theme-btn" href="#" data-toggle="modal" data-target="#mySingup"><span>SIGN IN</span></a>
+                              {% comment %}
+					             <a class="nav-link theme-btn" href="#" data-toggle="modal" data-target="#mySingup"><span>SIGN IN</span></a>
+					         {% endcomment %}
+                                {% if request.user.is_authenticated %}
+{#                                    <a href="#" data-toggle="modal">Profile</a>#}
+                                    <a class="nav-link theme-btn" href="{% url 'logout' %}"><span>Logout</span></a>
+                                {% else %}
+                                  <a class="nav-link theme-btn" href="{% url 'register' %}"><span>SIGN IN</span></a>
+                                {% endif %}
+
 					      </li>
 					    </ul>
 					  </div>
