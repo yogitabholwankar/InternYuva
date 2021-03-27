@@ -160,7 +160,7 @@ class CourseOverview(models.Model):
 
 
 
-class Ratings(ModelBase):
+class Ratings(models.Model):
 	course_title = models.CharField(max_length=255)
 	description = models.TextField()
 
@@ -180,7 +180,7 @@ class Ratings(ModelBase):
 
 
 
-class Total_Ratings(ModelBase):
+class Total_Ratings(models.Model):
 	user_ratings = models.CharField(max_length=20, blank=True, null=True)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
@@ -201,3 +201,16 @@ class FrequentlyAskQuestion(models.Model):
 
 	def __str__(self):
 		return str(self.index)+"."+str(self.question)
+
+
+class ContactForm(models.Model):
+	name=models.CharField(max_length=100)
+	email = models.EmailField(verbose_name="email", max_length=60)
+	phone_number = models.IntegerField(default='1234567890', validators=[
+		MinValueValidator(1000000000),
+		MaxValueValidator(9999999999)
+	])
+	message=models.TextField(help_text="Type Your Message here")
+
+	def __str__(self):
+		return str(self.name)

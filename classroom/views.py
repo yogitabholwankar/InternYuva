@@ -168,6 +168,17 @@ def videoTesting(request):
 
 
 def contactUs(request):
+	if request.method=="POST":
+		name=request.POST.get('name')
+		email=request.POST.get('email')
+		phone_number=request.POST.get('phone_number')
+		message=request.POST.get('message')
+		print([name,email,phone_number,message])
+		curr_form=ContactForm.objects.create(name=name,email=email,phone_number=phone_number,message=message)
+		curr_form.save()
+
+		"""Add redirect message"""
+		return redirect('contact_us')
 	return render(request,'main/contact.html')
 
 def aboutUs(request):
