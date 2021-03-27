@@ -194,26 +194,10 @@ class Total_Ratings(ModelBase):
 	# 	return (total/len(user_ratings))
 
 
-"""
-class Bidding_Amt(models.Model):
-	bid_amt = models.IntegerField(default=0)
-	bol_color = models.CharField(max_length=50,default="red")
-	active = models.BooleanField(default=True)
-	# user = models.ForeignKey(User, on_delete=models.CASCADE)
-	user= models.CharField(default="user1",max_length=100,unique=True)
-	added_date = models.DateTimeField(auto_now_add=True)
+class FrequentlyAskQuestion(models.Model):
+	index = models.IntegerField(help_text="For Chronological Order", blank=True, null=True, unique=True)
+	question = models.CharField(max_length=500, blank=True, null=True, default="How long is this course duration")
+	answer = models.TextField(blank=True, null=True)
 
-
-	def min_(self):
-		total_obj_count = 0
-		total_bid_amt = 0
-		list_ = []
-		for i in Bidding_Amt.objects.all().order_by('id'):
-			total_obj_count += 1
-			total_bid_amt += i.bid_amt
-			list_.append([i.bid_amt, i.user])
-		# print(total_bid_amt, total_obj_count)
-		x = total_obj_count // 3
-		list_.sort()
-		return list_[:x]
-	"""
+	def __str__(self):
+		return str(self.index)+"."+str(self.question)

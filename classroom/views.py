@@ -14,6 +14,7 @@ def index(request):
 	context = {
 		'categories':Category.objects.all(),
 		'courses': Course.objects.all(),
+		'frequently_ask_questions':FrequentlyAskQuestion.objects.all(),
 	}
 	return render(request,'main/index.html',context)
 

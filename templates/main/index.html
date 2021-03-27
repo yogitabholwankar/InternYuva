@@ -635,20 +635,24 @@
 			<div class="col-lg-10">
 				<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
 				   <!-- Item -->
-				  	<div class="card mb-3">
-						<!-- Card header -->
-					    <div class="card-head" role="tab" id="headingOne1">
-					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1" class="collapsed">
-					        <h6 class="mb-0"><i class="fal fa-minus-square"></i> Is there a demo lecture available?</h6>
-					      </a>
-					    </div>
-						<!-- Card body -->
-					    <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx" style="">
-					      <div class="card-body">
-					        <p>Yes. Once you sign up with us, you will able to access and view few demo lessons in every course.</p>
-					      </div>
-					    </div>
-					</div>
+                    {% for obj in frequently_ask_questions %}
+                        <div class="card mb-3">
+                            <!-- Card header -->
+                            <div class="card-head" role="tab" id="headingOne{{ forloop.counter }}">
+                              <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseOne{{ forloop.counter }}" class="collapsed">
+                                <h6 class="mb-0"><i class="fal fa-minus-square"></i> {{ obj.question }}</h6>
+                              </a>
+                            </div>
+                            <!-- Card body -->
+                            <div id="collapseOne{{ forloop.counter }}" class="collapse" role="tabpanel" aria-labelledby="headingOne{{ forloop.counter }}" data-parent="#accordionEx" style="">
+                              <div class="card-body">
+                                <p>{{ obj.answer }}.</p>
+                              </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                    {% comment %}
 					<!-- Item -->
 				  	<div class="card mb-3">
 						<!-- Card header -->
@@ -724,6 +728,7 @@
 					      </div>
 					    </div>
 					</div>
+					{% endcomment %}
 				</div>
 			</div>
 		</div>

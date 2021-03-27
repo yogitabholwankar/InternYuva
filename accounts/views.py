@@ -93,7 +93,7 @@ def registration_with_js_form(request):
         print(username_)
 
 
-        curr_user=Account.objects.create_user(email,username=None,
+        curr_user=Account.objects.create_user(email,username=username_,
                                     password=password)
         curr_user.phone_number=mobile_number
         curr_user.first_name=first_name
