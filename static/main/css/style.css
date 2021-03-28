@@ -135,7 +135,7 @@ ul{
 	border:0!important;
 }
 header {
-    position: absolute;  
+    /*position: absolute;  */
     z-index: 999;
     width: 100%; 
 }
