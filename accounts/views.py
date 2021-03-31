@@ -46,16 +46,16 @@ def registration_view(request):
         if form.is_valid():
 
             customer_number = form.cleaned_data.get('mobile')
-            print(customer_number)
-            user_otp = form.cleaned_data.get('otp')
-            print(user_otp)
-            # send_otp(account_sid , auth_token , customer_number)
+            # print(customer_number)
+            # user_otp = form.cleaned_data.get('otp')
+            # print(user_otp)
+            # send_otp(customer_number,user_otp)
             form.save()
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             login(request, account)
-            return redirect('home')
+            return redirect('otp_verification')
         else:
             context['registration_form'] = form
 
@@ -136,7 +136,7 @@ def verification(request):
                 current_user.save()
                 messages.warning(request, 'You Have Successfully Verify Your Number .!')
                 print("'You Have Successfully Verify Your Number .!", current_otp)
-                return redirect('dashboard')
+                return redirect('home')
             else:
                 messages.warning(request, 'Your Input OTP is invalid')
                 print("INVALID OTP",current_otp)
@@ -179,5 +179,7 @@ def login_view(request):
 
     # print(form)
     return render(request, "accounts/login.html", context)
+
+# 7011101001
 
 

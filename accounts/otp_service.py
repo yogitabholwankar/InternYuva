@@ -16,14 +16,17 @@ def generate_opt():
 # customer_number = '+917011101001'
 
 def send_otp(customer_number,current_otp):
-    account_sid = 'ACffe0282cbc8dcdd87fea5c58b8292f9c'
-    auth_token = '12ff3b8f0492dd1ff55f6643de4e768a'
+    # account_sid = 'ACffe0282cbc8dcdd87fea5c58b8292f9c'
+    account_sid = 'ACdcf64a7c9a50f5be4a56754c02238076'
+    # auth_token = '12ff3b8f0492dd1ff55f6643de4e768a'
+    auth_token = 'ebe01da37d18d6d2b32b94726af9e196'
     client = Client(account_sid, auth_token)
     # current_otp=otp
     customer_number_='+91'+str(customer_number)
     message = client.messages.create(
                                 body=str(current_otp) +' is your MySchool OTP.\nDo not share it with anyone.',
-                                from_='+15108265123',
+                                # from_='+15108265123',
+                                from_='+12517665621',
                                 to=customer_number_
                             )
     return
