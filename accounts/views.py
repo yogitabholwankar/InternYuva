@@ -49,13 +49,13 @@ def registration_view(request):
             print(customer_number)
             user_otp = form.cleaned_data.get('otp')
             print(user_otp)
-            send_otp(account_sid , auth_token , customer_number)
+            # send_otp(account_sid , auth_token , customer_number)
             form.save()
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             login(request, account)
-            return redirect('otp_verification')
+            return redirect('home')
         else:
             context['registration_form'] = form
 
