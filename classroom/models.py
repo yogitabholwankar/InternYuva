@@ -1,3 +1,4 @@
+import datetime
 import string
 
 from django.db import models
@@ -14,7 +15,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
-from django.utils import timezone
+from django.utils import timezone,dates
+from datetime import date
 
 
 from embed_video.fields import EmbedVideoField
@@ -216,3 +218,23 @@ class ContactForm(models.Model):
 
 	def __str__(self):
 		return str(self.name)
+
+class InternshipForm(models.Model):
+	name=models.CharField(max_length=200,default="The Python Developer")
+	company_name=models.CharField(max_length=200,default="InternYuva")
+	role = models.CharField(max_length=200,default="Django Developer")
+	url= models.URLField(blank=True,null=True)
+	start_date = models.DateField(default=date.today(), blank=True, null=True, help_text="yyyy-mm-dd")
+	end_date = models.DateField(default=date.today() + datetime.timedelta(days=60), blank=True, null=True,help_text="yyyy-mm-dd")
+	stipend = models.IntegerField(default=4000)
+	is_list  = models.BooleanField(default=True)
+
+	def __str__(self):
+		return str(self.name)
+
+	def get_duration(self):
+		months=self.end_date.day-self.start_date.day
+		return months//30
+
+
+
