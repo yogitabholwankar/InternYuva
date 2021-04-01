@@ -122,8 +122,8 @@ def verification(request):
         messages.warning(request,'Your Number is already verified...!')
         return redirect('home')
 
-    # current_otp = generate_opt()
-    current_otp = 1234
+    current_otp = generate_opt()
+    # current_otp = 1234
     send_otp(current_user.phone_number, current_otp)
 
     otp_input=NumberForm()
