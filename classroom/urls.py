@@ -22,6 +22,9 @@ urlpatterns = [
 	path('internships/',views.internships,name='internships'),
 	path('internships/<id>',views.internshipDetail,name='internships-detail'),
 
+	#checkout page
+	path('checkout/',views.checkoutPage,name="checkout")
+
 ]
 
 # TODO
@@ -30,5 +33,6 @@ urlpatterns = [
 3. phone number field in contact form add javascript checker frontend
 4. Active Button On Navbar
 5. User Registration with custom form main/index.html
+11. courses page
 
 """

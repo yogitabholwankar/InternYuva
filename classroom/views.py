@@ -205,3 +205,7 @@ def internshipDetail(request,id):
 		'object':current_object
 	}
 	return render(request,'main/internship-detail.html',context)
+
+
+def checkoutPage(request):
+	return render(request,'main/checkout.html')
