@@ -25,6 +25,7 @@ urlpatterns = [
 	#checkout page
 	path('checkout/',views.checkoutPage,name="checkout")
 
+
 ]
 
 # TODO

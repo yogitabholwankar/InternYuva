@@ -34,8 +34,8 @@ def index(request):
 def courseListView(request):
 	context={
 		'objects':Course.objects.all()
-		}
-	return render(request,'classroom/course_list.html',context)
+	}
+	return render(request,'main/course_list.html',context)
 
 
 def courseDetailView(request,slug):

@@ -5,12 +5,12 @@
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="{% url 'home' %}">HOME</a>
-          <a href="#">COURSES</a>
+          <a href="{% url 'course_list' %}">COURSES</a>
           <a href="{% url 'about_us' %}">ABOUT</a>
           <a href="#">TRAINING</a>
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">INTERNSHIP</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">NATIONAL</a>
+            <a class="dropdown-item" href="{% url 'internships' %}">NATIONAL</a>
             <a class="dropdown-item" href="#">INTER-NATIONAL</a>
           </div>
           <a href="{% url 'about_us' %}">CONTACT US</a>
@@ -65,7 +65,7 @@
 					        <a class="nav-link active" href="{% url 'home' %}">HOME</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="#">COURSES</a>
+					        <a class="nav-link" href="{% url 'course_list' %}">COURSES</a>
 					      </li>
 					      <li class="nav-item">
 					        <a class="nav-link" href="{% url 'about_us' %}">ABOUT</a>
