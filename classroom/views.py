@@ -192,3 +192,16 @@ def contactUs(request):
 
 def aboutUs(request):
 	return render(request,'main/about.html')
+
+def internships(request):
+	context={
+		'objects':InternshipForm.objects.all()
+	}
+	return render(request,'main/internships.html',context)
+
+def internshipDetail(request,id):
+	current_object=InternshipForm.objects.get(id=id)
+	context={
+		'object':current_object
+	}
+	return render(request,'main/internship-detail.html',context)

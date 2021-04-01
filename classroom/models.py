@@ -226,6 +226,7 @@ class InternshipForm(models.Model):
 	url= models.URLField(blank=True,null=True)
 	start_date = models.DateField(default=date.today(), blank=True, null=True, help_text="yyyy-mm-dd")
 	end_date = models.DateField(default=date.today() + datetime.timedelta(days=60), blank=True, null=True,help_text="yyyy-mm-dd")
+	desc = models.TextField(blank=True,null=True)
 	stipend = models.IntegerField(default=4000)
 	is_list  = models.BooleanField(default=True)
 
