@@ -2,6 +2,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 
 # Create your models here.
+from django.shortcuts import redirect
+from django.urls import reverse
 from django.utils import timezone
 from django.conf import settings
 
@@ -54,6 +56,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_blog_absolute_url(self):
+        return reverse('blog_details',kwargs={'id':self.pk})
 
 def validate_mail(value):
     if "@gmail.com" in value:

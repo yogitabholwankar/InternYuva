@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ object.title }}</title>
-</head>
-<body>
-<h2>{{ object.title }}</h2>
-<h2>{{ object.content }}</h2>
+{% extends 'main/base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}{{ object.title }}{% endblock %}
+{% block  content%}
+<div class="container">
+    <h2>{{ object.title }}</h2>
+    <h2>{{ object.content }}</h2>
+</div>
+{% endblock %}

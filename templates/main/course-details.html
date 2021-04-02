@@ -99,7 +99,7 @@
 	                </div>
 					<div class="mb-4">
 						<h4>Price</h4>
-						<h1 class="theme-color">{{ course.price }}</h1>
+						<h1 class="theme-color">{{ course.price|floatformat  }}</h1>
 					</div>
 					<div class="see-btn full-course text-center">
 						<a href="{% url 'checkout' %}" class="theme-btn"><span>BUY FULL COURSE</span></a>
