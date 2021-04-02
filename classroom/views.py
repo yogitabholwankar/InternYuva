@@ -214,3 +214,7 @@ def checkoutPage(request,course_slug):
 		'course':course
 	}
 	return render(request,'main/checkout.html',context)
+
+# @login_required
+# def onPurchase(request):
+# 	return render(request,'')

@@ -34,18 +34,22 @@ urlpatterns = [
 ~3. phone number field in contact form add javascript checker frontend 
 4. Active Button On Navbar
 5. User Registration with custom form main/index.html
-11. courses list page
+~11. courses list page    --- done
 6. Checkout (sam)
 7. Content
 8. Payment
 9. Course videos (sam)
-10. internship form (sam)
+10. internship form (sam) --- done 
 11. Blog Frontend --- requires frontend developer 
 12. Profile Page  --- requires frontend developer
+
+13.courses list page categories
+14. redirection 
 
 """
 
 # python manage.py loaddata db.json
 
+# if you added some data or change anything in models.py
 # python manage.py dumpdata > db.json
 
