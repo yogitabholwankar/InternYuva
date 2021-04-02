@@ -69,9 +69,9 @@
 						<div class="col-8 pr-0">
 							<div class="d-flex align-items-center">
 								<div class="mr-2">
-									<img src="{% static 'main/img/ceo.png' %}">
+									<img src="{{ course.faculty.user.profile_pic.url }}">
 								</div>
-								<div><span class="name">{{ course.faculty }}</span></div>
+								<div><span class="name">{{ course.faculty.user.first_name }} {{ course.faculty.user.last_name }}</span></div>
 							</div>
 						</div>
 					</div>
@@ -102,7 +102,7 @@
 						<h1 class="theme-color">{{ course.price|floatformat  }}</h1>
 					</div>
 					<div class="see-btn full-course text-center">
-						<a href="{% url 'checkout' %}" class="theme-btn"><span>BUY FULL COURSE</span></a>
+						<a href="{% url 'checkout' course.slug %}" class="theme-btn"><span>BUY FULL COURSE</span></a>
 					</div>
 					<div class="text mt-3">
 					    <h5>This course includes: </h5>

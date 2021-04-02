@@ -20,31 +20,31 @@
                   <h1 class="mb-4">Checkout</h1>
                   <div class="feature-box mb-5 position-relative">
                      <div class="course-img">
-                        <img src="{% static 'main/img/course.jpg' %}">
+                        <img src="{{ course.thumbnail.url }}">
                      </div>
                      <div class="course-desc">
                         <div class="fea-content">
                            <div class="title mb-2">
-                              <span class="fea-title"><a href="#">Android App Development</a></span>
+                              <span class="fea-title"><a href="#">{{ course.name }}</a></span>
                               <span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
                            </div>
                            <div class="instructor row align-items-center mt-2">
                               <div class="col-8 pr-0">
                                  <div class="d-flex align-items-center">
                                     <div class="mr-2">
-                                       <img src="{% static 'main/img/ceo.png' %}">
+                                       <img src="{{ course.faculty.user.profile_pic.url }}">
                                     </div>
-                                    <div><span class="name">demo user</span></div>
+                                    <div><span class="name">{{ course.faculty.user.first_name }} {{ course.faculty.user.last_name }}</span></div>
                                  </div>
                               </div>
                               <div class="col-4 text-right">
-                                 <span class="rate"><i class="far fa-rupee-sign" aria-hidden="true"></i>3999</span>
+                                 <span class="rate"><i class="far fa-rupee-sign" aria-hidden="true"></i>{{ course.price|floatformat }}</span>
                               </div>
                            </div>
                            <div class="courses-data mt-3">
-                              <p>Take this course to design, create and run a debuggable version of your own Android App.</p>
+                              <p>{{ course.small_desc }}</p>
                               <div class="course-btn">
-                                 <a href="#" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
+                                 <a href="{{ course.get_course_absolute_url }}" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
                               </div>
                            </div>
                         </div>
@@ -60,9 +60,18 @@
                            <h4>Course Name:</h4>
                         </div>
                         <div class="value">
-                           <h4>Android App Development</h4>
+                           <h4>{{ course.name }}</h4>
                         </div>
                      </div>
+                      <div class="purchase-box d-flex mb-3">
+                        <div class="title">
+                           <h4>Course Price</h4>
+                        </div>
+                        <div class="value">
+                           <h4><i class="far fa-rupee-sign"></i>{{ course.price|floatformat }}</h4>
+                        </div>
+                     </div>
+                      {% comment %}
                      <div class="purchase-box d-flex mb-3">
                         <div class="title">
                            <h4>Cource 1:</h4>
@@ -164,6 +173,7 @@
                            </select>
                         </div>
                      </div>
+                     {% endcomment %}
 
                       <div class="purchase-box d-flex mb-3">
                         <div class="title">

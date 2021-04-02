@@ -23,7 +23,7 @@ urlpatterns = [
 	path('internships/<id>',views.internshipDetail,name='internships-detail'),
 
 	#checkout page
-	path('checkout/',views.checkoutPage,name="checkout")
+	path('checkout/<course_slug>',views.checkoutPage,name="checkout")
 
 
 ]

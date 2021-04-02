@@ -57,6 +57,7 @@ def courseDetailView(request,slug):
 
 
 
+
 @login_required
 def createCourse(request):
 	form=CreateCourse()
@@ -207,5 +208,9 @@ def internshipDetail(request,id):
 	return render(request,'main/internship-detail.html',context)
 
 
-def checkoutPage(request):
-	return render(request,'main/checkout.html')
+def checkoutPage(request,course_slug):
+	course=Course.objects.get(slug=course_slug)
+	context={
+		'course':course
+	}
+	return render(request,'main/checkout.html',context)

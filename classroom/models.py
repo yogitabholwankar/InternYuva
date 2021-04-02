@@ -118,6 +118,8 @@ class Course(models.Model):
 	is_like        = models.ManyToManyField(User,blank=True,related_name='likes')
 	is_save        = models.ManyToManyField(User,blank=True,related_name='saves')
 
+	member         = models.ManyToManyField(User,blank=True,related_name='course_purchase')
+
 	def __str__(self):
 		return str(self.name)
 
@@ -160,6 +162,15 @@ class CourseOverview(models.Model):
 	index = models.IntegerField(help_text="For Chronological Order", blank=True, null=True, unique=True)
 	title = models.CharField(max_length=100,blank=True,null=True,default="CourseOverview")
 	text = models.TextField(blank=True,null=True)
+
+	def __str__(self):
+		return str(self.index)+" "+str(self.title)
+
+# class BuyCourse(models.Model):
+# 	user   = models.ForeignKey(User,on_delete=models.CASCADE)
+# 	course = models.ForeignKey(Course,on_delete=models.CASCADE)
+#
+
 
 
 
