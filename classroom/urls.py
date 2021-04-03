@@ -23,33 +23,52 @@ urlpatterns = [
 	path('internships/<id>',views.internshipDetail,name='internships-detail'),
 
 	#checkout page
-	path('checkout/<course_slug>',views.checkoutPage,name="checkout")
+	path('checkout/<course_slug>',views.checkoutPage,name="checkout"),
+
+	#user course
+	path('purchase_course/',views.user_courseListView,name='purchase_course'),
+
+	#course-detail-view-for-member
+	path('course/<course_slug>/video',views.course_detail_view_for_purchase_user,name='course-access')
+
 
 
 ]
 
-# TODO
-"""
-1. search
-~3. phone number field in contact form add javascript checker frontend 
-4. Active Button On Navbar
-5. User Registration with custom form main/index.html
-~11. courses list page    --- done
-6. Checkout (sam)
-7. Content
-8. Payment
-9. Course videos (sam)
-10. internship form (sam) --- done 
-11. Blog Frontend --- requires frontend developer 
-12. Profile Page  --- requires frontend developer
-
-13.courses list page categories
-14. redirection 
 
 """
+====== Server Task ======
 
+1. Payment
+2. S3 Bucket 
+3. Google Auth
+4. host on aws
+
+====== Backend Task =======
+
+1. redirection
+2. courses list page categories
+3. email auth/otp
+4. favourites
+5. profile edit page
+6. password change fields
+7. in classroom/notes model add proper path and file name in media folder , check save() method
+
+
+====== Frontend Task =======
+
+1. Blog Detail Page   
+2. Profile Page  
+3. Content
+4. Active Button On Navbar Home
+5. Mobile View Profile DropDown
+6. Course Access Page Separated Notes And Videos
+7. reduce margin of course list
+
+"""
+
+#todo
 # python manage.py loaddata db.json
-
 # if you added some data or change anything in models.py
 # python manage.py dumpdata > db.json
 

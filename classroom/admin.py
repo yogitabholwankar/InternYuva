@@ -16,7 +16,7 @@ admin.site.register(Ratings)
 
 admin.site.register(CourseOverview)
 
-admin.site.register(VideoTesting)
+# admin.site.register(VideoTesting)
 admin.site.register(Video_Lecture)
 
 

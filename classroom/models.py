@@ -69,21 +69,24 @@ class SubCategory(models.Model):
 
 
 class Notes(models.Model):
-	index = models.IntegerField(help_text="For Chronological Order", blank=True, null=True,unique=True)
-	name=models.CharField(help_text="Name OF PDF File",blank=True,null=True,max_length=20)
+	index    = models.IntegerField(help_text="For Chronological Order", blank=True, null=True,unique=True)
+	name     = models.CharField(help_text="Name OF PDF File",blank=True,null=True,max_length=20)
 	document = models.FileField(upload_to='documents/')
+	thumbnail= models.ImageField(upload_to="notes_thumbnail",blank=True,null=True)
 
 	def __str__(self):
 		return str(self.document)
 
 
 class Video_Lecture(models.Model):
-	index = models.IntegerField(help_text="For Chronological Order",blank=True,null=True,unique=True)
-	name=models.CharField(help_text="Add Name OF Video",blank=True,null=True,max_length=20)
+	index     = models.IntegerField(help_text="For Chronological Order",blank=True,null=True,unique=True)
+	name      = models.CharField(help_text="Add Name OF Video",blank=True,null=True,max_length=20)
+	thumbnail = models.ImageField(upload_to="videos_thumbnail", blank=True, null=True)
 	video_url = EmbedVideoField(blank=True,null=True)
 
 	def __str__(self):
 		return str(self.index)+str(self.name)
+
 
 
 def generate_random_string():

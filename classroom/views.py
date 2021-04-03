@@ -38,6 +38,13 @@ def courseListView(request):
 	return render(request,'main/course_list.html',context)
 
 
+def user_courseListView(request):
+	user=request.user
+	context={
+		'objects':Course.objects.filter(member=user)
+	}
+	return render(request,'main/purchase_course.html',context)
+
 def courseDetailView(request,slug):
 	course=Course.objects.get(slug=slug)
 
@@ -55,6 +62,21 @@ def courseDetailView(request,slug):
 	print(demo_video,222222222)
 	return render(request,'main/course-details.html',context)
 
+@login_required
+def course_detail_view_for_purchase_user(request,course_slug):
+	course=Course.objects.get(slug=course_slug)
+	current_user=request.user
+	member_of_course=course.member.all()
+	if(current_user not in member_of_course):
+		"""redirect with error message and tell user to purchase the course"""
+		return redirect('checkout',course_slug)
+
+	context={
+		'course':course,
+		'videos': course.video_lectures.all(),
+		'notes': course.notes.all(),
+	}
+	return render(request,'main/detail.html',context)
 
 
 
