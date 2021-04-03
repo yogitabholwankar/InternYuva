@@ -56,7 +56,7 @@ def courseDetailView(request,slug):
 		'related_courses':related_courses,
 		'course':course,
 		'videos':course.video_lectures.all(),
-		'notes':course.notes.all(),
+		# 'notes':course.notes.all(),
 		'demo_video':demo_video.video_url,
 	}
 	print(demo_video,222222222)
@@ -73,10 +73,42 @@ def course_detail_view_for_purchase_user(request,course_slug):
 
 	context={
 		'course':course,
-		'videos': course.video_lectures.all(),
-		'notes': course.notes.all(),
+		# 'videos': Video_Lecture.objects.filter(course__slug=course_slug),
+		# 'notes':Notes.objects.filter(course__slug=course_slug),
 	}
-	return render(request,'main/detail.html',context)
+	return render(request,'main/purchase_user_course.html',context)
+
+@login_required
+def course_videos_for_purchase_user(request,course_slug):
+	course = Course.objects.get(slug=course_slug)
+	current_user = request.user
+	member_of_course = course.member.all()
+	if (current_user not in member_of_course):
+		"""redirect with error message and tell user to purchase the course"""
+		return redirect('checkout', course_slug)
+
+	context = {
+		'course': course,
+		'videos': Video_Lecture.objects.filter(course__slug=course_slug).order_by('index'),
+		# 'notes':Notes.objects.filter(course__slug=course_slug),
+	}
+	return render(request, 'main/purchase_user_course-videos.html', context)
+
+@login_required
+def course_notes_for_purchase_user(request,course_slug):
+	course = Course.objects.get(slug=course_slug)
+	current_user = request.user
+	member_of_course = course.member.all()
+	if (current_user not in member_of_course):
+		"""redirect with error message and tell user to purchase the course"""
+		return redirect('checkout', course_slug)
+
+	context = {
+		'course': course,
+		# 'videos': Video_Lecture.objects.filter(course__slug=course_slug).order_by('index'),
+		'notes':Notes.objects.filter(course__slug=course_slug).order_by('index'),
+	}
+	return render(request, 'main/purchase_user_course-notes.html', context)
 
 
 
@@ -150,7 +182,7 @@ def addNotesToCourse(request,course_slug):
 		if form.is_valid():
 			notes=form.save(commit=False)
 			notes.save()
-			current_course.notes.add(notes)
+			current_course.notes_un.add(notes)
 			current_course.save()
 			messages.info(request,"Notes are successfully added to course")
 			return redirect('course_detail',course_slug)

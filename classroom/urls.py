@@ -29,7 +29,9 @@ urlpatterns = [
 	path('purchase_course/',views.user_courseListView,name='purchase_course'),
 
 	#course-detail-view-for-member
-	path('course/<course_slug>/video',views.course_detail_view_for_purchase_user,name='course-access')
+	path('course/purchase/<course_slug>/',views.course_detail_view_for_purchase_user,name='course-access'),
+	path('course/purchase/<course_slug>/videos',views.course_videos_for_purchase_user,name='course_videos_for_purchase_user'),
+	path('course/purchase/<course_slug>/notes',views.course_notes_for_purchase_user,name='course_notes_for_purchase_user'),
 
 
 

@@ -73,6 +73,7 @@ class Notes(models.Model):
 	name     = models.CharField(help_text="Name OF PDF File",blank=True,null=True,max_length=20)
 	document = models.FileField(upload_to='documents/')
 	thumbnail= models.ImageField(upload_to="notes_thumbnail",blank=True,null=True)
+	course = models.ForeignKey('Course', on_delete=models.CASCADE, blank=True, null=True)
 
 	def __str__(self):
 		return str(self.document)
@@ -82,6 +83,7 @@ class Video_Lecture(models.Model):
 	index     = models.IntegerField(help_text="For Chronological Order",blank=True,null=True,unique=True)
 	name      = models.CharField(help_text="Add Name OF Video",blank=True,null=True,max_length=20)
 	thumbnail = models.ImageField(upload_to="videos_thumbnail", blank=True, null=True)
+	course    = models.ForeignKey('Course',on_delete=models.CASCADE,blank=True,null=True)
 	video_url = EmbedVideoField(blank=True,null=True)
 
 	def __str__(self):
@@ -103,15 +105,14 @@ class Course(models.Model):
 	category       = models.ForeignKey(Category,    on_delete=models.CASCADE,blank=True,null=True)
 	sub_category   = models.ForeignKey(SubCategory, on_delete=models.CASCADE,blank=True,null=True)
 	faculty        = models.ForeignKey(Faculty,     on_delete=models.CASCADE,blank=True,null=True)
-	students       = models.ManyToManyField(Student,blank=True)
+
 	small_desc     = models.CharField(max_length=500,blank=True,null=True,help_text="Add small descriptions over here")
 	description    = models.TextField(blank=True, null=True)
-	course_overview = models.ManyToManyField('CourseOverview', blank=True)
 	price          = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
 	discount_price = models.DecimalField(max_digits=10, decimal_places=3, default=0.00)
-	notes          = models.ManyToManyField(Notes, blank=True)
+
 	code           = models.CharField(max_length=20, default=generate_random_string)
-	video_lectures = models.ManyToManyField(Video_Lecture,blank=True)
+
 	thumbnail 		= models.ImageField(upload_to="course_thumbnail", blank=True, null=True)
 	date_of_created = models.DateTimeField(default=timezone.now(),blank=True,null=True)
 	slug           = models.SlugField(max_length=250,blank=True,null=True,unique=True,help_text="This the slug field remain it empty")
@@ -122,6 +123,13 @@ class Course(models.Model):
 	is_save        = models.ManyToManyField(User,blank=True,related_name='saves')
 
 	member         = models.ManyToManyField(User,blank=True,related_name='course_purchase')
+
+
+	# un neseccery fields
+	video_lectures = models.ManyToManyField(Video_Lecture, blank=True, help_text="Ignore It",related_name="video_lectures_IgnoreIt")
+	course_overview = models.ManyToManyField('CourseOverview', blank=True, help_text="Ignore It",related_name="course_overview_IgnoreIt")
+	notes_un = models.ManyToManyField(Notes, blank=True, help_text="Ignore It", related_name="course_notes_IgnoreIt")
+	students = models.ManyToManyField(Student, blank=True)
 
 	def __str__(self):
 		return str(self.name)
@@ -165,6 +173,7 @@ class CourseOverview(models.Model):
 	index = models.IntegerField(help_text="For Chronological Order", blank=True, null=True, unique=True)
 	title = models.CharField(max_length=100,blank=True,null=True,default="CourseOverview")
 	text = models.TextField(blank=True,null=True)
+	course = models.ForeignKey('Course', on_delete=models.CASCADE, blank=True, null=True)
 
 	def __str__(self):
 		return str(self.index)+" "+str(self.title)
