@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Orders, UpdateOrder
 from Paytm import Checksum
 from classroom.models import Ratings
+import random
 
 
 MERCHANT_KEY = '15Oo@vdvanPfefG!'
@@ -34,25 +35,21 @@ def checkout(request):
         course = request.POST.get('course')
         name = request.POST.get('name')
         email = request.POST.get('email')
-        city = request.POST.get('city')
-        state = request.POST.get('state')
-        address = request.POST.get('address')
-        zip_code = request.POST.get('zip_code')
         mobile = request.POST.get('mobile')
         amount = request.POST.get('amount')
 
-        order = Orders(item_json=course, name=name, email=email, city=city, state=state, address=address,
-                       zip_code=zip_code, mobile=mobile, amount=amount)
+        order = Orders(item_json=course, name=name, email=email,  mobile=mobile, amount=amount)
         order.save()
 
-        update = UpdateOrder(order_id=order.order_id, update_desc="Order placed")
-        update.save()
-        thank = True
-        ids = order.order_id
+        orderid=random.randrange(11111,99999)
+        # update = UpdateOrder(order_id=order.order_id, update_desc="Order placed")
+        # update.save()
+        # thank = True
+        # ids = order.order_id
         # return render(request, 'dashboard/checkout.html', {'thank':thank, 'ids':ids})
         param_dict = {
             'MID': 'XouRsh60629205732669',
-            'ORDER_ID': str(order.order_id),
+            'ORDER_ID': str(orderid),
             'TXN_AMOUNT': str(amount),
             'CUST_ID': email,
             'INDUSTRY_TYPE_ID': 'Retail',
