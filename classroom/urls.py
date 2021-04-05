@@ -29,9 +29,9 @@ urlpatterns = [
 	path('purchase_course/',views.user_courseListView,name='purchase_course'),
 
 	#course-detail-view-for-member
-	path('course/purchase/<course_slug>/',views.course_detail_view_for_purchase_user,name='course-access'),
-	path('course/purchase/<course_slug>/videos',views.course_videos_for_purchase_user,name='course_videos_for_purchase_user'),
-	path('course/purchase/<course_slug>/notes',views.course_notes_for_purchase_user,name='course_notes_for_purchase_user'),
+	path('course/purchased/<course_slug>/',views.course_detail_view_for_purchase_user,name='course-access'),
+	path('course/purchased/<course_slug>/videos',views.course_videos_for_purchase_user,name='course_videos_for_purchase_user'),
+	path('course/purchased/<course_slug>/notes',views.course_notes_for_purchase_user,name='course_notes_for_purchase_user'),
 
 
 
@@ -55,6 +55,9 @@ urlpatterns = [
 5. profile edit page
 6. password change fields
 7. in classroom/notes model add proper path and file name in media folder , check save() method
+8. like blog post
+9. add to favourites 
+
 
 
 ====== Frontend Task =======
@@ -66,6 +69,8 @@ urlpatterns = [
 5. Mobile View Profile DropDown
 6. Course Access Page Separated Notes And Videos
 7. reduce margin of course list
+8. add profile icon in navbar 
+
 
 """
 

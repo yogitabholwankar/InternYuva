@@ -150,95 +150,22 @@
 			<div class="col-lg-10">
 				<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
 				   <!-- Item -->
-				  	<div class="card mb-3">
-						<!-- Card header -->
-					    <div class="card-head" role="tab" id="headingOne1">
-					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1" class="collapsed">
-					        <h6 class="mb-0"><i class="fal fa-minus-square"></i> Is there a demo lecture available?</h6>
-					      </a>
-					    </div>
-						<!-- Card body -->
-					    <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx" style="">
-					      <div class="card-body">
-					        <p>Yes. Once you sign up with us, you will able to access and view few demo lessons in every course.</p>
-					      </div>
-					    </div>
-					</div>
-					<!-- Item -->
-				  	<div class="card mb-3">
-						<!-- Card header -->
-					    <div class="card-head" role="tab" id="headingOne2">
-					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2" class="collapsed">
-					        <h6 class="mb-0"><i class="fal fa-minus-square"></i> How do I contact my coach?</h6>
-					      </a>
-					    </div>
-						<!-- Card body -->
-					    <div id="collapseOne2" class="collapse" role="tabpanel" aria-labelledby="headingOne2" data-parent="#accordionEx">
-					      <div class="card-body">
-					        <p>You may contact your coach through multiple means. The easiest way is through the Discussion Board on your profile. Junior Coaches and Mentors on the platform contact you on a regular basis to help you with project completion and the learning process. Also, you can get in touch with the Coach through Email, WhatsApp and calls subject to availability of the Coach.</p>
-					      </div>
-					    </div>
-					</div>
-					<!-- Item -->
-				  	<div class="card mb-3">
-						<!-- Card header -->
-					    <div class="card-head" role="tab" id="headingOne3">
-					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3" class="collapsed">
-					        <h6 class="mb-0"><i class="fal fa-minus-square"></i>How long is the course duration?</h6>
-					      </a>
-					    </div>
-						<!-- Card body -->
-					    <div id="collapseOne3" class="collapse" role="tabpanel" aria-labelledby="headingOne3" data-parent="#accordionEx">
-					      <div class="card-body">
-					        <p>Courses at Unschool are self-paced. Take 2 weeks or 3 months – at Unschool, you are allowed to learn at your own pace and every course is designed to cater to your personal needs, which means you pay once and learn life-long.</p>
-					      </div>
-					    </div>
-					</div>
-					<!-- Item -->
-				  	<div class="card mb-3">
-						<!-- Card header -->
-					    <div class="card-head" role="tab" id="headingOne3">
-					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3" class="collapsed">
-					        <h6 class="mb-0"><i class="fal fa-minus-square"></i>How long is the course duration?</h6>
-					      </a>
-					    </div>
-						<!-- Card body -->
-					    <div id="collapseOne3" class="collapse" role="tabpanel" aria-labelledby="headingOne3" data-parent="#accordionEx">
-					      <div class="card-body">
-					        <p>Courses at Unschool are self-paced. Take 2 weeks or 3 months – at Unschool, you are allowed to learn at your own pace and every course is designed to cater to your personal needs, which means you pay once and learn life-long.</p>
-					      </div>
-					    </div>
-					</div>
-					<!-- Item -->
-				  	<div class="card mb-3">
-						<!-- Card header -->
-					    <div class="card-head" role="tab" id="headingOne3">
-					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3" class="collapsed">
-					        <h6 class="mb-0"><i class="fal fa-minus-square"></i>How long is the course duration?</h6>
-					      </a>
-					    </div>
-						<!-- Card body -->
-					    <div id="collapseOne3" class="collapse" role="tabpanel" aria-labelledby="headingOne3" data-parent="#accordionEx">
-					      <div class="card-body">
-					        <p>Courses at Unschool are self-paced. Take 2 weeks or 3 months – at Unschool, you are allowed to learn at your own pace and every course is designed to cater to your personal needs, which means you pay once and learn life-long.</p>
-					      </div>
-					    </div>
-					</div>
-					<!-- Item -->
-				  	<div class="card mb-3">
-						<!-- Card header -->
-					    <div class="card-head" role="tab" id="headingOne3">
-					      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3" class="collapsed">
-					        <h6 class="mb-0"><i class="fal fa-minus-square"></i>How long is the course duration?</h6>
-					      </a>
-					    </div>
-						<!-- Card body -->
-					    <div id="collapseOne3" class="collapse" role="tabpanel" aria-labelledby="headingOne3" data-parent="#accordionEx">
-					      <div class="card-body">
-					        <p>Courses at Unschool are self-paced. Take 2 weeks or 3 months – at Unschool, you are allowed to learn at your own pace and every course is designed to cater to your personal needs, which means you pay once and learn life-long.</p>
-					      </div>
-					    </div>
-					</div>
+                    {% for obj in frequently_ask_questions %}
+                        <div class="card mb-3">
+                            <!-- Card header -->
+                            <div class="card-head" role="tab" id="headingOne{{ forloop.counter }}">
+                              <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseOne{{ forloop.counter }}" class="collapsed">
+                                <h6 class="mb-0"><i class="fal fa-minus-square"></i> {{ obj.question }}</h6>
+                              </a>
+                            </div>
+                            <!-- Card body -->
+                            <div id="collapseOne{{ forloop.counter }}" class="collapse" role="tabpanel" aria-labelledby="headingOne{{ forloop.counter }}" data-parent="#accordionEx" style="">
+                              <div class="card-body">
+                                <p>{{ obj.answer }}.</p>
+                              </div>
+                            </div>
+                        </div>
+                    {% endfor %}
 				</div>
 			</div>
 		</div>

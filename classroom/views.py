@@ -246,7 +246,10 @@ def contactUs(request):
 	return render(request,'main/contact.html')
 
 def aboutUs(request):
-	return render(request,'main/about.html')
+	context={
+		'frequently_ask_questions':FrequentlyAskQuestion.objects.all()
+	}
+	return render(request,'main/about.html',context)
 
 def internships(request):
 	context={
@@ -272,3 +275,5 @@ def checkoutPage(request,course_slug):
 # @login_required
 # def onPurchase(request):
 # 	return render(request,'')
+
+
