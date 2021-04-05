@@ -1,5 +1,33 @@
 {% extends 'main/base.html' %}
 {% load static %}s
+
+{% block title %}Blog |InternYuva{% endblock %}
+
+{% block style %}
+    <style>
+        h5{
+        font-weight: bold;
+        }
+        p{
+            color:lightgrey!important;
+        }
+        .read_article_btn {
+            padding: 14px 45px;
+            box-shadow: 0 10px 25px 0 rgba(0, 1, 40, 0.15);
+            border: 0;
+            background: linear-gradient(95.74deg, #ff5856 -5.11%, #00147c 118.47%);
+            font-family: "Jost", Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.3;
+            color: #f5f5f5;
+            text-transform: uppercase;
+            z-index: 34;
+            position: relative;
+        }
+    </style>
+{% endblock %}
+
 {% block  content%}
 
 {% comment %}
@@ -49,7 +77,7 @@
 {% endcomment %}
     
     <section>
-        <div class="container">
+        <div class="container-fluid">
             <div id="demo" class="carousel slide" data-ride="carousel">
               <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -62,6 +90,7 @@
                   <div class="carousel-caption">
                     <h3>Los Angeles</h3>
                     <p>We had such a great time in LA!</p>
+                    <a href="{% url 'blog_create' %}" class="btn btn-warning btn-lg read_article_btn" >Read Article</a>
                   </div>   
                 </div>
                 <div class="carousel-item">
@@ -69,6 +98,7 @@
                   <div class="carousel-caption">
                     <h3>Chicago</h3>
                     <p>Thank you, Chicago!</p>
+                    <a href="{% url 'blog_create' %}" class="btn btn-warning btn-lg read_article_btn">Read Article</a>
                   </div>   
                 </div>
                 <div class="carousel-item">
@@ -76,6 +106,7 @@
                   <div class="carousel-caption">
                     <h3>New York</h3>
                     <p>We love the Big Apple!</p>
+                    <a href="{% url 'blog_create' %}" class="btn btn-warning btn-lg read_article_btn">Read Article</a>
                   </div>   
                 </div>
               </div>
@@ -88,11 +119,15 @@
             </div>
             
         </div>
-    </section>
 
-    <section>
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
+                <div class="col-md-12 mb-4">
+                    <a href="#" class="btn btn-success"> Technology</a>
+                    <a href="#" class="btn btn-warning"> Science</a>
+                    <a href="#" class="btn btn-danger"> Entrepreneurship</a>
+                    <a href="#" class="btn btn-info"> Marketing</a>
+                </div>
                 <div class="col-md-12">
                     <h4 style="color:white!important;">Top Reads This Week</h4>
                 </div>
@@ -151,5 +186,96 @@
             
         </div>
     </section>
+
+    <div class="container">
+       
+        <div class="row top">
+            <div class="col-md-12">
+                <h4>Heading</h4>
+            </div>
+            <div class="col-md-4">
+                <a href="">Lorem, ipsum.</a>
+                <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, ex voluptatibus, maiores porro quia
+                    cum voluptate exercitationem laudantium sunt modi debitis repellat maxime, cupiditate quod voluptas.
+                    Vel, dolores libero aliquam autem sapiente consequuntur repellendus rerum rem iste repudiandae
+                    facilis labore quis, doloribus eligendi sunt quae ullam ea vero obcaecati maxime?</p>
+            </div>
+            
+            <div class="col-md-4">
+                <a href="">Lorem, ipsum.</a>
+                <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, ex voluptatibus, maiores porro quia
+                    cum voluptate exercitationem laudantium sunt modi debitis repellat maxime, cupiditate quod voluptas.
+                    Vel, dolores libero aliquam autem sapiente consequuntur repellendus rerum rem iste repudiandae
+                    facilis labore quis, doloribus eligendi sunt quae ullam ea vero obcaecati maxime?</p>
+            </div>
+        </div>
+       <hr>
+
+
+        <div class="row second">
+            <div class="col-md-12">
+                <h2>Heading</h2>
+            </div>
+            <div class="col-md-3">
+                <a href="">Lorem, ipsum.</a>
+                <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, ex voluptatibus, maiores porro quia
+                    cum voluptate exercitationem laudantium sunt modi debitis repellat maxime, cupiditate quod voluptas.
+                    Vel, dolores libero aliquam autem sapiente consequuntur repellendus rerum rem iste repudiandae
+                    facilis labore quis, doloribus eligendi sunt quae ullam ea vero obcaecati maxime?</p>
+            </div>
+            
+            <div class="col-md-3">
+                <a href="">Lorem, ipsum.</a>
+                <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, ex voluptatibus, maiores porro quia
+                    cum voluptate exercitationem laudantium sunt modi debitis repellat maxime, cupiditate quod voluptas.
+                    Vel, dolores libero aliquam autem sapiente consequuntur repellendus rerum rem iste repudiandae
+                    facilis labore quis, doloribus eligendi sunt quae ullam ea vero obcaecati maxime?</p>
+            </div>
+            <div class="col-md-3">
+                <a href="">Lorem, ipsum.</a>
+                <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, ex voluptatibus, maiores porro quia
+                    cum voluptate exercitationem laudantium sunt modi debitis repellat maxime, cupiditate quod voluptas.
+                    Vel, dolores libero aliquam autem sapiente consequuntur repellendus rerum rem iste repudiandae
+                    facilis labore quis, doloribus eligendi sunt quae ullam ea vero obcaecati maxime?</p>
+            </div>
+            <div class="col-md-3">
+                <a href="">Lorem, ipsum.</a>
+                <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, ex voluptatibus, maiores porro quia
+                    cum voluptate exercitationem laudantium sunt modi debitis repellat maxime, cupiditate quod voluptas.
+                    Vel, dolores libero aliquam autem sapiente consequuntur repellendus rerum rem iste repudiandae
+                    facilis labore quis, doloribus eligendi sunt quae ullam ea vero obcaecati maxime?</p>
+            </div>
+          
+        </div>
+        
+        <hr>
+
+        <div class="row second">
+            <div class="col-md-12">
+                <h2>Heading</h2>
+            </div>
+            <div class="col-md-3">
+                <a href="">Lorem, ipsum.</a>
+                <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, ex voluptatibus, maiores porro quia
+                    cum voluptate exercitationem laudantium sunt modi debitis repellat maxime, cupiditate quod voluptas.
+                    Vel, dolores libero aliquam autem sapiente consequuntur repellendus rerum rem iste repudiandae
+                    facilis labore quis, doloribus eligendi sunt quae ullam ea vero obcaecati maxime?</p>
+            </div>
+            
+         
+           
+          
+        </div>
+        
+        <hr>
+
+    </div>
 
 {% endblock %}
