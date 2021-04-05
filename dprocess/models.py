@@ -73,11 +73,7 @@ class Orders(models.Model):
     item_json = models.TextField()
     amount = models.IntegerField(default=0)
     name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255) 
-    address = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
-    state = models.CharField(max_length=255)
-    zip_code = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
     mobile = models.CharField(max_length=255)
 
     def __str__(self):

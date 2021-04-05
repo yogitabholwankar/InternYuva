@@ -1,7 +1,8 @@
 {% extends 'main/base.html' %}
-{% load static %}
+{% load static %}s
 {% block  content%}
 
+{% comment %}
     <section class="page-title">
         <div class="container">
             <div class="row">
@@ -43,6 +44,111 @@
                     <br>
                 {% endfor %}
             </div>
+        </div>
+    </section>
+{% endcomment %}
+    
+    <section>
+        <div class="container">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+              <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+              </ul>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="{% static 'main/img/course-inner.jpg' %}" alt="Los Angeles" width="1100" height="500">
+                  <div class="carousel-caption">
+                    <h3>Los Angeles</h3>
+                    <p>We had such a great time in LA!</p>
+                  </div>   
+                </div>
+                <div class="carousel-item">
+                  <img src="{% static 'main/img/online-courses-1.jpg' %}" alt="Chicago" width="1100" height="500">
+                  <div class="carousel-caption">
+                    <h3>Chicago</h3>
+                    <p>Thank you, Chicago!</p>
+                  </div>   
+                </div>
+                <div class="carousel-item">
+                  <img src="{% static 'main/img/shutterstock_548778247.jpg' %}" alt="New York" width="1100" height="500">
+                  <div class="carousel-caption">
+                    <h3>New York</h3>
+                    <p>We love the Big Apple!</p>
+                  </div>   
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 style="color:white!important;">Top Reads This Week</h4>
+                </div>
+
+                <div class="col-md-12">
+                    <div id="reading-category-tags" style="display: flex;flex-wrap: wrap; color:white;">
+
+                <a href="#" class="tag-link-button">
+                    Technology
+                </a>
+                <a href="#" class="tag-link-button science-tag">
+                    Science
+                </a>
+                <a href="#" class="tag-link-button entrepreneur-tag">
+                    Entrepreneurship
+                </a>
+                <a href="#" class="tag-link-button marketing-tag">
+                    Marketing
+                </a>
+
+            </div>
+                </div>
+                <div class="col-md-6 mt-5">
+                    <h5 style="color:skyblue;">Entrepreneurship</h5>
+                    <h5 style="color:white; font-weight: bold;">5 quick ways to be agile and adaptive.</h5>
+                    <p>A quote attributed to Charles Darwin, “It is not the strongest of the species that survives, nor the most intelligent that survives. It is the one that is most adaptable to change.”, is something which speaks volumes about a quality which is not the</p>                        
+                    
+                    <footer class="post-card-meta">
+                        <a href="#" class="ml-4">
+                            <img src="{% static 'main/img/about1.jpg' %}" width="48" height="auto" style="border-radius:50%;" alt="Narayanan S">
+                        </a>
+                        <div style="margin-top:-50px; font-weight:bold; margin-left: 90px;">
+                            Narayanan S
+                            <br>
+                            <span class="post-card-byline-date"><time datetime="2020-11-05">5 Nov 2020</time> <span class="bull">•</span> 2 min read</span>      
+                        </div>
+                    </footer>
+                </div>
+                <div class="col-md-6 mt-5">
+                    <h5 style="color:skyblue;">Technology</h5>
+                    <h5 style="color:white; font-weight: bold;">Best Practices: Web Development for Beginners</h5>
+                    <p>A quote attributed to Charles Darwin, “It is not the strongest of the species that survives, nor the most intelligent that survives. It is the one that is most adaptable to change.”, is something which speaks volumes about a quality which is not the</p>                        
+                    
+                    <footer class="post-card-meta">
+                        <a href="#" class="ml-4">
+                            <img src="{% static 'main/img/about1.jpg' %}" width="48" height="auto" style="border-radius:50%;" alt="Narayanan S">
+                        </a>
+                        <div style="margin-top:-50px; font-weight:bold; margin-left: 90px;">
+                            Narayanan S
+                            <br>
+                            <span class="post-card-byline-date"><time datetime="2020-11-05">5 Nov 2020</time> <span class="bull">•</span> 2 min read</span>      
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            
         </div>
     </section>
 

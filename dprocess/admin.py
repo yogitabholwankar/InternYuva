@@ -30,7 +30,7 @@ class BusinessTypeAdmin(admin.ModelAdmin):
 
 
 class OrdersAdmin(admin.ModelAdmin):
-    list_display = ('order_id', 'item_json', 'amount', 'name', 'email', 'city', 'state', 'zip_code', 'mobile')
+    list_display = ('order_id', 'item_json', 'amount', 'name', 'email', 'mobile')
 
 
 admin.site.register(Country, CountryAdmin)
