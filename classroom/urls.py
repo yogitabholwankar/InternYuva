@@ -22,8 +22,8 @@ urlpatterns = [
 	path('internships/',views.internships,name='internships'),
 	path('internships/<id>',views.internshipDetail,name='internships-detail'),
 
-	#checkout page
-	# path('checkout/<course_slug>',views.checkoutPage,name="checkout"),
+	# checkout page
+	path('checkout/<course_slug>',views.checkoutPage,name="checkout"),
 
 	#user course
 	path('purchase_course/',views.user_courseListView,name='purchase_course'),
