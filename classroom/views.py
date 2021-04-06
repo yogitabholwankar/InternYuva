@@ -281,6 +281,7 @@ def checkoutPage(request,course_slug):
 # def onPurchase(request):
 # 	return render(request,'')
 
+@login_required
 def checkout(request,course_slug):
     course = Course.objects.get(slug=course_slug)
     context = {
@@ -288,14 +289,18 @@ def checkout(request,course_slug):
     }
     if request.method == 'POST':
         # course = request.POST.get('course')
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        mobile = request.POST.get('mobile')
+        # name = request.POST.get('name')
+        # email = request.POST.get('email')
+        # mobile = request.POST.get('mobile')
+        user=request.user
+        name = 'name'
+        email = user.email
+        mobile = user.phone_number
         # amount = request.POST.get('amount')
-        amount = course.amount
+        amount = float(course.price)
 
 
-        order = Transaction(user=request.user, item_json=course, name=name, email=email, mobile=mobile, amount=amount)
+        order = Transaction.objects.create(user=request.user, item_json=course.name,course=course,name=name, email=email, mobile=mobile, amount=float(amount))
         order.save()
 
         orderid = random.randrange(11111, 99999)
@@ -303,7 +308,7 @@ def checkout(request,course_slug):
             'MID': 'XouRsh60629205732669',
             'ORDER_ID': str(orderid),
             'TXN_AMOUNT': str(amount),
-            'CUST_ID': email,
+            'CUST_ID': user.email,
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',

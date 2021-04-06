@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (CourseGroup, Course, Faculty, Student,
                      Category, SubCategory, Notes,Video_Lecture,
-                     Ratings, CourseOverview,VideoTesting,FrequentlyAskQuestion,ContactForm,InternshipForm
+                     Ratings, CourseOverview,VideoTesting,FrequentlyAskQuestion,ContactForm,InternshipForm,Transaction
                      )
 
 # Register your models here.
@@ -25,3 +25,6 @@ admin.site.register(ContactForm)
 
 
 admin.site.register(InternshipForm)
+admin.site.register(Transaction)
+
+
