@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     #Local Apps
     'accounts',
     'classroom',
-    'dprocess',
     'blog',
 ]
 AUTH_USER_MODEL = 'accounts.Account'

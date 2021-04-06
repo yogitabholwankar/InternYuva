@@ -42,7 +42,7 @@ urlpatterns = [
 """
 ====== Server Task ======
 
-1. Payment
+1. Payment ( save details after the successful transactions )
 2. S3 Bucket 
 3. Google Auth
 4. host on aws

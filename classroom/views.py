@@ -315,9 +315,9 @@ def checkout(request,course_slug):
             'CALLBACK_URL': 'http://127.0.0.1:8000/dashboard/handlerequest/',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
-        return render(request, 'dashboard/paytm.html', {'param_dict': param_dict})
+        return render(request, 'paytm/paytm.html', {'param_dict': param_dict})
 
-    # return render(request, 'dashboard/checkout.html')
+    # return render(request, 'paytm/checkout.html')
 
     return render(request, 'main/checkout.html', context)
 
@@ -337,4 +337,4 @@ def handlerequest(request):
             print('order Successfull')
         else:
             print('Something went wrong' + response_dict['RESPMSG'])
-    return render(request, 'dashboard/paytm_payment_status.html', {'response_dict': response_dict})
+    return render(request, 'paytm/paytm_payment_status.html', {'response_dict': response_dict})
