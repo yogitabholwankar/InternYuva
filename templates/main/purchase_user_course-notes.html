@@ -39,6 +39,16 @@
                                 <img src="{{ obj.thumbnail.url }}" class="mb-3">
                                 <h5>{{ obj.name }}</h5>
                             </div>
+                            <div class="course-btn">
+                                <a href="{{ obj.document.url }}" class="theme-btn">
+                                    <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                                    <span>View</span>
+                                </a>
+                                <a href="{{ obj.document.url }}" download="{{ obj.document.url }}" class="theme-btn">
+                                    <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}

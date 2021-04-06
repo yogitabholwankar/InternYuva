@@ -13,8 +13,6 @@ urlpatterns = [
 	path('course/add_notes/<course_slug>',views.addNotesToCourse ,name='add_notes_to_course'),
 	path('create_course/',views.createCourse,name='create_course'),
 
-	path('vid/',views.videoTesting),
-
 	#Static Pages
 	path('contact_us/',views.contactUs,name="contact_us"),
 	path('about_us/',views.aboutUs,name="about_us"),

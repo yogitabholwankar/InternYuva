@@ -36,6 +36,12 @@
                             <img href="{% url 'course_videos_for_purchase_user' course.slug %}" src="{% static 'main/img/dreamstime_xxl_124673889.jpg' %}" class="mb-3">
                             <a class="h5" href="{% url 'course_videos_for_purchase_user' course.slug %}">Course videos</a>
                         </div>
+                        <div class="course-btn">
+                                <a href="{% url 'course_videos_for_purchase_user' course.slug %}" class="theme-btn">
+                                    <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                                    <span>view Videos</span>
+                                </a>
+                        </div>
 {#                        <div class="text">#}
 {#                            <video autoplay="" loop="" controls="" width="490" height="280" class="vid-wid">#}
 {#                                <source type="video/mp4" src="https://endtest-videos.s3-us-west-2.amazonaws.com/documentation/endtest_data_driven_testing_csv.mp4">#}

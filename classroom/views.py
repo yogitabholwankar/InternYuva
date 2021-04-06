@@ -228,12 +228,6 @@ def addCourseOverviewToCourse(request, course_slug):
     return render(request, 'classroom/course_add_course_overview.html', context)
 
 
-def videoTesting(request):
-    videos = VideoTesting.objects.all()
-    context = {
-        'videos': videos
-    }
-    return render(request, 'classroom/vidTesting.html', context)
 
 
 def contactUs(request):
@@ -277,9 +271,6 @@ def checkoutPage(request,course_slug):
 	}
 	return render(request,'main/checkout.html',context)
 
-# @login_required
-# def onPurchase(request):
-# 	return render(request,'')
 
 @login_required
 def checkout(request,course_slug):
@@ -288,10 +279,6 @@ def checkout(request,course_slug):
         'course': course
     }
     if request.method == 'POST':
-        # course = request.POST.get('course')
-        # name = request.POST.get('name')
-        # email = request.POST.get('email')
-        # mobile = request.POST.get('mobile')
         user=request.user
         name = 'name'
         email = user.email
