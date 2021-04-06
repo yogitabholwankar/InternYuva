@@ -29,11 +29,11 @@ class BusinessTypeAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
 
 
-class OrdersAdmin(admin.ModelAdmin):
-    list_display = ('order_id', 'item_json', 'amount', 'name', 'email', 'mobile')
+# class OrdersAdmin(admin.ModelAdmin):
+#     list_display = ('order_id', 'item_json', 'amount', 'name', 'email', 'mobile')
 
 
 admin.site.register(Country, CountryAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(BusinessType, BusinessTypeAdmin)
-admin.site.register(Orders, OrdersAdmin)
+# admin.site.register(Orders, OrdersAdmin)
