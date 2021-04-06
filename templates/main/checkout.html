@@ -203,7 +203,7 @@
                         </div>
                         <div class="value">
 								<div class="input-group">
-					               <input type="text" class="form-control" placeholder="Email"> 
+					               <input type="text" class="form-control" name="email" placeholder="Email">
 					            </div>
                         </div>
                      </div>
@@ -211,7 +211,8 @@
                   <div class="purchase-detail mt-5">
                      <h3 class="mb-4 theme-color">Master Art Of Selling:</h3>
                      <div class="sep mb-3"></div>
-                     <form action="#">
+                     <form action="#" method="post">
+                        {% csrf_token %}
                         <div class="method d-flex mb-4">
                            <p class="mr-5">
                               <input type="radio" id="test1" name="radio-group" checked>
@@ -223,7 +224,8 @@
                            </p>
                         </div>
                         <div class="see-btn full-course">
-                           <a href="detail.html" class="theme-btn"><span>PROCEED TO PAYMENT</span></a>
+                           <!-- <a href="{% url 'paytmcheckout' %}" class="theme-btn"><span>PROCEED TO PAYMENT</span></a> -->
+                           <button type="submit" class="theme-btn"><span>PROCEED TO PAYMENT</span></button>
                         </div>
                      </form>
                   </div>

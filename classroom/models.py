@@ -261,18 +261,17 @@ class InternshipForm(models.Model):
 		return months//30
 
 
-# class Transaction(models.Model):
-# 	order_id = models.AutoField(primary_key=True)
-# 	item_json = models.TextField()
-# 	course = models.ForeignKey(Course,on_delete=models.CASCADE)
-# 	amount = models.IntegerField(default=0)
-# 	name = models.CharField(max_length=255)
-# 	email = models.CharField(max_length=255)
-# 	mobile = models.CharField(max_length=255)
-#
-# 	def __str__(self):
-# 		return str(self.order_id)+" "+str(self.course.name)
+class Transaction(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	order_id = models.AutoField(primary_key=True)
+	item_json = models.TextField()
+	course = models.ForeignKey(Course,on_delete=models.CASCADE)
+	amount = models.IntegerField(default=0)
+	name = models.CharField(max_length=255)
+	email = models.CharField(max_length=255)
+	mobile = models.CharField(max_length=255)
 
-
+	def _str_(self):
+		return str(self.order_id)+" "+str(self.course.name)
 
 

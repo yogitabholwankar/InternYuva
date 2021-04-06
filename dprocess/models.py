@@ -68,22 +68,22 @@ class ContactUs(models.Model):
     status = models.IntegerField(_("Status"), choices=Query_STATUS, default=1)
 
 
-class Orders(models.Model):
-    order_id = models.AutoField(primary_key=True)
-    item_json = models.TextField()
-    amount = models.IntegerField(default=0)
-    name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    mobile = models.CharField(max_length=255)
+# class Orders(models.Model):
+#     order_id = models.AutoField(primary_key=True)
+#     item_json = models.TextField()
+#     amount = models.IntegerField(default=0)
+#     name = models.CharField(max_length=255)
+#     email = models.CharField(max_length=255)
+#     mobile = models.CharField(max_length=255)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
-class UpdateOrder(models.Model):
-    update_id = models.AutoField(primary_key=True)
-    order_id = models.IntegerField(default="")
-    update_desc = models.TextField()
+# class UpdateOrder(models.Model):
+#     update_id = models.AutoField(primary_key=True)
+#     order_id = models.IntegerField(default="")
+#     update_desc = models.TextField()
 
-    def __str__(self):
-        return self.update_desc[0:7] + "..."
+#     def __str__(self):
+#         return self.update_desc[0:7] + "..."
