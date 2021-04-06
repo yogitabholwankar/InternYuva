@@ -129,3 +129,7 @@ dmypy.json
 
 collectstatic
 env
+dprocess/migrations
+classroom/migrations
+accounts/migrations
+blog/migrations
