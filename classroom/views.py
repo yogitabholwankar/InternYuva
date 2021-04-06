@@ -287,13 +287,15 @@ def checkout(request,course_slug):
         'course': course
     }
     if request.method == 'POST':
-        course = request.POST.get('course')
+        # course = request.POST.get('course')
         name = request.POST.get('name')
         email = request.POST.get('email')
         mobile = request.POST.get('mobile')
-        amount = request.POST.get('amount')
+        # amount = request.POST.get('amount')
+        amount = course.amount
 
-        order = Transaction(item_json=course, name=name, email=email, mobile=mobile, amount=amount)
+
+        order = Transaction(user=request.user, item_json=course, name=name, email=email, mobile=mobile, amount=amount)
         order.save()
 
         orderid = random.randrange(11111, 99999)

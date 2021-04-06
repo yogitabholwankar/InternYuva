@@ -33,7 +33,7 @@ urlpatterns = [
 	path('course/purchased/<course_slug>/videos',views.course_videos_for_purchase_user,name='course_videos_for_purchase_user'),
 	path('course/purchased/<course_slug>/notes',views.course_notes_for_purchase_user,name='course_notes_for_purchase_user'),
 
-	path('course/checkout/', views.checkout, name='paytmcheckout'),
+	path('course/checkout/<course_slug>', views.checkout, name='paytmcheckout'),
 	path('course/handlerequest/', views.handlerequest, name='handlerequest'),
 
 ]
