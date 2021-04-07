@@ -29,7 +29,7 @@
                    {{ registration_form | crispy  }}
                 </fieldset>
                 <div class="form-group">
-                    <button class="btn btn-outline-info" type="btn"> Sign Up</button>
+                    <button class="nav-link theme-btn" type="btn"> Sign Up</button>
                 </div>
 
                 <!-- Modal -->
@@ -62,8 +62,8 @@
                 </div>
             </form>
             <div class="border-top pt-3">
-                <small class="text-muted">
-                    Already Have An Account ? <a class="ml-2" href="{% url 'login' %}">Login</a>
+                <small class="h6">
+                    Already Have An Account ? <a class="nav-link theme-btn" href="{% url 'login' %}">Login</a>
                 </small>
             </div>        
         </div>

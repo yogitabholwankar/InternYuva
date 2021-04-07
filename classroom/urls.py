@@ -47,7 +47,7 @@ urlpatterns = [
 
 ====== Backend Task =======
 
-1. redirection
+1. redirection ( done with login redirection but register redirection is remain due OTP verification)
 2. courses list page categories
 3. email auth/otp
 4. favourites
@@ -67,7 +67,7 @@ urlpatterns = [
 4. Active Button On Navbar Home
 5. Mobile View Profile DropDown
 6. Course Access Page Separated Notes And Videos
-7. reduce margin of course list
+7. reduce margin of course list,register ,login pages 
 8. add profile icon in navbar 
 
 

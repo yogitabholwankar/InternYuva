@@ -37,9 +37,12 @@
                 <h2 class="text-light">Welcome back to <b style="color:#ed502e;">Myschool</b>, World's largest online learning Platform.</h2>
                 <img src="{% static 'img/login.png' %}" class="img-fluid">
             </div>
-            <div class="col-md-6 mb-5" style="border-radius: 8px;box-shadow: 0 9px 21px 0 rgb(53 41 46 / 8%);border: 3px solid rgba(31,40,207,.12);background-color: #070809;">
-                
+            <div class="col-md-6 mb-5" style="border-radius: 8px;box-shadow: 0 9px 21px 0 rgb(53 41 46);border: 3px solid rgba(31,40,207,.12);background-color: #070809;">
+                {% if redirect_to %}
+                <form method="POST" action="./?next={{ redirect_to }}">
+                {% else %}
                 <form method="POST">
+                {% endif %}
                     {% csrf_token %}
                     <fieldset class="form-group">
                         <legend class="border-bottom mb-4">Login </legend>
@@ -47,12 +50,12 @@
                     </fieldset>
                     
                     <div class="form-group">
-                        <button class="btn btn-outline-info" type="submit">Login</button>
+                        <button class="nav-link theme-btn" type="submit">Login</button>
                     </div>
 
                     <div class="'border-top pt-3">
-                        <small class="'text-muted">
-                            Already have an account? <a class="ml-2" href="{% url 'register' %}"><b style="color:white;">Register</b></a>
+                        <small class="h6">
+                            Already have an account? <a class="nav-link theme-btn" href="{% url 'register' %}"><b style="color:white;">Register</b></a>
                         </small>
                     </div>
                 </form>
