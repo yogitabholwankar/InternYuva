@@ -24,8 +24,6 @@ Account=settings.AUTH_USER_MODEL
 # Add like button
 # Category for courses 
 
-def accounts(request):
-	pass
 
 def index(request):
     return render(request,'accounts/home.html')

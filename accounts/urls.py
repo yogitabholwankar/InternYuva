@@ -3,7 +3,6 @@ from accounts import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('accounts/', views.accounts, name="accounts"),
     # url(r'^accounts/change/password/$', changepassword, name='changepassword'),
     # url(r'^accounts/forgot/password/$', forgotpassword, name='forgotpassword'),
     # path('',views.index,name='home'),
