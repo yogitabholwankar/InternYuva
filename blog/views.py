@@ -26,7 +26,7 @@ def post_Details(request,id):
 @login_required
 def createPost(request):
     user=request.user
-    author_=PostAuthor.objects.get(user=user)
+    # author_=PostAuthor.objects.get(user=user)
     form=CreatePostForm()
     if request.method=="POST":
         form=CreatePostForm(request.POST or None,request.FILES or None)
