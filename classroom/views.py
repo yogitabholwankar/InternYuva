@@ -246,7 +246,10 @@ def contactUs(request):
 
 
 def aboutUs(request):
-    return render(request, 'main/about.html')
+    context={
+        'frequently_ask_questions':FrequentlyAskQuestion.objects.all()
+    }
+    return render(request, 'main/about.html',context)
 
 
 def internships(request):
