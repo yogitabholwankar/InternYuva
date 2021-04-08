@@ -7,29 +7,37 @@ def generate_opt():
     n=random.randrange(1000,9999)
     return n
 
-# otp=1234
-
-# otp = generate_opt()
-
-
-
 # customer_number = '+917011101001'
 
 def send_otp(customer_number,current_otp):
-    # account_sid = 'ACffe0282cbc8dcdd87fea5c58b8292f9c'
-    account_sid = 'ACdcf64a7c9a50f5be4a56754c02238076'
-    # auth_token = '12ff3b8f0492dd1ff55f6643de4e768a'
-    auth_token = 'ebe01da37d18d6d2b32b94726af9e196'
+    #Messaging Service created and phone number provisioned. Your Messaging Service SID is MG550b81ea293631fa1af1f178be912b6f
+    account_sid = 'AC2affb3fcd424dbfa4a44940a42ef5b9b'
+    auth_token = 'd3e0847eefff6dce5ddf23639c45c2e0'
     client = Client(account_sid, auth_token)
     # current_otp=otp
     customer_number_='+91'+str(customer_number)
     message = client.messages.create(
                                 body=str(current_otp) +' is your MySchool OTP.\nDo not share it with anyone.',
-                                # from_='+15108265123',
-                                from_='+12517665621',
+                                #from_='+917977334188',
+                                messaging_service_sid='MG550b81ea293631fa1af1f178be912b6f',
                                 to=customer_number_
                             )
     return
+
+
+
+
+# account_sid = 'AC2affb3fcd424dbfa4a44940a42ef5b9b' 
+# auth_token = 'd3e0847eefff6dce5ddf23639c45c2e0' 
+# client = Client(account_sid, auth_token) 
+ 
+# message = client.messages.create(  
+#                               messaging_service_sid='MG550b81ea293631fa1af1f178be912b6f', 
+#                               body='hello',      
+#                               to='+917011101001' 
+#                           ) 
+ 
+# print(message.sid)       
 
 
 
