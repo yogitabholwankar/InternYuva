@@ -150,23 +150,24 @@
 
             </div>
                 </div>
+                {% for p in objects %}
                 <div class="col-md-6 mt-5">
-                    <h5 style="color:skyblue;">Entrepreneurship</h5>
-                    <h5 style="color:white; font-weight: bold;">5 quick ways to be agile and adaptive.</h5>
-                    <p>A quote attributed to Charles Darwin, “It is not the strongest of the species that survives, nor the most intelligent that survives. It is the one that is most adaptable to change.”, is something which speaks volumes about a quality which is not the</p>                        
+                    <h5 style="color:skyblue;">{{p.title}}</h5>
+                    <h5 style="color:white; font-weight: bold;">{{p.sub_title}}</h5>
+                    <p>{{p.content}}</p>                        
                     
                     <footer class="post-card-meta">
                         <a href="#" class="ml-4">
-                            <img src="{% static 'main/img/about1.jpg' %}" width="48" height="auto" style="border-radius:50%;" alt="Narayanan S">
+                            <img src="{{p.images.url}}" width="48" height="auto" style="border-radius:50%;" alt="Narayanan S">
                         </a>
                         <div style="margin-top:-50px; font-weight:bold; margin-left: 90px;">
-                            Narayanan S
+                            {{p.author}}
                             <br>
-                            <span class="post-card-byline-date"><time datetime="2020-11-05">5 Nov 2020</time> <span class="bull">•</span> 2 min read</span>      
+                            <span class="post-card-byline-date"><time datetime="2020-11-05">{{p.date_posted}}</time> <span class="bull">•</span> 2 min read</span>      
                         </div>
                     </footer>
                 </div>
-                <div class="col-md-6 mt-5">
+<!--                 <div class="col-md-6 mt-5">
                     <h5 style="color:skyblue;">Technology</h5>
                     <h5 style="color:white; font-weight: bold;">Best Practices: Web Development for Beginners</h5>
                     <p>A quote attributed to Charles Darwin, “It is not the strongest of the species that survives, nor the most intelligent that survives. It is the one that is most adaptable to change.”, is something which speaks volumes about a quality which is not the</p>                        
@@ -181,7 +182,8 @@
                             <span class="post-card-byline-date"><time datetime="2020-11-05">5 Nov 2020</time> <span class="bull">•</span> 2 min read</span>      
                         </div>
                     </footer>
-                </div>
+                </div> -->
+                {% endfor %}
             </div>
             
         </div>
