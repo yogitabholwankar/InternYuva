@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'classroom',
     'dprocess',
     'blog',
+
+    'social_django',
 ]
 AUTH_USER_MODEL = 'accounts.Account'
 
@@ -62,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'school.urls'
@@ -78,6 +81,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -142,6 +148,24 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
+                           # 'account.authentication.EmailAuthBackend',
+                           'social_core.backends.facebook.FacebookOAuth2',
+                           # 'social_core.backends.google.GoogleOAuth2', 
+]
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '272201431263675'
+SOCIAL_AUTH_FACEBOOK_SECRET = '145598dee3ef41579af04605806dc06f'
+
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '738644768833-vun6v03dfo6sah68c5u2sakcd166gtnk.apps.googleusercontent.com'
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'L0JCrZDZpDXHGjtPgRKX7D8G'
+
+
+
+
 
 
 # from .local_settings import *

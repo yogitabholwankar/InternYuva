@@ -63,8 +63,17 @@
             </form>
             <div class="border-top pt-3">
                 <small class="text-muted">
-                    Already Have An Account ? <a class="ml-2" href="{% url 'login' %}">Login</a>
+                    Already Have An Account ? <a class="ml-2" href="{% url 'login' %}"><strong class="text-light">Login</strong></a>
                 </small>
+            </div>
+            <p class="text-center">OR</p>
+            <div class="facebook">
+            <!-- <i class="fa fa-facebook" id="facebook"></i> -->
+            <a href="{% url 'social:begin' 'facebook' %}" type="submit" class="btn btn-primary form-control mb-2">Login with facebook</a><br />
+            </div>
+            <div class="google">
+            <!-- <i class="fa fa-google" id="google"></i> -->
+            <a href="{% url 'social:begin' 'google' %}" type="submit" class="btn btn-danger form-control mb-5">Login with google</a>
             </div>        
         </div>
     </div>
