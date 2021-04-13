@@ -37,3 +37,35 @@ class AccountAuthenticationForm(forms.ModelForm):
 class NumberForm(forms.Form):
     number = forms.IntegerField(required=True,help_text="Enter the otp which send to your number")
 
+class UpdateProfileForm(forms.ModelForm):
+    class Meta:
+        model=Account
+        fields=('email','username','phone_number','first_name','last_name','profile_pic')
+
+
+    def clean_email(self):
+        email=self.cleaned_data['email']
+        try:
+            account=Account.objects.exclude(pk=self.instance.pk).get(email=email)
+        except Account.DoesNotExist:
+            return email
+        raise forms.ValidationError('Email "%s" is already use.'% account)
+
+    def clean_username(self):
+        username=self.cleaned_data['username']
+        try:
+            account=Account.objects.exclude(pk=self.instance.pk).get(email=username)
+        except Account.DoesNotExist:
+            return username
+        raise forms.ValidationError('Username "%s" is already use.'% account)
+
+    #TOdo we are use this in production
+    """
+    def clean_phone_number(self):
+        phone_number=self.cleaned_data['phone_number']
+        try:
+            account=Account.objects.exclude(pk=self.instance.pk).get(phone_number=phone_number)
+        except Account.DoesNotExist:
+            return phone_number
+        raise forms.ValidationError("Phone is already exist ")
+    """
