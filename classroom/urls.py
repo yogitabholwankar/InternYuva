@@ -13,8 +13,6 @@ urlpatterns = [
 	path('course/add_notes/<course_slug>',views.addNotesToCourse ,name='add_notes_to_course'),
 	path('create_course/',views.createCourse,name='create_course'),
 
-	path('vid/',views.videoTesting),
-
 	#Static Pages
 	path('contact_us/',views.contactUs,name="contact_us"),
 	path('about_us/',views.aboutUs,name="about_us"),
@@ -42,14 +40,14 @@ urlpatterns = [
 """
 ====== Server Task ======
 
-1. Payment
+1. ( save details after the successful transactions )
 2. S3 Bucket 
 3. Google Auth
 4. host on aws
 
 ====== Backend Task =======
 
-1. redirection
+1. redirection ( done with login redirection but register redirection is remain due OTP verification)
 2. courses list page categories
 3. email auth/otp
 4. favourites
@@ -58,6 +56,8 @@ urlpatterns = [
 7. in classroom/notes model add proper path and file name in media folder , check save() method
 8. like blog post
 9. add to favourites 
+10. redirect messages / alert messages 
+
 
 
 
@@ -69,9 +69,10 @@ urlpatterns = [
 4. Active Button On Navbar Home
 5. Mobile View Profile DropDown
 6. Course Access Page Separated Notes And Videos
-7. reduce margin of course list
+7. reduce margin of course list,register ,login pages 
 8. add profile icon in navbar 
-
+9. profile settings page
+10 . In course detail page backgro
 
 """
 

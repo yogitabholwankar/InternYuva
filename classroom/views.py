@@ -228,12 +228,6 @@ def addCourseOverviewToCourse(request, course_slug):
     return render(request, 'classroom/course_add_course_overview.html', context)
 
 
-def videoTesting(request):
-    videos = VideoTesting.objects.all()
-    context = {
-        'videos': videos
-    }
-    return render(request, 'classroom/vidTesting.html', context)
 
 
 def contactUs(request):
@@ -252,7 +246,10 @@ def contactUs(request):
 
 
 def aboutUs(request):
-    return render(request, 'main/about.html')
+    context={
+        'frequently_ask_questions':FrequentlyAskQuestion.objects.all()
+    }
+    return render(request, 'main/about.html',context)
 
 
 def internships(request):
@@ -277,9 +274,6 @@ def checkoutPage(request,course_slug):
 	}
 	return render(request,'main/checkout.html',context)
 
-# @login_required
-# def onPurchase(request):
-# 	return render(request,'')
 
 @login_required
 def checkout(request,course_slug):
@@ -288,10 +282,6 @@ def checkout(request,course_slug):
         'course': course
     }
     if request.method == 'POST':
-        # course = request.POST.get('course')
-        # name = request.POST.get('name')
-        # email = request.POST.get('email')
-        # mobile = request.POST.get('mobile')
         user=request.user
         name = 'name'
         email = user.email
@@ -315,9 +305,9 @@ def checkout(request,course_slug):
             'CALLBACK_URL': 'http://127.0.0.1:8000/dashboard/handlerequest/',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
-        return render(request, 'dashboard/paytm.html', {'param_dict': param_dict})
+        return render(request, 'paytm/paytm.html', {'param_dict': param_dict})
 
-    # return render(request, 'dashboard/checkout.html')
+    # return render(request, 'paytm/checkout.html')
 
     return render(request, 'main/checkout.html', context)
 
@@ -337,4 +327,4 @@ def handlerequest(request):
             print('order Successfull')
         else:
             print('Something went wrong' + response_dict['RESPMSG'])
-    return render(request, 'dashboard/paytm_payment_status.html', {'response_dict': response_dict})
+    return render(request, 'paytm/paytm_payment_status.html', {'response_dict': response_dict})

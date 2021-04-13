@@ -3,10 +3,9 @@ from accounts import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('accounts/', views.accounts, name="accounts"),
     # url(r'^accounts/change/password/$', changepassword, name='changepassword'),
     # url(r'^accounts/forgot/password/$', forgotpassword, name='forgotpassword'),
-    path('',views.index,name='home'),
+    # path('',views.index,name='home'),
     path('register/',views.registration_view,name='register'),
     path('logout/',views.logout_view,name='logout'),
     path('login/',views.login_view,name='login'),

@@ -2,6 +2,7 @@ import string
 
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import login, authenticate, logout
@@ -23,8 +24,6 @@ Account=settings.AUTH_USER_MODEL
 # Add like button
 # Category for courses 
 
-def accounts(request):
-	pass
 
 def index(request):
     return render(request,'accounts/home.html')
@@ -40,6 +39,9 @@ def generate_opt():
 
 def registration_view(request):
     context = {}
+    redirect_to = request.GET.get('next', '')
+    if redirect_to != "" or redirect_to is not None:
+        context['redirect_to'] = redirect_to
     if request.POST:
 
         form = RegistrationForm(request.POST)
@@ -156,6 +158,7 @@ def logout_view(request):
 
 def login_view(request):
     context={}
+    redirect_to = request.GET.get('next', '')
 
     user=request.user
     if user.is_authenticated:
@@ -170,12 +173,16 @@ def login_view(request):
 
             if user:
                 login(request, user)
-                return redirect("home")
+                if redirect_to == "" or redirect_to is None:
+                    return redirect("home")
+                return HttpResponseRedirect(redirect_to)
 
     else:
         form = AccountAuthenticationForm()
 
     context['login_form'] = form
+    if redirect_to != "" or redirect_to is not None:
+        context['redirect_to'] = redirect_to
 
     # print(form)
     return render(request, "accounts/login.html", context)

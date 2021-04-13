@@ -7,6 +7,8 @@ from django.urls import reverse
 from django.utils import timezone
 from django.conf import settings
 
+from classroom.models import Category
+
 USER=settings.AUTH_USER_MODEL
 
 
@@ -16,11 +18,11 @@ class Image(models.Model):
     image=models.ImageField(upload_to='blog_images')
 
 
-class Category(models.Model):
-    name=models.CharField(max_length=10,default='Cat')
-
-    def __str__(self):
-        return self.name
+# class Category(models.Model):
+#     name=models.CharField(max_length=10,default='Cat')
+#
+#     def __str__(self):
+#         return self.name
 
     # def get_absolute_cat_url(self):
     #     return reverse('cat-detail',kwargs={'id':self.pk})
