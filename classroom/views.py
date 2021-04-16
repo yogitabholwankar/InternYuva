@@ -39,7 +39,7 @@ def courseListView(request):
     }
     return render(request, 'main/course_list.html', context)
 
-
+@login_required
 def user_courseListView(request):
     user = request.user
     context = {
@@ -142,7 +142,7 @@ def createCourse(request):
     return render(request, 'classroom/course_create.html', context)
 
 
-@login_required()
+@login_required
 def addVideosToCourse(request, course_slug):
     current_course = Course.objects.get(slug=course_slug)
     current_faculty_user = Faculty.objects.get(user=request.user)
@@ -171,7 +171,7 @@ def addVideosToCourse(request, course_slug):
     return render(request, 'classroom/course_add_videos.html', context)
 
 
-@login_required()
+@login_required
 def addNotesToCourse(request, course_slug):
     current_course = Course.objects.get(slug=course_slug)
     current_faculty_user = Faculty.objects.get(user=request.user)
@@ -200,7 +200,7 @@ def addNotesToCourse(request, course_slug):
     return render(request, 'classroom/course_add_notes.html', context)
 
 
-@login_required()
+@login_required
 def addCourseOverviewToCourse(request, course_slug):
     current_course = Course.objects.get(slug=course_slug)
     current_faculty_user = Faculty.objects.get(user=request.user)
@@ -242,6 +242,7 @@ def contactUs(request):
         curr_form.save()
 
         """Add redirect message"""
+        messages.success(request,"Message send successfully")
         return redirect('contact_us')
     return render(request, 'main/contact.html')
 
@@ -313,23 +314,9 @@ def checkout(request,course_slug):
 @csrf_exempt
 def handlerequest(request,course_slug,username):
     user=Account.objects.get(username=username)
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print("hello")
-    print(user.email)
+    for _ in range(10):
+        print("hello")
+        print(user.email)
     form = request.POST
     response_dict = {}
     for i in form.keys():
@@ -350,14 +337,18 @@ def handlerequest(request,course_slug,username):
             order.save()
             course.member.add(user)
             course.save()
-            print('order successful')
-            print('order successful')
-            print('order successful')
-            print('order successful')
-            print('order successful')
-            print('order successful')
-            print('order successful')
+            messages.success(request,"Course is successfully purchase")
+            return redirect("purchase_course")
+            # print('order successful')
+            # print('order successful')
+            # print('order successful')
+            # print('order successful')
+            # print('order successful')
+            # print('order successful')
+            # print('order successful')
 
         else:
-            print('Something went wrong' + response_dict['RESPMSG'])
+            messages.error(request, "Something Went Wrong")
+            return redirect("checkout",course_slug)
+            # print('Something went wrong' + response_dict['RESPMSG'])
     return render(request, 'paytm/paytm_payment_status.html', {'response_dict': response_dict})

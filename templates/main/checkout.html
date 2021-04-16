@@ -210,10 +210,11 @@
                   </div>
                   {% endcomment %}
                   <div class="purchase-detail mt-5">
-                     <h3 class="mb-4 theme-color">Master Art Of Selling:</h3>
+{#                     <h3 class="mb-4 theme-color">Master Art Of Selling:</h3>#}
                      <div class="sep mb-3"></div>
                      <form action="{% url 'paytmcheckout' course.slug %}" method="post">
                         {% csrf_token %}
+                         {% comment %}
                         <div class="method d-flex mb-4">
                            <p class="mr-5">
                               <input type="radio" id="test1" name="radio-group" checked>
@@ -224,6 +225,7 @@
                               <label for="test2">Series</label>
                            </p>
                         </div>
+                        {% endcomment %}
                         <div class="see-btn full-course">
 {#                           <!-- <a href="{% url 'paytmcheckout' course.slug %}" class="theme-btn"><span>PROCEED TO PAYMENT</span></a> -->#}
                            <button type="submit" class="theme-btn"><span>PROCEED TO PAYMENT</span></button>

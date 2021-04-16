@@ -40,10 +40,9 @@ urlpatterns = [
 """
 ====== Server Task ======
 
-1. ( save details after the successful transactions )
 2. S3 Bucket 
 3. Google Auth
-4. host on aws
+5. goDaddy
 
 ====== Backend Task =======
 
@@ -51,7 +50,7 @@ urlpatterns = [
 2. courses list page categories
 3. email auth/otp
 4. favourites
-5. profile edit page
+5.
 6. password change fields
 7. in classroom/notes model add proper path and file name in media folder , check save() method
 8. like blog post
@@ -72,6 +71,7 @@ urlpatterns = [
 7. reduce margin of course list,register ,login pages 
 8. add profile icon in navbar 
 9. profile settings page
+11. profile edit page
 10 . In course detail page backgro
 
 """

@@ -9,7 +9,7 @@ from django.contrib.auth import login, authenticate, logout
 from accounts.forms import RegistrationForm, AccountAuthenticationForm,NumberForm,UpdateProfileForm
 from django.contrib.auth.decorators import login_required
 from .otp_service import *
-from .models import Account
+# from .models import Account
 # from .models import Account
 
 import random
@@ -189,10 +189,10 @@ def login_view(request):
 
 # 7011101001
 
-
+@login_required
 def updateProfile(request):
     context={
-
+        'user':request.user
     }
     form=UpdateProfileForm()
     if request.POST:
