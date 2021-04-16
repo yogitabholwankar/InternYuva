@@ -8,6 +8,7 @@ from accounts.models import NewslettersSubscribers
 from django.views.decorators.csrf import csrf_exempt
 
 from Paytm import Checksum
+from accounts.models import Account
 
 MERCHANT_KEY = '15Oo@vdvanPfefG!'
 
@@ -299,7 +300,7 @@ def checkout(request,course_slug):
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL': f'http://127.0.0.1:8000/course/handlerequest/{course_slug}',
+            'CALLBACK_URL': f'http://127.0.0.1:8000/course/handlerequest/{course_slug}/{user.username}',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
         return render(request, 'paytm/paytm.html', {'param_dict': param_dict})
@@ -310,9 +311,8 @@ def checkout(request,course_slug):
 
 
 @csrf_exempt
-
-def handlerequest(request,course_slug):
-
+def handlerequest(request,course_slug,username):
+    user=Account.objects.get(username=username)
     print("hello")
     print("hello")
     print("hello")
@@ -329,7 +329,7 @@ def handlerequest(request,course_slug):
     print("hello")
     print("hello")
     print("hello")
-    print(request.user.email)
+    print(user.email)
     form = request.POST
     response_dict = {}
     for i in form.keys():
@@ -340,7 +340,7 @@ def handlerequest(request,course_slug):
     if verify:
         if response_dict['RESPCODE'] == '01':
             course = Course.objects.get(slug=course_slug)
-            user=request.user
+            # user=request.user
             name = 'name'
             email = user.email
             mobile = user.phone_number
