@@ -283,15 +283,12 @@ def checkout(request,course_slug):
     }
     if request.method == 'POST':
         user=request.user
-        name = 'name'
-        email = user.email
-        mobile = user.phone_number
+
         # amount = request.POST.get('amount')
         amount = float(course.price)
 
 
-        order = Transaction.objects.create(user=request.user, item_json=course.name,course=course,name=name, email=email, mobile=mobile, amount=float(amount))
-        order.save()
+
 
         orderid = random.randrange(11111, 99999)
         param_dict = {
@@ -302,7 +299,7 @@ def checkout(request,course_slug):
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL': 'http://127.0.0.1:8000/dashboard/handlerequest/',
+            'CALLBACK_URL': f'http://127.0.0.1:8000/course/handlerequest/{course_slug}',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
         return render(request, 'paytm/paytm.html', {'param_dict': param_dict})
@@ -313,8 +310,26 @@ def checkout(request,course_slug):
 
 
 @csrf_exempt
-def handlerequest(request):
+
+def handlerequest(request,course_slug):
+
     print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print("hello")
+    print(request.user.email)
     form = request.POST
     response_dict = {}
     for i in form.keys():
@@ -324,7 +339,25 @@ def handlerequest(request):
     verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
     if verify:
         if response_dict['RESPCODE'] == '01':
-            print('order Successfull')
+            course = Course.objects.get(slug=course_slug)
+            user=request.user
+            name = 'name'
+            email = user.email
+            mobile = user.phone_number
+            amount = float(course.price)
+            order = Transaction.objects.create(user=user, item_json=course.name, course=course, name=name,
+                                               email=email, mobile=mobile, amount=float(amount))
+            order.save()
+            course.member.add(user)
+            course.save()
+            print('order successful')
+            print('order successful')
+            print('order successful')
+            print('order successful')
+            print('order successful')
+            print('order successful')
+            print('order successful')
+
         else:
             print('Something went wrong' + response_dict['RESPMSG'])
     return render(request, 'paytm/paytm_payment_status.html', {'response_dict': response_dict})
