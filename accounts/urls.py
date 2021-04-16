@@ -30,5 +30,7 @@ urlpatterns = [
 
     path('verification/',views.verification,name='otp_verification'),
 
-    path('register_with_js_form/',views.registration_with_js_form,name="register_with_js_form")
+    path('register_with_js_form/',views.registration_with_js_form,name="register_with_js_form"),
+
+    path('profile-edit/',views.updateProfile,name='update-profile')
 ]

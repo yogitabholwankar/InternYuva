@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import login, authenticate, logout
-from accounts.forms import RegistrationForm, AccountAuthenticationForm,NumberForm
+from accounts.forms import RegistrationForm, AccountAuthenticationForm,NumberForm,UpdateProfileForm
 from django.contrib.auth.decorators import login_required
 from .otp_service import *
 from .models import Account
@@ -190,3 +190,37 @@ def login_view(request):
 # 7011101001
 
 
+def updateProfile(request):
+    context={
+
+    }
+    form=UpdateProfileForm()
+    if request.POST:
+        form=UpdateProfileForm(request.POST or None,request.FILES or None,instance=request.user)
+        if form.is_valid():
+            form.initial={
+                "email":request.POST['email'],
+                "username":request.POST['username'],
+                "phone_number":request.POST['phone_number'],
+                "first_name":request.POST['first_name'],
+                "last_name":request.POST['last_name'],
+                "profile_pic":request.FILES['profile_pic']
+            }
+            form.save()
+            messages.success(request, "Your Profile is updated successfully")
+            context['success_message'] = "Updated"
+    else:
+        form=UpdateProfileForm(
+            initial={
+                "email":request.user.email,
+                "username":request.user.username,
+                "phone_number":request.user.phone_number,
+                "first_name":request.user.first_name,
+                "last_name":request.user.last_name,
+                "profile_pic":request.user.profile_pic,
+
+            }
+        )
+    context['form'] = form
+
+    return render(request,'accounts/profile_edit.html',context)
