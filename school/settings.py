@@ -150,11 +150,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # from .local_settings import *
 
 
-AWS_ACCESS_KEY_ID = "AKIAXL4SR765TAEKXYO6"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = "internyuva"
-
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = "AKIAXL4SR765TAEKXYO6"
+# AWS_SECRET_ACCESS_KEY = "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"
+# AWS_STORAGE_BUCKET_NAME = "internyuva"
+#
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+#
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
