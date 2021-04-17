@@ -152,15 +152,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
                            # 'account.authentication.EmailAuthBackend',
                            'social_core.backends.facebook.FacebookOAuth2',
-                           # 'social_core.backends.google.GoogleOAuth2', 
+                           'social_core.backends.google.GoogleOAuth2', 
 ]
 
 
 SOCIAL_AUTH_FACEBOOK_KEY = '135176475177358'
 SOCIAL_AUTH_FACEBOOK_SECRET = '1fe00f57617b42c46f39e26a62c1096e'
 
-# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '738644768833-vun6v03dfo6sah68c5u2sakcd166gtnk.apps.googleusercontent.com'
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'L0JCrZDZpDXHGjtPgRKX7D8G'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '516902878922-7ka5a33qtpfo0m2h181d2is8tnhmhb0v.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ar0vDZONKmc-PGX-CsdoXHKE'
 
 
 
