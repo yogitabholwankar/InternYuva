@@ -40,23 +40,18 @@ urlpatterns = [
 """
 ====== Server Task ======
 
-2. S3 Bucket 
 3. Google Auth
-5. goDaddy
 
 ====== Backend Task =======
 
 1. redirection ( done with login redirection but register redirection is remain due OTP verification)
 2. courses list page categories
 3. email auth/otp
-4. favourites
-5.
 6. password change fields
 7. in classroom/notes model add proper path and file name in media folder , check save() method
 8. like blog post
-9. add to favourites 
 10. redirect messages / alert messages 
-
+11. default profile pic
 
 
 

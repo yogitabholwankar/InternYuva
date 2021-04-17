@@ -60,7 +60,7 @@ class Account(AbstractBaseUser):
 																		MinValueValidator(1000000000),
 																		MaxValueValidator(9999999999)
 																		])
-	profile_pic = models.ImageField(blank=True,null=True,upload_to='Profile_Pics')
+	profile_pic = models.ImageField(blank=True,null=True,upload_to='Profile_Pics',default='media/profile')
 	# we have to add here some at least 10 default images
 
 	is_verify    = models.BooleanField(default=False)
