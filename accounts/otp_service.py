@@ -7,7 +7,7 @@ def generate_opt():
     n=random.randrange(1000,9999)
     return n
 
-# customer_number = '+917011101001'
+customer_number = '+917011101001'
 
 def send_otp(customer_number,current_otp):
     #Messaging Service created and phone number provisioned. Your Messaging Service SID is MG550b81ea293631fa1af1f178be912b6f
@@ -17,11 +17,9 @@ def send_otp(customer_number,current_otp):
     # current_otp=otp
     customer_number_='+91'+str(customer_number)
     message = client.messages.create(
-                                body=str(current_otp) +' is your MySchool OTP.\nDo not share it with anyone.',
-                                #from_='+917977334188',
-                                messaging_service_sid='MG550b81ea293631fa1af1f178be912b6f',
-                                to=customer_number_
-                            )
+        body=' is your MySchool OTP.\nDo not share it with anyone.',
+        messaging_service_sid='MG550b81ea293631fa1af1f178be912b6f',
+        to=customer_number)
     return
 
 
