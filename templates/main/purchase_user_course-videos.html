@@ -35,7 +35,9 @@
                     <div class="col-lg-6">
                         <div class="contact-box text-center mb-5 mb-lg-0">
                             <div class="contact-icon mb-4">
-                                <img src="{{ video.thumbnail.url }}" class="mb-3">
+                                {% if video.thumbnail %}
+                                    <img src="{{ video.thumbnail.url }}" class="mb-3">
+                                {% endif %}
                                 <h5>{{ video.name }}</h5>
                             </div>
                             <div class="text">

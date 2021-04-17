@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import json
+pas='InternYuvaPA1'
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -19,6 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
+# with open('/etc/config.json') as config_file:
+#     conf = json.load(config_file)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'z!bjoc%m(ksd0v68%m(4i#w#_lbr00uq6))w7dg+d^m4#sw0or'
 
@@ -42,6 +45,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'embed_video',
     'django_cleanup',
+
+
+    #s3 bucket
+    'storages',
 
     # 'phonenumber_field',
     # 'phonenumbers',
@@ -148,7 +155,6 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
                            # 'account.authentication.EmailAuthBackend',
                            'social_core.backends.facebook.FacebookOAuth2',
@@ -168,3 +174,21 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ar0vDZONKmc-PGX-CsdoXHKE'
 
 
 # from .local_settings import *
+
+
+# AWS_ACCESS_KEY_ID = "AKIAXL4SR7652X5P75AX"
+# AWS_SECRET_ACCESS_KEY = "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"
+# AWS_STORAGE_BUCKET_NAME = "internyuva"
+#
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+#
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER='internyuva1@gmail.com'
+EMAIL_HOST_PASSWORD=pas

@@ -9,7 +9,7 @@ from django.contrib.auth import login, authenticate, logout
 from accounts.forms import RegistrationForm, AccountAuthenticationForm,NumberForm,UpdateProfileForm
 from django.contrib.auth.decorators import login_required
 from .otp_service import *
-from .models import Account
+# from .models import Account
 # from .models import Account
 
 import random
@@ -189,23 +189,23 @@ def login_view(request):
 
 # 7011101001
 
-
+@login_required
 def updateProfile(request):
     context={
-
+        'user':request.user
     }
     form=UpdateProfileForm()
     if request.POST:
         form=UpdateProfileForm(request.POST or None,request.FILES or None,instance=request.user)
         if form.is_valid():
-            form.initial={
-                "email":request.POST['email'],
-                "username":request.POST['username'],
-                "phone_number":request.POST['phone_number'],
-                "first_name":request.POST['first_name'],
-                "last_name":request.POST['last_name'],
-                "profile_pic":request.FILES['profile_pic']
-            }
+            # form.initial={
+            #     "email":request.POST['email'],
+            #     "username":request.POST['username'],
+            #     "phone_number":request.POST['phone_number'],
+            #     "first_name":request.POST['first_name'],
+            #     "last_name":request.POST['last_name'],
+            #     "profile_pic":request.FILES['profile_pic'],
+            # }
             form.save()
             messages.success(request, "Your Profile is updated successfully")
             context['success_message'] = "Updated"

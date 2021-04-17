@@ -32,7 +32,7 @@ urlpatterns = [
 	path('course/purchased/<course_slug>/notes',views.course_notes_for_purchase_user,name='course_notes_for_purchase_user'),
 
 	path('course/checkout/<course_slug>', views.checkout, name='paytmcheckout'),
-	path('course/handlerequest/<course_slug>', views.handlerequest, name='handlerequest'),
+	path('course/handlerequest/<course_slug>/<username>', views.handlerequest, name='handlerequest'),
 
 ]
 
@@ -40,24 +40,18 @@ urlpatterns = [
 """
 ====== Server Task ======
 
-1. ( save details after the successful transactions )
-2. S3 Bucket 
 3. Google Auth
-4. host on aws
 
 ====== Backend Task =======
 
 1. redirection ( done with login redirection but register redirection is remain due OTP verification)
 2. courses list page categories
 3. email auth/otp
-4. favourites
-5. profile edit page
 6. password change fields
 7. in classroom/notes model add proper path and file name in media folder , check save() method
 8. like blog post
-9. add to favourites 
 10. redirect messages / alert messages 
-
+11. default profile pic
 
 
 
@@ -72,6 +66,7 @@ urlpatterns = [
 7. reduce margin of course list,register ,login pages 
 8. add profile icon in navbar 
 9. profile settings page
+11. profile edit page
 10 . In course detail page backgro
 
 """
