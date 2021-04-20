@@ -7,7 +7,7 @@ from .models import *
 from accounts.models import NewslettersSubscribers
 from django.views.decorators.csrf import csrf_exempt
 
-from Paytm import Checksum
+# from Paytm import Checksum
 from accounts.models import Account
 
 MERCHANT_KEY = '15Oo@vdvanPfefG!'
@@ -283,7 +283,7 @@ def checkout(request,course_slug):
     context = {
         'course': course
     }
-    if request.method == 'POST':
+    """if request.method == 'POST':
         user=request.user
 
         # amount = request.POST.get('amount')
@@ -304,7 +304,7 @@ def checkout(request,course_slug):
             'CALLBACK_URL': f'http://127.0.0.1:8000/course/handlerequest/{course_slug}/{user.username}',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
-        return render(request, 'paytm/paytm.html', {'param_dict': param_dict})
+        return render(request, 'paytm/paytm.html', {'param_dict': param_dict})"""
 
     # return render(request, 'paytm/checkout.html')
 
@@ -317,7 +317,7 @@ def handlerequest(request,course_slug,username):
     for _ in range(10):
         print("hello")
         print(user.email)
-    form = request.POST
+    """form = request.POST
     response_dict = {}
     for i in form.keys():
         response_dict[i] = form[i]
@@ -350,5 +350,8 @@ def handlerequest(request,course_slug,username):
         else:
             messages.error(request, "Something Went Wrong")
             return redirect("checkout",course_slug)
-            # print('Something went wrong' + response_dict['RESPMSG'])
-    return render(request, 'paytm/paytm_payment_status.html', {'response_dict': response_dict})
+            print('Something went wrong' + response_dict['RESPMSG'])"""
+    context={
+        # 'response_dict': response_dict,
+    }
+    return render(request, 'paytm/paytm_payment_status.html',context)
