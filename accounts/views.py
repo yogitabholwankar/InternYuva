@@ -8,7 +8,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import login, authenticate, logout
 from accounts.forms import RegistrationForm, AccountAuthenticationForm,NumberForm,UpdateProfileForm
 from django.contrib.auth.decorators import login_required
-from .otp_service import *
+# from .otp_service import *
 # from .models import Account
 # from .models import Account
 
@@ -126,7 +126,7 @@ def verification(request):
 
     current_otp = generate_opt()
     # current_otp = 1234
-    send_otp(current_user.phone_number, current_otp)
+    # send_otp(current_user.phone_number, current_otp)
 
     otp_input=NumberForm()
     if request.method=="POST":

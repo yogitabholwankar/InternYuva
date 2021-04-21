@@ -1,5 +1,7 @@
-python3 manage.py migrate
-python3 manage.py shell
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell
 
 >>> from django.contrib.contenttypes.models import ContentType
 >>> ContentType.objects.all().delete()
