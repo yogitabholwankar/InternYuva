@@ -259,7 +259,7 @@ section.banner {
     color: #ff7700;
 }
 section{
-    padding: 70px 0!important;
+    padding-bottom: 70px !important;
  }
 .solution-sec {
     position: relative;
@@ -351,9 +351,10 @@ section{
 }
 /*Course Section*/
 .course-img img {
-    height: 320px;
+    height: 515px;
     object-fit: cover;
     width: 100%;
+    max-height: 550px;
 }
 .course-desc {
     position: absolute;
@@ -601,9 +602,6 @@ textarea{
         font-size: 20px;
     transform: rotate(-90deg);
     margin-top: -14px;
-}
-.contact-icon {
-    margin-top: -60px;
 }
 .cta-box .cta-icon i {
     color: white;
@@ -920,4 +918,8 @@ input.form-control.email-sub {
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 .dropdown-content a:hover{
     color: orange;
+}
+
+.carousel-inner {
+    text-align: center !important;
 }
